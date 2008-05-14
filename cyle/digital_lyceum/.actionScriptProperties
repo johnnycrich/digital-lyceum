@@ -11,6 +11,13 @@
 <applications>
 <application path="main.mxml"/>
 </applications>
-<modules/>
+<modules>
+<module destPath="chatTool.swf" optimize="false" sourcePath="src/chatTool.mxml"/>
+<module application="src/main.mxml" destPath="imageFeed.swf" optimize="false" sourcePath="src/imageFeed.mxml"/>
+<module application="src/main.mxml" destPath="linkFeed.swf" optimize="false" sourcePath="src/linkFeed.mxml"/>
+<module application="src/main.mxml" destPath="notesTool.swf" optimize="false" sourcePath="src/notesTool.mxml"/>
+<module application="src/main.mxml" destPath="questionTool.swf" optimize="false" sourcePath="src/questionTool.mxml"/>
+<module application="src/main.mxml" destPath="rssFeed.swf" optimize="false" sourcePath="src/rssFeed.mxml"/>
+</modules>
 <buildCSSFiles/>
 </actionScriptProperties>
