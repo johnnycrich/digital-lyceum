@@ -1,32 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
-<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute" backgroundGradientAlphas="[1.0, 1.0]" backgroundGradientColors="[#5C5C5C, #A2A2A2]">
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute" backgroundGradientAlphas="[1.0, 1.0]" backgroundGradientColors="[#5C5C5C, #A2A2A2]" xmlns:ns1="*" xmlns:comps="comps.*">
 <mx:Style source="global.css" />
+<mx:Script>
+	<![CDATA[
+		import mx.containers.TitleWindow;
+		import mx.events.FlexEvent;
+		import mx.controls.Menu;
+		import mx.managers.PopUpManager;
+		import mx.collections.ArrayCollection;
+		
+		[Bindable]
+        private var dpFlat:ArrayCollection = new ArrayCollection([
+          {Date:"2008", Title:"GDC", Location:"Arizona"},
+          {Date:"2007", Title:"GDC", Location:"Arizona"}
+        ]);
+		
+		[Bindable]
+		private var eventSearchTypes:Array = [{label:"Event Name", data:"name"}, {label:"Username", data: "user"}, {label: "Keyword", data:"keyword"}, {label: "Media", data: "media"}];
+		private var searchMenuProvider:Menu = new Menu();
+		public var photoIsSet:Boolean = false;
+		
+		private function initSearchMenu(event:FlexEvent):void {
+			searchMenuProvider.dataProvider = eventSearchTypes;
+			searchMenu.popUp = searchMenuProvider;
+		}
+		
+		private function showPhotoBrowse(event:Event):void {
+			// Create the pop-up
+			if(photoIsSet == false) {
+            var photoWin:popup = popup(PopUpManager.createPopUp(loginForm, popup, true));
+            PopUpManager.centerPopUp(photoWin);
+            photoWin.showCloseButton = true;
+   			}
+		}
+	]]>
+</mx:Script>
 <mx:states>
 		<mx:State name="login">
 			<mx:SetProperty target="{eventsButton}" name="alpha" value="0.5"/>
 			<mx:AddChild relativeTo="{canvas1}" position="lastChild">
-				<mx:Form width="202" height="119" id="loginForm" horizontalCenter="0" verticalCenter="-11" paddingLeft="23" alpha="0.0">
-						<mx:TextInput styleName="entryForm" text="Username"/>
-						<mx:TextInput styleName="entryForm" text="Password" displayAsPassword="true"/>
+				<mx:Form width="202" height="119" id="loginForm" horizontalCenter="0" verticalCenter="-11" paddingLeft="23">
+						<comps:PromptingTextInput styleName="entryForm" prompt="Username" id="usernameInput"/>
+						<comps:PromptingTextInput styleName="entryForm" prompt="Password" displayAsPassword="true" id="passwordInput"/>
 				</mx:Form>
 			</mx:AddChild>
 			<mx:AddChild relativeTo="{canvas1}" position="lastChild">
-				<mx:LinkButton label="Login" styleName="entryButton" width="86" height="41" horizontalCenter="0" verticalCenter="65" id="loginSubmit" alpha="1.0"/>
+				<mx:LinkButton label="Login" styleName="entryButton" width="86" height="41" horizontalCenter="0" verticalCenter="65" id="loginSubmit" alpha="1.0" click="currentState='main'"/>
 			</mx:AddChild>
 			<mx:AddChild relativeTo="{canvas1}" position="lastChild">
-				<mx:LinkButton label="Register" styleName="entryButton" fontSize="15" id="registerButton" horizontalCenter="-66" verticalCenter="106" icon="@Embed(source='../images/register.png')" alpha="0.0"/>
+				<mx:LinkButton label="Register" styleName="entryButton" fontSize="15" id="registerButton" horizontalCenter="-66" verticalCenter="106" icon="@Embed(source='../images/register.png')" alpha="0.0" click="currentState='register'"/>
 			</mx:AddChild>
 			<mx:AddChild relativeTo="{canvas1}" position="lastChild">
 				<mx:LinkButton icon="@Embed(source='../images/cancel.png')" id="cancelButton" label="Cancel" styleName="entryButton" fontSize="15" click="currentState=''" horizontalCenter="61" verticalCenter="106" alpha="0.0"/>
 			</mx:AddChild>
-			<mx:SetProperty target="{hbox1}" name="height" value="60%"/>
+			<mx:SetProperty target="{landingContainer}" name="height" value="60%"/>
 			<mx:RemoveChild target="{loginButton}"/>
 		</mx:State>
 		<mx:State name="register" basedOn="login">
-				<mx:SetProperty target="{hbox1}" name="height" value="75%"/>
-				<mx:SetProperty target="{loginForm}" name="height" value="150"/>
-				<mx:SetStyle target="{registerButton}" name="verticalCenter" value="146"/>
-				<mx:SetStyle target="{loginSubmit}" name="verticalCenter" value="105"/>
+				<mx:SetProperty target="{landingContainer}" name="height" value="95%"/>
+				<mx:SetProperty target="{loginForm}" name="height" value="400"/>
+				<mx:SetStyle target="{registerButton}" name="verticalCenter" value="236"/>
+				<mx:SetStyle target="{loginSubmit}" name="verticalCenter" value="195"/>
+				<mx:SetProperty target="{loginSubmit}" name="label" value="Register"/>
+				<mx:SetProperty target="{loginSubmit}" name="width"/>
+				<mx:SetProperty target="{passwordInput}" name="displayAsPassword" value="false"/>
+				<mx:AddChild relativeTo="{loginForm}" position="lastChild">
+					<comps:PromptingTextInput  prompt="Email" styleName="entryForm" id="emailInput"/>
+				</mx:AddChild>
+				<mx:SetStyle target="{cancelButton}" name="horizontalCenter" value="67"/>
+				<mx:SetStyle target="{cancelButton}" name="verticalCenter" value="236"/>
+				<mx:SetStyle target="{registerButton}" name="horizontalCenter" value="-63"/>
+				<mx:SetEventHandler target="{cancelButton}" name="click" handler="currentState='login'"/>
+				<mx:SetStyle target="{loginForm}" name="verticalCenter" value="-30"/>
+				<mx:AddChild relativeTo="{emailInput}" position="before">
+						<comps:PromptingTextInput  styleName="entryForm" id="nameInput" prompt="Name"/>
+				</mx:AddChild>
+				<mx:AddChild relativeTo="{loginForm}" position="lastChild">
+						<comps:PromptingTextInput  prompt="Affiliation" styleName="entryForm" id="affiliationInput"/>
+				</mx:AddChild>
+				<mx:AddChild relativeTo="{loginForm}" position="lastChild">
+						<comps:PromptingTextInput  prompt="Website" styleName="entryForm" id="websiteInput"/>
+				</mx:AddChild>
+				<mx:AddChild relativeTo="{loginForm}" position="lastChild">
+						<comps:PromptingTextInput  prompt="Phone" styleName="entryForm" id="phoneInput"/>
+				</mx:AddChild>
+				<mx:AddChild relativeTo="{loginForm}" position="lastChild">
+						<comps:PromptingTextInput  prompt="AIM" styleName="entryForm" id="aimInput"/>
+				</mx:AddChild>
+				<mx:AddChild relativeTo="{loginForm}" position="lastChild">
+						<comps:PromptingTextInput  styleName="entryForm" id="photoInput" prompt="Photo" focusIn="showPhotoBrowse(event)"/>
+				</mx:AddChild>
 		</mx:State>
 		<mx:State name="events">
 				<mx:SetProperty target="{loginButton}" name="alpha" value="0.5"/>
@@ -40,6 +103,9 @@
 				<mx:AddChild relativeTo="{canvas2}" position="lastChild">
 						<mx:LinkButton label="Past" fontSize="15" styleName="entryButton" icon="@Embed(source='../images/past_event.png')" id="pastEventsButton" click="currentState='past'" horizontalCenter="-72" verticalCenter="106"/>
 				</mx:AddChild>
+				<mx:AddChild relativeTo="{canvas2}" position="lastChild">
+						<mx:LinkButton icon="@Embed(source='../images/cancel.png')" id="cancelButton0" label="Cancel" styleName="entryButton" fontSize="15" click="currentState=''" horizontalCenter="2" verticalCenter="137"/>
+				</mx:AddChild>
 		</mx:State>
 		<mx:State name="past" basedOn="events">
 				<mx:RemoveChild target="{pastEventsButton}"/>
@@ -47,23 +113,64 @@
 				<mx:SetStyle target="{eventsHeader}" name="verticalCenter" value="-117"/>
 				<mx:SetProperty target="{eventsHeader}" name="text" value="Past Events"/>
 				<mx:AddChild relativeTo="{canvas2}" position="lastChild">
-						<mx:PopUpButton label="Search by..." styleName="searchPopUpBtn" horizontalCenter="-18" verticalCenter="-28"/>
+						<mx:PopUpButton label="...and choose Type" styleName="searchPopUpBtn" creationComplete="initSearchMenu(event)" horizontalCenter="16" verticalCenter="-30" id="searchMenu"/>
 				</mx:AddChild>
 				<mx:AddChild relativeTo="{canvas2}" position="lastChild">
-						<mx:TextInput styleName="entryForm" horizontalCenter="-1" verticalCenter="-71"/>
+						<comps:PromptingTextInput prompt="Enter Search Text..." styleName="entryForm" horizontalCenter="-1" verticalCenter="-71" id="promptingtextinput1"/>
 				</mx:AddChild>
 				<mx:AddChild relativeTo="{canvas2}" position="lastChild">
-						<mx:DateField styleName="searchDate" horizontalCenter="-16" verticalCenter="12"/>
+						<mx:DateField styleName="searchDate" horizontalCenter="-5" verticalCenter="21" height="37" width="151" yearNavigationEnabled="true" id="datefield1"/>
 				</mx:AddChild>
 				<mx:AddChild relativeTo="{canvas2}" position="lastChild">
-						<mx:LinkButton label="Search by Date" styleName="entryButton" fontSize="20" horizontalCenter="-10" verticalCenter="51"/>
+						<mx:LinkButton label="Search by Date" styleName="entryButton" fontSize="20" horizontalCenter="-9" verticalCenter="63" id="linkbutton1" click="currentState='results'"/>
 				</mx:AddChild>
 				<mx:AddChild relativeTo="{canvas2}" position="lastChild">
-						<mx:HRule horizontalCenter="0" width="254" verticalCenter="-12"/>
+						<mx:HRule horizontalCenter="0" width="254" verticalCenter="-5" id="hrule1"/>
+				</mx:AddChild>
+				<mx:SetStyle target="{cancelButton0}" name="horizontalCenter" value="0"/>
+				<mx:SetStyle target="{cancelButton0}" name="verticalCenter" value="136"/>
+		</mx:State>
+		<mx:State name="main">
+				<mx:RemoveChild target="{eventsButton}"/>
+				<mx:RemoveChild target="{vrule1}"/>
+				<mx:RemoveChild target="{loginButton}"/>
+				<mx:RemoveChild target="{landingContainer}"/>
+				<mx:SetProperty target="{label1}" name="text" value="Digital Lyceum Test App Userend - Cyle"/>
+				<mx:AddChild position="lastChild">
+						<ns1:main x="10" y="55" width="90%" height="90%">
+						</ns1:main>
+				</mx:AddChild>
+		</mx:State>
+		<mx:State name="results" basedOn="past">
+				<mx:RemoveChild target="{linkbutton1}"/>
+				<mx:RemoveChild target="{datefield1}"/>
+				<mx:RemoveChild target="{hrule1}"/>
+				<mx:RemoveChild target="{searchMenu}"/>
+				<mx:RemoveChild target="{promptingtextinput1}"/>
+				<mx:AddChild relativeTo="{canvas2}" position="lastChild">
+						<mx:AdvancedDataGrid initialize="gc.refresh()" x="10" y="69" id="eventsResults" designViewDataType="tree">
+							<mx:dataProvider>
+				                <mx:GroupingCollection id="gc" source="{dpFlat}">
+				                    <mx:grouping>
+				                        <mx:Grouping>
+				                            <mx:GroupingField name="Date"/>
+				                        </mx:Grouping>
+				                    </mx:grouping>
+				                </mx:GroupingCollection>
+	            			</mx:dataProvider>
+							<mx:columns>
+									<mx:AdvancedDataGridColumn headerText="Name" dataField="Title"/>
+									<mx:AdvancedDataGridColumn headerText="Date" dataField="Date"/>
+									<mx:AdvancedDataGridColumn headerText="Location" dataField="Location"/>
+							</mx:columns>
+						</mx:AdvancedDataGrid>
 				</mx:AddChild>
 		</mx:State>
 	</mx:states>
 	<mx:transitions>
+		<mx:Transition id="anyChange" fromState="*" toState="*">
+			<mx:Resize targets="{[landingContainer, loginForm]}" duration="300" />
+		</mx:Transition>
 		<mx:Transition id="toLogin" fromState="*" toState="login">
 			<mx:Sequence targets="{[loginButton, eventsButton, loginForm, cancelButton, registerButton]}">
 				<mx:Fade duration="300" targets="{[loginButton, eventsButton]}" />
@@ -71,19 +178,26 @@
 				<mx:Fade targets="{[loginForm, cancelButton, registerButton]}" alphaFrom="0.0" alphaTo="1.0" duration="300" />
 			</mx:Sequence>
 		</mx:Transition>
-		<mx:Transition fromState="login" toState="*">
+		<mx:Transition fromState="login" toState="">
 			<mx:Sequence targets="{[loginButton, eventsButton, loginForm, cancelButton, registerButton, loginSubmit]}">
 				<mx:Fade targets="{[loginForm, cancelButton, registerButton]}" alphaFrom="1.0" alphaTo="0.0" duration="300" />
 				<mx:Fade target="{loginSubmit}" alphaFrom="1.0" alphaTo="0.0" duration="300"/>
 				<mx:Fade target="{loginButton}" alphaFrom="0.0" alphaTo="1.0" duration="300" />
 			</mx:Sequence>
 		</mx:Transition>
+		<mx:Transition fromState="login" toState="register">
+			<mx:Sequence>
+				<mx:Move targets="{[loginSubmit, cancelButton]}" duration="300" />
+				<mx:Fade target="{registerButton}" alphaTo="0.0" duration="300" />
+			</mx:Sequence>
+		</mx:Transition>
 	</mx:transitions>
-	<mx:Label x="10" y="10" text="Digital Lyceum Test App Frontend" fontSize="30" color="#CCCECF" fontFamily="Calibri"/>
-	<mx:HBox x="10" y="61" width="100%" height="60%" horizontalGap="0" id="hbox1">
+	<mx:Label x="10" y="10" text="Digital Lyceum Test App Frontend - John" fontSize="30" color="#CCCECF" fontFamily="Calibri" id="label1"/>
+	<mx:HBox x="10" y="61" width="100%" height="60%" horizontalGap="4" id="landingContainer">
 		<mx:Canvas width="50%" height="100%" id="canvas1">
 			<mx:LinkButton label="Login" icon="@Embed(source='../images/login.png')" labelPlacement="bottom" fontFamily="Calibri" fontSize="30" left="0" bottom="0" top="0" right="0" color="#FFFFFF" styleName="entryButton" id="loginButton" click="currentState='login'"/>
 		</mx:Canvas>
+		<mx:VRule height="100%" id="vrule1"/>
 		<mx:Canvas  width="50%" height="100%" id="canvas2">
 			<mx:LinkButton label="Events" icon="@Embed(source='../images/view.png')" labelPlacement="bottom" styleName="entryButton" left="0" right="0" top="0" bottom="0" id="eventsButton" click="currentState='events'"/>
 		</mx:Canvas>
