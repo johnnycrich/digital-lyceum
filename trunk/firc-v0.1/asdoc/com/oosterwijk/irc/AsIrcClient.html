@@ -1,0 +1,4234 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="../../../style.css" type="text/css" media="screen">
+<link rel="stylesheet" href="../../../print.css" type="text/css" media="print">
+<meta content="AsIrcClient,com.oosterwijk.irc.AsIrcClient,STATUS_CONNECTING,STATUS_HANDLING_CONNECT,STATUS_CONNECTED,STATUS_DISCONNECTED,connect,reconnect,disconnect,sendRawLine,readLine,verifyConnection,setAutoNickChange,joinChannel,partChannel,quitServer,sendMessage,sendAction,sendNotice,sendCTCPCommand,changeNick,setMode,sendInvite,ban,unBan,op,deOp,voice,deVoice,setChannelKey,removeChannelKey,setTopic,kick,listChannels,onVersion,onPing,onServerPing,onTime,onFinger,onUnsupportedRequest,onUnknown,onConnect,onDisconnect,onNickNameAlreadyInUse,onConnectionError,onServerResponse,onUserList,onMessage,onPrivateMessage,onAction,onNotice,onJoin,onPart,onNickChange,onKick,onQuit,onTopic,onChannelInfo,onMode,onUserMode,onOp,onDeop,onVoice,onDeVoice,onSetChannelKey,onRemoveChannelKey,onSetChannelLimit,onRemoveChannelLimit,onSetChannelBan,onRemoveChannelBan,onSetTopicProtection,onRemoveTopicProtection,onSetNoExternalMessages,onRemoveNoExternalMessages,onSetInviteOnly,onRemoveInviteOnly,onSetModerated,onRemoveModerated,onSetPrivate,onRemovePrivate,onSetSecret,onRemoveSecret,onInvite,setVerbose,setName,setLogin,setVersion,setFinger,getName,getNick,getLogin,getVersion,getFinger,isConnected,getMaxLineLength,getServer,getPort,getPassword,toString,getUsers,getChannels,log" name="keywords">
+<title>com.oosterwijk.irc.AsIrcClient</title>
+</head>
+<body>
+<script type="text/javascript" language="javascript" src="../../../asdoc.js"></script><script type="text/javascript" language="javascript" src="../../../cookies.js"></script><script type="text/javascript" language="javascript">
+<!--
+				asdocTitle = 'AsIrcClient - AS-IRC-Lib-documentation';
+				var baseRef = '../../../';
+				window.onload = configPage;
+			--></script>
+<table style="display:none" id="titleTable" cellspacing="0" cellpadding="0" class="titleTable">
+<tr>
+<td align="left" class="titleTableTitle">AS-IRC-Lib-documentation</td><td align="right" class="titleTableTopNav"><a onclick="loadClassListFrame('../../../all-classes.html')" href="../../../package-summary.html">All&nbsp;Packages</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../../../all-classes.html')" href="../../../class-summary.html">All&nbsp;Classes</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../../../index-list.html')" href="../../../all-index-A.html">Index</a>&nbsp;|&nbsp;<a href="../../../index.html?com/oosterwijk/irc/AsIrcClient.html&amp;com/oosterwijk/irc/class-list.html" id="framesLink1">Frames</a><a onclick="parent.location=document.location" href="" style="display:none" id="noFramesLink1">No&nbsp;Frames</a></td><td rowspan="3" align="right" class="titleTableLogo"><img alt="Adobe Logo" title="Adobe Logo" class="logoImage" src="../../../images/logo.jpg"></td>
+</tr>
+<tr class="titleTableRow2">
+<td align="left" id="subTitle" class="titleTableSubTitle">Class&nbsp;AsIrcClient</td><td align="right" id="subNav" class="titleTableSubNav"><a href="#propertySummary">Properties</a>&nbsp;| <a href="#methodSummary">Methods</a></td>
+</tr>
+<tr class="titleTableRow3">
+<td colspan="2">&nbsp;</td>
+</tr>
+</table>
+<script type="text/javascript" language="javascript">
+<!--
+if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Class AsIrcClient"); titleBar_setSubNav(false,true,false,false,false,false,true,false,false,false,false,false,false,false);}
+--></script>
+<div class="MainContent">
+<table cellspacing="0" cellpadding="0" class="classHeaderTable">
+<tr>
+<td class="classHeaderTableLabel">Package</td><td><a onclick="javascript:loadClassListFrame('class-list.html')" href="package-detail.html">com.oosterwijk.irc</a></td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Class</td><td class="classSignature">public class AsIrcClient</td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Subclasses</td><td><a href="../irc/FlexIrcClient.html">FlexIrcClient</a></td>
+</tr>
+</table>
+<p></p>
+  <p>The AsIrcClient class is an ActionScript 3 based IRC Client Library. 
+  The class offers support for most IRC features that are easily supported 
+  by the Flash Player 9(+). Because the Flash Player doesn't allow incoming
+  connections, features such as DCC and ident are not implemented. This means
+  you might not be able to use this library to connect to an IRC network
+  that requires ident. </p>
+  
+  <p>Because this class is more of less a direct port of the PircBot.java
+  class written by Paul James Mutton (http://www.jibble.org/) This class 
+  does not leverage the event driven paradigm most Flex applications 
+  should use. To build a Flex application based on this library you should
+  use the FlexIRCClient class as a base, as it implements event dispatcing etc.
+  </p>
+  <p></p>
+<p>
+<span class="classHeaderTableLabel">See also</span>
+</p>
+<div class="seeAlso">
+<a href="FlexIrcClient.html" target="">FlexIrcClient</a>
+<br>
+<a href="http://www.jibble.org" target="mm_external">http://www.jibble.org</a>
+</div>
+<br>
+<hr>
+</div>
+<a name="propertySummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Properties</div>
+<table id="summaryTableProperty" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Property</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#STATUS_CONNECTED">STATUS_CONNECTED</a> : String = "connected"<div class="summaryTableDescription">[static]</div>
+</td><td class="summaryTableOwnerCol">AsIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#STATUS_CONNECTING">STATUS_CONNECTING</a> : String = "connecting"<div class="summaryTableDescription">[static]
+   These static variables hold the statuses that this IRC client can have.</div>
+</td><td class="summaryTableOwnerCol">AsIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#STATUS_DISCONNECTED">STATUS_DISCONNECTED</a> : String = "disconnected"<div class="summaryTableDescription">[static]</div>
+</td><td class="summaryTableOwnerCol">AsIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#STATUS_HANDLING_CONNECT">STATUS_HANDLING_CONNECT</a> : String = "handling connect"<div class="summaryTableDescription">[static]</div>
+</td><td class="summaryTableOwnerCol">AsIrcClient</td>
+</tr>
+</table>
+</div>
+<a name="methodSummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Methods</div>
+<table id="summaryTableMethod" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Method</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#ban()">ban</a>(channel:String, hostmask:String):void</div>
+<div class="summaryTableDescription">
+      Bans a user from a channel.</div>
+</td><td class="summaryTableOwnerCol">AsIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#changeNick()">changeNick</a>(newNick:String):void</div>
+<div class="summaryTableDescription">
+      Attempt to change the current nick (nickname) of the bot when it
+      is connected to an IRC server.</div>
+</td><td class="summaryTableOwnerCol">AsIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#connect()">connect</a>(host:String, port:int = 6667, password:String = null):void</div>
+<div class="summaryTableDescription">
+      Attempt to connect to the specified IRC server.</div>
+</td><td class="summaryTableOwnerCol">AsIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#deOp()">deOp</a>(channel:String, nick:String):void</div>
+<div class="summaryTableDescription">
+      Removes operator privilidges from a user on a channel.</div>
+</td><td class="summaryTableOwnerCol">AsIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#deVoice()">deVoice</a>(channel:String, nick:String):void</div>
+<div class="summaryTableDescription">
+      Removes voice privilidges from a user on a channel.</div>
+</td><td class="summaryTableOwnerCol">AsIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#disconnect()">disconnect</a>():void</div>
+<div class="summaryTableDescription">
+      This method disconnects from the server cleanly by calling the
+      quitServer() method.</div>
+</td><td class="summaryTableOwnerCol">AsIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#getChannels()">getChannels</a>():Array</div>
+<div class="summaryTableDescription">
+      Returns an array of all channels that we are in.</div>
+</td><td class="summaryTableOwnerCol">AsIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#getFinger()">getFinger</a>():String</div>
+<div class="summaryTableDescription">
+      Gets the internal finger message of the Irc Client.</div>
+</td><td class="summaryTableOwnerCol">AsIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#getLogin()">getLogin</a>():String</div>
+<div class="summaryTableDescription">
+      Gets the internal login of the Irc Client.</div>
+</td><td class="summaryTableOwnerCol">AsIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#getMaxLineLength()">getMaxLineLength</a>():int</div>
+<div class="summaryTableDescription">
+      Gets the maximum length of any line that is sent via the IRC protocol.</div>
+</td><td class="summaryTableOwnerCol">AsIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#getName()">getName</a>():String</div>
+<div class="summaryTableDescription">
+      Gets the name of the Irc Client.</div>
+</td><td class="summaryTableOwnerCol">AsIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#getNick()">getNick</a>():String</div>
+<div class="summaryTableDescription">
+      Returns the current nick of the bot.</div>
+</td><td class="summaryTableOwnerCol">AsIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#getPassword()">getPassword</a>():String</div>
+<div class="summaryTableDescription">
+      Returns the last password that we used when connecting to an IRC server.</div>
+</td><td class="summaryTableOwnerCol">AsIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#getPort()">getPort</a>():int</div>
+<div class="summaryTableDescription">
+      Returns the port number of the last IRC server that the Irc Client tried
+      to connect to.</div>
+</td><td class="summaryTableOwnerCol">AsIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#getServer()">getServer</a>():String</div>
+<div class="summaryTableDescription">
+      Returns the name of the last IRC server the Irc Client tried to connect to.</div>
+</td><td class="summaryTableOwnerCol">AsIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#getUsers()">getUsers</a>(channel:String):Array</div>
+<div class="summaryTableDescription">
+      Returns an array of all users in the specified channel.</div>
+</td><td class="summaryTableOwnerCol">AsIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#getVersion()">getVersion</a>():String</div>
+<div class="summaryTableDescription">
+      Gets the internal version of the Irc Client.</div>
+</td><td class="summaryTableOwnerCol">AsIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#isConnected()">isConnected</a>():Boolean</div>
+<div class="summaryTableDescription">
+      Returns whether or not the Irc Client is currently connected to a server.</div>
+</td><td class="summaryTableOwnerCol">AsIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#joinChannel()">joinChannel</a>(channel:String, key:String = null):void</div>
+<div class="summaryTableDescription">
+      Joins a channel.</div>
+</td><td class="summaryTableOwnerCol">AsIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#kick()">kick</a>(channel:String, nick:String, reason:String = ""):void</div>
+<div class="summaryTableDescription">
+      Kicks a user from a channel, giving a reason.</div>
+</td><td class="summaryTableOwnerCol">AsIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#listChannels()">listChannels</a>(parameters:String = null):void</div>
+<div class="summaryTableDescription">
+      Issues a request for a list of all channels on the IRC server.</div>
+</td><td class="summaryTableOwnerCol">AsIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#log()">log</a>(line:String):void</div>
+<div class="summaryTableDescription">
+   This method currently just traces the input line.</div>
+</td><td class="summaryTableOwnerCol">AsIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#op()">op</a>(channel:String, nick:String):void</div>
+<div class="summaryTableDescription">
+      Grants operator privilidges to a user on a channel.</div>
+</td><td class="summaryTableOwnerCol">AsIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#partChannel()">partChannel</a>(channel:String, reason:String = null):void</div>
+<div class="summaryTableDescription">
+      Parts (leaves) a channel, giving an optional reason.</div>
+</td><td class="summaryTableOwnerCol">AsIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#quitServer()">quitServer</a>(reason:String = null):void</div>
+<div class="summaryTableDescription">
+      Quits from the IRC server with an optional reason.</div>
+</td><td class="summaryTableOwnerCol">AsIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#reconnect()">reconnect</a>():void</div>
+<div class="summaryTableDescription">
+      Reconnects to the IRC server that we were previously connected to.</div>
+</td><td class="summaryTableOwnerCol">AsIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#removeChannelKey()">removeChannelKey</a>(channel:String, key:String):void</div>
+<div class="summaryTableDescription">
+      Remove the key for a channel.</div>
+</td><td class="summaryTableOwnerCol">AsIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#sendAction()">sendAction</a>(target:String, action:String):void</div>
+<div class="summaryTableDescription">
+      Sends an action to the channel or to a user.</div>
+</td><td class="summaryTableOwnerCol">AsIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#sendCTCPCommand()">sendCTCPCommand</a>(target:String, command:String):void</div>
+<div class="summaryTableDescription">
+      Sends a CTCP command to a channel or user.</div>
+</td><td class="summaryTableOwnerCol">AsIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#sendInvite()">sendInvite</a>(nick:String, channel:String):void</div>
+<div class="summaryTableDescription">
+      Sends an invitation to join a channel.</div>
+</td><td class="summaryTableOwnerCol">AsIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#sendMessage()">sendMessage</a>(target:String, message:String):void</div>
+<div class="summaryTableDescription">
+      Sends a message to a channel or a private message to a user.</div>
+</td><td class="summaryTableOwnerCol">AsIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#sendNotice()">sendNotice</a>(target:String, notice:String):void</div>
+<div class="summaryTableDescription">
+      Sends a notice to the channel or to a user.</div>
+</td><td class="summaryTableOwnerCol">AsIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#sendRawLine()">sendRawLine</a>(line:String):void</div>
+<div class="summaryTableDescription">
+   Sends a raw line to the Irc server.</div>
+</td><td class="summaryTableOwnerCol">AsIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#setAutoNickChange()">setAutoNickChange</a>(autoNickChange:Boolean):void</div>
+<div class="summaryTableDescription">
+      When you connect to a server and your nick is already in use and
+      this is set to true, a new nick will be automatically chosen.</div>
+</td><td class="summaryTableOwnerCol">AsIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#setChannelKey()">setChannelKey</a>(channel:String, key:String):void</div>
+<div class="summaryTableDescription">
+      Set the key for a channel.</div>
+</td><td class="summaryTableOwnerCol">AsIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#setMode()">setMode</a>(channel:String, mode:String):void</div>
+<div class="summaryTableDescription">
+      Set the mode of a channel.</div>
+</td><td class="summaryTableOwnerCol">AsIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#setName()">setName</a>(name:String):void</div>
+<div class="summaryTableDescription">
+      Sets the name of the bot, which will be used as its nick when it
+      tries to join an IRC server.</div>
+</td><td class="summaryTableOwnerCol">AsIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#setTopic()">setTopic</a>(channel:String, topic:String):void</div>
+<div class="summaryTableDescription">
+      Set the topic for a channel.</div>
+</td><td class="summaryTableOwnerCol">AsIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#setVerbose()">setVerbose</a>(verbose:Boolean):void</div>
+<div class="summaryTableDescription">
+      Sets the verbose mode.</div>
+</td><td class="summaryTableOwnerCol">AsIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#toString()">toString</a>():String</div>
+<div class="summaryTableDescription">
+      Returns a String representation of this object.</div>
+</td><td class="summaryTableOwnerCol">AsIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#unBan()">unBan</a>(channel:String, hostmask:String):void</div>
+<div class="summaryTableDescription">
+      Unbans a user from a channel.</div>
+</td><td class="summaryTableOwnerCol">AsIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#verifyConnection()">verifyConnection</a>(event:Event):void</div>
+<div class="summaryTableDescription">
+    Setup the nick verify everyting is OK on initial connect.</div>
+</td><td class="summaryTableOwnerCol">AsIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#voice()">voice</a>(channel:String, nick:String):void</div>
+<div class="summaryTableDescription">
+      Grants voice privilidges to a user on a channel.</div>
+</td><td class="summaryTableOwnerCol">AsIrcClient</td>
+</tr>
+</table>
+</div>
+<a name="protectedMethodSummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Protected Methods</div>
+<table id="summaryTableProtectedMethod" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Method</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#onAction()">onAction</a>(sender:String, login:String, hostname:String, target:String, action:String):void</div>
+<div class="summaryTableDescription">
+      This method is called whenever an ACTION is sent from a user.</div>
+</td><td class="summaryTableOwnerCol">AsIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#onChannelInfo()">onChannelInfo</a>(channel:String, userCount:int, topic:String):void</div>
+<div class="summaryTableDescription">
+      After calling the listChannels() method in Irc Client, the server
+      will start to send us information about each channel on the
+      server.</div>
+</td><td class="summaryTableOwnerCol">AsIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#onConnect()">onConnect</a>():void</div>
+<div class="summaryTableDescription">
+      This method is called once the ircBot has successfully connected to
+      the IRC server.</div>
+</td><td class="summaryTableOwnerCol">AsIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#onConnectionError()">onConnectionError</a>(line:String):void</div>
+<div class="summaryTableDescription">
+      Called when we try to connect to a server and the connection fails.</div>
+</td><td class="summaryTableOwnerCol">AsIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#onDeop()">onDeop</a>(channel:String, sourceNick:String, sourceLogin:String, sourceHostname:String, recipient:String):void</div>
+<div class="summaryTableDescription">
+      Called when a user (possibly us) gets operator status taken away.</div>
+</td><td class="summaryTableOwnerCol">AsIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#onDeVoice()">onDeVoice</a>(channel:String, sourceNick:String, sourceLogin:String, sourceHostname:String, recipient:String):void</div>
+<div class="summaryTableDescription">
+      Called when a user (possibly us) gets voice status removed.</div>
+</td><td class="summaryTableOwnerCol">AsIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#onDisconnect()">onDisconnect</a>():void</div>
+<div class="summaryTableDescription">
+      This method carries out the actions to be performed when the ircBot
+      gets disconnected.</div>
+</td><td class="summaryTableOwnerCol">AsIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#onFinger()">onFinger</a>(sourceNick:String, sourceLogin:String, sourceHostname:String, target:String):void</div>
+<div class="summaryTableDescription">
+      This method is called whenever we receive a FINGER request.</div>
+</td><td class="summaryTableOwnerCol">AsIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#onInvite()">onInvite</a>(targetNick:String, sourceNick:String, sourceLogin:String, sourceHostname:String, channel:String):void</div>
+<div class="summaryTableDescription">
+      Called when we are invited to a channel by a user.</div>
+</td><td class="summaryTableOwnerCol">AsIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#onJoin()">onJoin</a>(channel:String, sender:String, login:String, hostname:String):void</div>
+<div class="summaryTableDescription">
+      This method is called whenever someone (possibly us) joins a channel
+      which we are on.</div>
+</td><td class="summaryTableOwnerCol">AsIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#onKick()">onKick</a>(channel:String, kickerNick:String, kickerLogin:String, kickerHostname:String, recipientNick:String, reason:String):void</div>
+<div class="summaryTableDescription">
+      This method is called whenever someone (possibly us) is kicked from
+      any of the channels that we are in.</div>
+</td><td class="summaryTableOwnerCol">AsIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#onMessage()">onMessage</a>(channel:String, sender:String, login:String, hostname:String, message:String):void</div>
+<div class="summaryTableDescription">
+      This method is called whenever a message is sent to a channel.</div>
+</td><td class="summaryTableOwnerCol">AsIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#onMode()">onMode</a>(channel:String, sourceNick:String, sourceLogin:String, sourceHostname:String, mode:String):void</div>
+<div class="summaryTableDescription">
+      Called when the mode of a channel is set.</div>
+</td><td class="summaryTableOwnerCol">AsIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#onNickChange()">onNickChange</a>(oldNick:String, login:String, hostname:String, newNick:String):void</div>
+<div class="summaryTableDescription">
+      This method is called whenever someone (possibly us) changes nick on any
+      of the channels that we are on.</div>
+</td><td class="summaryTableOwnerCol">AsIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#onNickNameAlreadyInUse()">onNickNameAlreadyInUse</a>():void</div>
+<div class="summaryTableDescription">
+      Called when we try to connect to a server and the nick we're trying to use is already taken.</div>
+</td><td class="summaryTableOwnerCol">AsIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#onNotice()">onNotice</a>(sourceNick:String, sourceLogin:String, sourceHostname:String, target:String, notice:String):void</div>
+<div class="summaryTableDescription">
+      This method is called whenever we receive a notice.</div>
+</td><td class="summaryTableOwnerCol">AsIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#onOp()">onOp</a>(channel:String, sourceNick:String, sourceLogin:String, sourceHostname:String, recipient:String):void</div>
+<div class="summaryTableDescription">
+      Called when a user (possibly us) gets granted operator status for a channel.</div>
+</td><td class="summaryTableOwnerCol">AsIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#onPart()">onPart</a>(channel:String, sender:String, login:String, hostname:String):void</div>
+<div class="summaryTableDescription">
+      This method is called whenever someone (possibly us) parts a channel
+      which we are on.</div>
+</td><td class="summaryTableOwnerCol">AsIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#onPing()">onPing</a>(sourceNick:String, sourceLogin:String, sourceHostname:String, target:String, pingValue:String):void</div>
+<div class="summaryTableDescription">
+      This method is called whenever we receive a PING request from another
+      user.</div>
+</td><td class="summaryTableOwnerCol">AsIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#onPrivateMessage()">onPrivateMessage</a>(sender:String, login:String, hostname:String, message:String):void</div>
+<div class="summaryTableDescription">
+      This method is called whenever a private message is sent to the ircBot.</div>
+</td><td class="summaryTableOwnerCol">AsIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#onQuit()">onQuit</a>(sourceNick:String, sourceLogin:String, sourceHostname:String, reason:String):void</div>
+<div class="summaryTableDescription">
+      This method is called whenever someone (possibly us) quits from the
+      server.</div>
+</td><td class="summaryTableOwnerCol">AsIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#onRemoveChannelBan()">onRemoveChannelBan</a>(channel:String, sourceNick:String, sourceLogin:String, sourceHostname:String, hostmask:String):void</div>
+<div class="summaryTableDescription">
+      Called when a hostmask ban is removed from a channel.</div>
+</td><td class="summaryTableOwnerCol">AsIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#onRemoveChannelKey()">onRemoveChannelKey</a>(channel:String, sourceNick:String, sourceLogin:String, sourceHostname:String, key:String):void</div>
+<div class="summaryTableDescription">
+      Called when a channel key is removed.</div>
+</td><td class="summaryTableOwnerCol">AsIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#onRemoveChannelLimit()">onRemoveChannelLimit</a>(channel:String, sourceNick:String, sourceLogin:String, sourceHostname:String):void</div>
+<div class="summaryTableDescription">
+      Called when the user limit is removed for a channel.</div>
+</td><td class="summaryTableOwnerCol">AsIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#onRemoveInviteOnly()">onRemoveInviteOnly</a>(channel:String, sourceNick:String, sourceLogin:String, sourceHostname:String):void</div>
+<div class="summaryTableDescription">
+      Called when a channel has 'invite only' removed.</div>
+</td><td class="summaryTableOwnerCol">AsIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#onRemoveModerated()">onRemoveModerated</a>(channel:String, sourceNick:String, sourceLogin:String, sourceHostname:String):void</div>
+<div class="summaryTableDescription">
+      Called when a channel has moderated mode removed.</div>
+</td><td class="summaryTableOwnerCol">AsIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#onRemoveNoExternalMessages()">onRemoveNoExternalMessages</a>(channel:String, sourceNick:String, sourceLogin:String, sourceHostname:String):void</div>
+<div class="summaryTableDescription">
+      Called when a channel is set to allow messages from any user, even
+      if they are not actually in the channel.</div>
+</td><td class="summaryTableOwnerCol">AsIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#onRemovePrivate()">onRemovePrivate</a>(channel:String, sourceNick:String, sourceLogin:String, sourceHostname:String):void</div>
+<div class="summaryTableDescription">
+      Called when a channel is marked as not being in private mode.</div>
+</td><td class="summaryTableOwnerCol">AsIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#onRemoveSecret()">onRemoveSecret</a>(channel:String, sourceNick:String, sourceLogin:String, sourceHostname:String):void</div>
+<div class="summaryTableDescription">
+      Called when a channel has 'secret' mode removed.</div>
+</td><td class="summaryTableOwnerCol">AsIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#onRemoveTopicProtection()">onRemoveTopicProtection</a>(channel:String, sourceNick:String, sourceLogin:String, sourceHostname:String):void</div>
+<div class="summaryTableDescription">
+      Called when topic protection is removed for a channel.</div>
+</td><td class="summaryTableOwnerCol">AsIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#onServerPing()">onServerPing</a>(response:String = ""):void</div>
+<div class="summaryTableDescription">
+      The actions to perform when a PING request comes from the server.</div>
+</td><td class="summaryTableOwnerCol">AsIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#onServerResponse()">onServerResponse</a>(code:int, response:String):void</div>
+<div class="summaryTableDescription">
+      This method is called when we receive a numeric response from the
+      IRC server.</div>
+</td><td class="summaryTableOwnerCol">AsIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#onSetChannelBan()">onSetChannelBan</a>(channel:String, sourceNick:String, sourceLogin:String, sourceHostname:String, hostmask:String):void</div>
+<div class="summaryTableDescription">
+      Called when a user (possibly us) gets banned from a channel.</div>
+</td><td class="summaryTableOwnerCol">AsIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#onSetChannelKey()">onSetChannelKey</a>(channel:String, sourceNick:String, sourceLogin:String, sourceHostname:String, key:String):void</div>
+<div class="summaryTableDescription">
+      Called when a channel key is set.</div>
+</td><td class="summaryTableOwnerCol">AsIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#onSetChannelLimit()">onSetChannelLimit</a>(channel:String, sourceNick:String, sourceLogin:String, sourceHostname:String, limit:int):void</div>
+<div class="summaryTableDescription">
+      Called when a user limit is set for a channel.</div>
+</td><td class="summaryTableOwnerCol">AsIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#onSetInviteOnly()">onSetInviteOnly</a>(channel:String, sourceNick:String, sourceLogin:String, sourceHostname:String):void</div>
+<div class="summaryTableDescription">
+      Called when a channel is set to 'invite only' mode.</div>
+</td><td class="summaryTableOwnerCol">AsIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#onSetModerated()">onSetModerated</a>(channel:String, sourceNick:String, sourceLogin:String, sourceHostname:String):void</div>
+<div class="summaryTableDescription">
+      Called when a channel is set to 'moderated' mode.</div>
+</td><td class="summaryTableOwnerCol">AsIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#onSetNoExternalMessages()">onSetNoExternalMessages</a>(channel:String, sourceNick:String, sourceLogin:String, sourceHostname:String):void</div>
+<div class="summaryTableDescription">
+      Called when a channel is set to only allow messages from users that
+      are in the channel.</div>
+</td><td class="summaryTableOwnerCol">AsIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#onSetPrivate()">onSetPrivate</a>(channel:String, sourceNick:String, sourceLogin:String, sourceHostname:String):void</div>
+<div class="summaryTableDescription">
+      Called when a channel is marked as being in private mode.</div>
+</td><td class="summaryTableOwnerCol">AsIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#onSetSecret()">onSetSecret</a>(channel:String, sourceNick:String, sourceLogin:String, sourceHostname:String):void</div>
+<div class="summaryTableDescription">
+      Called when a channel is set to be in 'secret' mode.</div>
+</td><td class="summaryTableOwnerCol">AsIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#onSetTopicProtection()">onSetTopicProtection</a>(channel:String, sourceNick:String, sourceLogin:String, sourceHostname:String):void</div>
+<div class="summaryTableDescription">
+      Called when topic protection is enabled for a channel.</div>
+</td><td class="summaryTableOwnerCol">AsIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#onTime()">onTime</a>(sourceNick:String, sourceLogin:String, sourceHostname:String, target:String):void</div>
+<div class="summaryTableDescription">
+      This method is called whenever we receive a TIME request.</div>
+</td><td class="summaryTableOwnerCol">AsIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#onTopic()">onTopic</a>(channel:String, topic:String, setBy:String = null, date:Number = 0, changed:Boolean = false):void</div>
+<div class="summaryTableDescription">
+      This method is called whenever a user sets the topic, or when
+      Irc Client joins a new channel and discovers its topic.</div>
+</td><td class="summaryTableOwnerCol">AsIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#onUnknown()">onUnknown</a>(line:String):void</div>
+<div class="summaryTableDescription">
+      This method is called whenever we receive a line from the server that
+      the Irc Client has not been programmed to recognise.</div>
+</td><td class="summaryTableOwnerCol">AsIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#onUnsupportedRequest()">onUnsupportedRequest</a>(error:String):void</div>
+<div class="summaryTableDescription">
+      Called when we receive a request that is currently not implemented.</div>
+</td><td class="summaryTableOwnerCol">AsIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#onUserList()">onUserList</a>(channel:String, users:Array):void</div>
+<div class="summaryTableDescription">
+      This method is called when we receive a user list from the server
+      after joining a channel.</div>
+</td><td class="summaryTableOwnerCol">AsIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#onUserMode()">onUserMode</a>(targetNick:String, sourceNick:String, sourceLogin:String, sourceHostname:String, mode:String):void</div>
+<div class="summaryTableDescription">
+      Called when the mode of a user is set.</div>
+</td><td class="summaryTableOwnerCol">AsIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#onVersion()">onVersion</a>(sourceNick:String, sourceLogin:String, sourceHostname:String, target:String):void</div>
+<div class="summaryTableDescription">
+      This method is called whenever we receive a VERSION request.</div>
+</td><td class="summaryTableOwnerCol">AsIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#onVoice()">onVoice</a>(channel:String, sourceNick:String, sourceLogin:String, sourceHostname:String, recipient:String):void</div>
+<div class="summaryTableDescription">
+      Called when a user (possibly us) gets voice status granted in a channel.</div>
+</td><td class="summaryTableOwnerCol">AsIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#readLine()">readLine</a>():String</div>
+<div class="summaryTableDescription"> 
+   Read a line from the socket and stick it in a buffer.</div>
+</td><td class="summaryTableOwnerCol">AsIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#setFinger()">setFinger</a>(finger:String):void</div>
+<div class="summaryTableDescription">
+      Sets the interal finger message.</div>
+</td><td class="summaryTableOwnerCol">AsIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#setLogin()">setLogin</a>(login:String):void</div>
+<div class="summaryTableDescription">
+      Sets the internal login of the Bot.</div>
+</td><td class="summaryTableOwnerCol">AsIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#setVersion()">setVersion</a>(version:String):void</div>
+<div class="summaryTableDescription">
+      Sets the internal version of the Bot.</div>
+</td><td class="summaryTableOwnerCol">AsIrcClient</td>
+</tr>
+</table>
+</div>
+<script type="text/javascript" language="javascript">
+<!--
+showHideInherited();
+--></script>
+<div class="MainContent">
+<a name="propertyDetail"></a>
+<div class="detailSectionHeader">Property detail</div>
+<a name="STATUS_CONNECTED"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">STATUS_CONNECTED</td><td class="detailHeaderType">property</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static var STATUS_CONNECTED:String = "connected"</code>
+</div>
+<a name="STATUS_CONNECTING"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">STATUS_CONNECTING</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static var STATUS_CONNECTING:String = "connecting"</code><p>
+   These static variables hold the statuses that this IRC client can have.
+   </p></div>
+<a name="STATUS_DISCONNECTED"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">STATUS_DISCONNECTED</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static var STATUS_DISCONNECTED:String = "disconnected"</code>
+</div>
+<a name="STATUS_HANDLING_CONNECT"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">STATUS_HANDLING_CONNECT</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static var STATUS_HANDLING_CONNECT:String = "handling connect"</code>
+</div>
+<a name="methodDetail"></a>
+<div class="detailSectionHeader">Method detail</div>
+<a name="ban()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">ban</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public final function ban(channel:String, hostmask:String):void</code><p>
+      Bans a user from a channel.  An example of a valid hostmask is
+      "ompu</p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">channel</span>:String</code> &mdash; The channel to ban the user from.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">hostmask</span>:String</code> &mdash; A hostmask representing the user we're banning.
+      </td>
+</tr>
+</table>
+</div>
+<a name="changeNick()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">changeNick</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public final function changeNick(newNick:String):void</code><p>
+      Attempt to change the current nick (nickname) of the bot when it
+      is connected to an IRC server.
+      After confirmation of a successful nick change, the getNick method
+      will return the new nick.
+            </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">newNick</span>:String</code> &mdash; The new nick to use.
+      </td>
+</tr>
+</table>
+</div>
+<a name="connect()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">connect</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function connect(host:String, port:int = 6667, password:String = null):void</code><p>
+      Attempt to connect to the specified IRC server.
+      </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">host</span>:String</code> &mdash; The hostname of the server to connect to.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">port</span>:int</code> (default = <code>6667</code>)<code></code> &mdash; The port to connect to. Defaults to 6667.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">password</span>:String</code> (default = <code>null</code>)<code></code> &mdash; The password with which to connect. Defaults to null (no password).
+      </td>
+</tr>
+</table>
+<br>
+<span class="label">Throws</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code></code> &mdash; if already connected. 
+      </td>
+</tr>
+</table>
+</div>
+<a name="deOp()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">deOp</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public final function deOp(channel:String, nick:String):void</code><p>
+      Removes operator privilidges from a user on a channel.
+      Successful use of this method may require the bot to have operator
+      status itself.
+      
+      </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">channel</span>:String</code> &mdash; The channel we're deopping the user on.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">nick</span>:String</code> &mdash; The nick of the user we are deopping.
+      </td>
+</tr>
+</table>
+</div>
+<a name="deVoice()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">deVoice</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public final function deVoice(channel:String, nick:String):void</code><p>
+      Removes voice privilidges from a user on a channel.
+      Successful use of this method may require the bot to have operator
+      status itself.
+      
+      </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">channel</span>:String</code> &mdash; The channel we're devoicing the user on.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">nick</span>:String</code> &mdash; The nick of the user we are devoicing.
+      </td>
+</tr>
+</table>
+</div>
+<a name="disconnect()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">disconnect</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public final function disconnect():void</code><p>
+      This method disconnects from the server cleanly by calling the
+      quitServer() method.  Providing the Irc client was connected to an
+      IRC server.
+      </p></div>
+<a name="getChannels()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">getChannels</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public final function getChannels():Array</code><p>
+      Returns an array of all channels that we are in.  Note that if you
+      call this method immediately after joining a new channel, the new
+      channel may not appear in this array as it is not possible to tell
+      if the join was successful until a response is received from the
+      IRC server.
+      
+      </p><p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>Array</code> &mdash; A String array containing the names of all channels that we
+              are in.
+      </td>
+</tr>
+</table>
+</div>
+<a name="getFinger()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">getFinger</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public final function getFinger():String</code><p>
+      Gets the internal finger message of the Irc Client.
+            </p><p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>String</code> &mdash; The finger message of the Irc Client.
+      </td>
+</tr>
+</table>
+</div>
+<a name="getLogin()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">getLogin</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public final function getLogin():String</code><p>
+      Gets the internal login of the Irc Client.
+            </p><p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>String</code> &mdash; The login of the Irc Client.
+      </td>
+</tr>
+</table>
+</div>
+<a name="getMaxLineLength()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">getMaxLineLength</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public final function getMaxLineLength():int</code><p>
+      Gets the maximum length of any line that is sent via the IRC protocol.
+      The IRC RFC specifies that line lengths, including the trailing \r\n
+      must not exceed 512 bytes.  Hence, there is currently no option to
+      change this value in Irc Client.  All lines greater than this length
+      will be truncated before being sent to the IRC server.
+      
+      </p><p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>int</code> &mdash; The maximum line length (currently fixed at 512)
+      </td>
+</tr>
+</table>
+</div>
+<a name="getName()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">getName</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public final function getName():String</code><p>
+      Gets the name of the Irc Client. This is the name that will be used as
+      as a nick when we try to join servers.
+            </p><p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>String</code> &mdash; The name of the Irc Client.
+      </td>
+</tr>
+</table>
+</div>
+<a name="getNick()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">getNick</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function getNick():String</code><p>
+      Returns the current nick of the bot. Note that if you have just changed
+      your nick, this method will still return the old nick until confirmation
+      of the nick change is received from the server.
+       </p><p>
+      The nick returned by this method is maintained only by the Irc Client
+      class and is guaranteed to be correct in the context of the IRC server.
+      
+      <p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>String</code> &mdash; The current nick of the bot.
+      </td>
+</tr>
+</table>
+</div>
+<a name="getPassword()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">getPassword</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public final function getPassword():String</code><p>
+      Returns the last password that we used when connecting to an IRC server.
+      This does not imply that the connection attempt to the server was
+      successful (we suggest you look at the onConnect method).
+      A value of null is returned if the Irc Client has never tried to connect
+      to a server using a password.
+      
+      </p><p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>String</code> &mdash; The last password that we used when connecting to an IRC server.
+              Returns null if we have not previously connected using a password.
+      </td>
+</tr>
+</table>
+</div>
+<a name="getPort()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">getPort</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public final function getPort():int</code><p>
+      Returns the port number of the last IRC server that the Irc Client tried
+      to connect to.
+      This does not imply that the connection attempt to the server was
+      successful (we suggest you look at the onConnect method).
+      A value of -1 is returned if the Irc Client has never tried to connect
+      to a server.
+      
+      </p><p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>int</code> &mdash; The port number of the last IRC server we connected to.
+              Returns -1 if no connection attempts have ever been made.
+      </td>
+</tr>
+</table>
+</div>
+<a name="getServer()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">getServer</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public final function getServer():String</code><p>
+      Returns the name of the last IRC server the Irc Client tried to connect to.
+      This does not imply that the connection attempt to the server was
+      successful (we suggest you look at the onConnect method).
+      A value of null is returned if the Irc Client has never tried to connect
+      to a server.
+      
+      </p><p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>String</code> &mdash; The name of the last machine we tried to connect to. Returns
+              null if no connection attempts have ever been made.
+      </td>
+</tr>
+</table>
+</div>
+<a name="getUsers()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">getUsers</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public final function getUsers(channel:String):Array</code><p>
+      Returns an array of all users in the specified channel.
+       </p><p>
+      There are some important things to note about this method:-
+      <ul>
+       <li>This method may not return a full list of users if you call it
+           before the complete nick list has arrived from the IRC server.
+       </li>
+       <li>If you wish to find out which users are in a channel as soon
+           as you join it, then you should override the onUserList method
+           instead of calling this method, as the onUserList method is only
+           called as soon as the full user list has been received.
+       </li>
+       <li>This method will return immediately, as it does not require any
+           interaction with the IRC server.
+       </li>
+       <li>The bot must be in a channel to be able to know which users are
+           in it.
+       </li>
+      </ul>
+            <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">channel</span>:String</code> &mdash; The name of the channel to list.
+      
+      </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>Array</code> &mdash; An array of User objects. This array is empty if we are not
+              in the channel.
+      
+      </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../irc/AsIrcClient.html#onUserList(String,User[])" target="">onUserList</a>
+</div>
+</div>
+<a name="getVersion()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">getVersion</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public final function getVersion():String</code><p>
+      Gets the internal version of the Irc Client.
+            </p><p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>String</code> &mdash; The version of the Irc Client.
+      </td>
+</tr>
+</table>
+</div>
+<a name="isConnected()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">isConnected</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public final function isConnected():Boolean</code><p>
+      Returns whether or not the Irc Client is currently connected to a server.
+      The result of this method should only act as a rough guide,
+      as the result may not be valid by the time you act upon it.
+            </p><p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>Boolean</code> &mdash; True if and only if the Irc Client is currently connected to a server.
+      </td>
+</tr>
+</table>
+</div>
+<a name="joinChannel()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">joinChannel</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public final function joinChannel(channel:String, key:String = null):void</code><p>
+      Joins a channel.
+      
+      </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">channel</span>:String</code> &mdash; The name of the channel to join (eg "#cs").
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">key</span>:String</code> (default = <code>null</code>)<code></code> &mdash; They key needed to join the channel. Defaults to null.
+      </td>
+</tr>
+</table>
+</div>
+<a name="kick()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">kick</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public final function kick(channel:String, nick:String, reason:String = ""):void</code><p>
+      Kicks a user from a channel, giving a reason.
+      This method attempts to kick a user from a channel and
+      may require the bot to have operator status in the channel.
+      
+      </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">channel</span>:String</code> &mdash; The channel to kick the user from.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">nick</span>:String</code> &mdash;    The nick of the user to kick.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">reason</span>:String</code> (default = "<code></code>")<code></code> &mdash;  A description of the reason for kicking a user.
+      </td>
+</tr>
+</table>
+</div>
+<a name="listChannels()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">listChannels</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public final function listChannels(parameters:String = null):void</code><p>
+      Issues a request for a list of all channels on the IRC server.
+      When the Irc Client receives information for each channel, it will
+      call the onChannelInfo method, which you will need to override
+      if you want it to do anything useful.
+       </p><p>
+      Some IRC servers support certain parameters for LIST requests.
+      One example is a parameter of ">10" to list only those channels
+      that have more than 10 users in them.  Whether these parameters
+      are supported or not will depend on the IRC server software.
+      
+      <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">parameters</span>:String</code> (default = <code>null</code>)<code></code> &mdash; The parameters to supply when requesting the
+                        list.
+      
+      </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../irc/AsIrcClient.html#onChannelInfo(String,int,String)" target="">onChannelInfo</a>
+</div>
+</div>
+<a name="log()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">log</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function log(line:String):void</code><p>
+   This method currently just traces the input line. 
+   Override and redirect or suppress this logging behavior as needed.
+   
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">line</span>:String</code> &mdash; The line to log.
+   </td>
+</tr>
+</table>
+</div>
+<a name="onAction()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">onAction</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected function onAction(sender:String, login:String, hostname:String, target:String, action:String):void</code><p>
+      This method is called whenever an ACTION is sent from a user.  E.g.
+      such events generated by typing "/me goes shopping" in most IRC clients.
+       </p><p>
+      The implementation of this method in the ircBot abstract class
+      performs no actions and may be overridden as required.
+      
+      <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">sender</span>:String</code> &mdash; The nick of the user that sent the action.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">login</span>:String</code> &mdash; The login of the user that sent the action.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">hostname</span>:String</code> &mdash; The hostname of the user that sent the action.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">target</span>:String</code> &mdash; The target of the action, be it a channel or our nick.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">action</span>:String</code> &mdash; The action carried out by the user.
+      </td>
+</tr>
+</table>
+</div>
+<a name="onChannelInfo()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">onChannelInfo</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected function onChannelInfo(channel:String, userCount:int, topic:String):void</code><p>
+      After calling the listChannels() method in Irc Client, the server
+      will start to send us information about each channel on the
+      server.  You may override this method in order to receive the
+      information about each channel as soon as it is received.
+       </p><p>
+      Note that certain channels, such as those marked as hidden,
+      may not appear in channel listings.
+       <p>
+      The implementation of this method in the Irc Client abstract class
+      performs no actions and may be overridden as required.
+      
+      <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">channel</span>:String</code> &mdash; The name of the channel.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">userCount</span>:int</code> &mdash; The number of users visible in this channel.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">topic</span>:String</code> &mdash; The topic for this channel.
+      
+      </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../irc/AsIrcClient.html#listChannels()" target="">listChannels</a>
+</div>
+</div>
+<a name="onConnect()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">onConnect</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected function onConnect():void</code><p>
+      This method is called once the ircBot has successfully connected to
+      the IRC server.
+       </p><p>
+      The implementation of this method in the ircBot abstract class
+      performs no actions and may be overridden as required.
+      
+      </div>
+<a name="onConnectionError()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">onConnectionError</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected function onConnectionError(line:String):void</code><p>
+      Called when we try to connect to a server and the connection fails.
+       </p><p>
+      The implementation of this method in the Irc Client abstract class
+      performs no actions and may be overridden as required.
+      
+      <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">line</span>:String</code> &mdash; the error message reported by the irc server.
+      
+      </td>
+</tr>
+</table>
+</div>
+<a name="onDeop()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">onDeop</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected function onDeop(channel:String, sourceNick:String, sourceLogin:String, sourceHostname:String, recipient:String):void</code><p>
+      Called when a user (possibly us) gets operator status taken away.
+       </p><p>
+      This is a type of mode change and is also passed to the onMode
+      method in the Irc Client class.
+       <p>
+      The implementation of this method in the Irc Client abstract class
+      performs no actions and may be overridden as required.
+            <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">channel</span>:String</code> &mdash; The channel in which the mode change took place.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceNick</span>:String</code> &mdash; The nick of the user that performed the mode change.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceLogin</span>:String</code> &mdash; The login of the user that performed the mode change.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceHostname</span>:String</code> &mdash; The hostname of the user that performed the mode change.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">recipient</span>:String</code> &mdash; The nick of the user that got 'deopped'.
+      </td>
+</tr>
+</table>
+</div>
+<a name="onDeVoice()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">onDeVoice</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected function onDeVoice(channel:String, sourceNick:String, sourceLogin:String, sourceHostname:String, recipient:String):void</code><p>
+      Called when a user (possibly us) gets voice status removed.
+       </p><p>
+      This is a type of mode change and is also passed to the onMode
+      method in the Irc Client class.
+       <p>
+      The implementation of this method in the Irc Client abstract class
+      performs no actions and may be overridden as required.
+            <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">channel</span>:String</code> &mdash; The channel in which the mode change took place.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceNick</span>:String</code> &mdash; The nick of the user that performed the mode change.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceLogin</span>:String</code> &mdash; The login of the user that performed the mode change.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceHostname</span>:String</code> &mdash; The hostname of the user that performed the mode change.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">recipient</span>:String</code> &mdash; The nick of the user that got 'devoiced'.
+      </td>
+</tr>
+</table>
+</div>
+<a name="onDisconnect()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">onDisconnect</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected function onDisconnect():void</code><p>
+      This method carries out the actions to be performed when the ircBot
+      gets disconnected.  This may happen if the ircBot quits from the
+      server, or if the connection is unexpectedly lost.
+       </p><p>
+      Disconnection from the IRC server is detected immediately if either
+      we or the server close the connection normally. If the connection to
+      the server is lost, but neither we nor the server have explicitly closed
+      the connection, then it may take a few minutes to detect (this is
+      commonly referred to as a "ping timeout").
+       <p>
+      If you wish to get your IRC bot to automatically rejoin a server after
+      the connection has been lost, then this is probably the ideal method to
+      override to implement such functionality.
+       <p>
+      The implementation of this method in the ircBot abstract class
+      performs no actions and may be overridden as required.
+      </div>
+<a name="onFinger()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">onFinger</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected function onFinger(sourceNick:String, sourceLogin:String, sourceHostname:String, target:String):void</code><p>
+      This method is called whenever we receive a FINGER request.
+       </p><p>
+      This abstract implementation responds correctly, so if you override this
+      method, be sure to either mimic its functionality or to call
+      super.onFinger(...);
+      
+      <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceNick</span>:String</code> &mdash; The nick of the user that sent the FINGER request.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceLogin</span>:String</code> &mdash; The login of the user that sent the FINGER request.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceHostname</span>:String</code> &mdash; The hostname of the user that sent the FINGER request.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">target</span>:String</code> &mdash; The target of the FINGER request, be it our nick or a channel name.
+      </td>
+</tr>
+</table>
+</div>
+<a name="onInvite()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">onInvite</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected function onInvite(targetNick:String, sourceNick:String, sourceLogin:String, sourceHostname:String, channel:String):void</code><p>
+      Called when we are invited to a channel by a user.
+       </p><p>
+      The implementation of this method in the Irc Client abstract class
+      performs no actions and may be overridden as required.
+      
+      <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">targetNick</span>:String</code> &mdash; The nick of the user being invited - should be us!
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceNick</span>:String</code> &mdash; The nick of the user that sent the invitation.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceLogin</span>:String</code> &mdash; The login of the user that sent the invitation.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceHostname</span>:String</code> &mdash; The hostname of the user that sent the invitation.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">channel</span>:String</code> &mdash; The channel that we're being invited to.
+      </td>
+</tr>
+</table>
+</div>
+<a name="onJoin()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">onJoin</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected function onJoin(channel:String, sender:String, login:String, hostname:String):void</code><p>
+      This method is called whenever someone (possibly us) joins a channel
+      which we are on.
+       </p><p>
+      The implementation of this method in the Irc Client abstract class
+      performs no actions and may be overridden as required.
+            <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">channel</span>:String</code> &mdash; The channel which somebody joined.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sender</span>:String</code> &mdash; The nick of the user who joined the channel.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">login</span>:String</code> &mdash; The login of the user who joined the channel.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">hostname</span>:String</code> &mdash; The hostname of the user who joined the channel.
+      </td>
+</tr>
+</table>
+</div>
+<a name="onKick()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">onKick</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected function onKick(channel:String, kickerNick:String, kickerLogin:String, kickerHostname:String, recipientNick:String, reason:String):void</code><p>
+      This method is called whenever someone (possibly us) is kicked from
+      any of the channels that we are in.
+       </p><p>
+      The implementation of this method in the Irc Client abstract class
+      performs no actions and may be overridden as required.
+      
+      <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">channel</span>:String</code> &mdash; The channel from which the recipient was kicked.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">kickerNick</span>:String</code> &mdash; The nick of the user who performed the kick.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">kickerLogin</span>:String</code> &mdash; The login of the user who performed the kick.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">kickerHostname</span>:String</code> &mdash; The hostname of the user who performed the kick.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">recipientNick</span>:String</code> &mdash; The unfortunate recipient of the kick.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">reason</span>:String</code> &mdash; The reason given by the user who performed the kick.
+      </td>
+</tr>
+</table>
+</div>
+<a name="onMessage()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">onMessage</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected function onMessage(channel:String, sender:String, login:String, hostname:String, message:String):void</code><p>
+      This method is called whenever a message is sent to a channel.
+       </p><p>
+      The implementation of this method in the ircBot abstract class
+      performs no actions and may be overridden as required.
+            <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">channel</span>:String</code> &mdash; The channel to which the message was sent.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sender</span>:String</code> &mdash; The nick of the person who sent the message.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">login</span>:String</code> &mdash; The login of the person who sent the message.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">hostname</span>:String</code> &mdash; The hostname of the person who sent the message.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">message</span>:String</code> &mdash; The actual message sent to the channel.
+      </td>
+</tr>
+</table>
+</div>
+<a name="onMode()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">onMode</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected function onMode(channel:String, sourceNick:String, sourceLogin:String, sourceHostname:String, mode:String):void</code><p>
+      Called when the mode of a channel is set.
+       </p><p>
+      You may find it more convenient to decode the meaning of the mode
+      string by overriding the onOp, onDeOp, onVoice, onDeVoice,
+      onChannelKey, onDeChannelKey, onChannelLimit, onDeChannelLimit,
+      onChannelBan or onDeChannelBan methods as appropriate.
+       <p>
+      The implementation of this method in the Irc Client abstract class
+      performs no actions and may be overridden as required.
+            <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">channel</span>:String</code> &mdash; The channel that the mode operation applies to.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceNick</span>:String</code> &mdash; The nick of the user that set the mode.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceLogin</span>:String</code> &mdash; The login of the user that set the mode.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceHostname</span>:String</code> &mdash; The hostname of the user that set the mode.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">mode</span>:String</code> &mdash; The mode that has been set.
+      
+      </td>
+</tr>
+</table>
+</div>
+<a name="onNickChange()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">onNickChange</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected function onNickChange(oldNick:String, login:String, hostname:String, newNick:String):void</code><p>
+      This method is called whenever someone (possibly us) changes nick on any
+      of the channels that we are on.
+       </p><p>
+      The implementation of this method in the Irc Client abstract class
+      performs no actions and may be overridden as required.
+            <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">oldNick</span>:String</code> &mdash; The old nick.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">login</span>:String</code> &mdash; The login of the user.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">hostname</span>:String</code> &mdash; The hostname of the user.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">newNick</span>:String</code> &mdash; The new nick.
+      </td>
+</tr>
+</table>
+</div>
+<a name="onNickNameAlreadyInUse()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">onNickNameAlreadyInUse</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected function onNickNameAlreadyInUse():void</code><p>
+      Called when we try to connect to a server and the nick we're trying to use is already taken.
+       </p><p>
+      The implementation of this method in the Irc Client abstract class
+      performs no actions and may be overridden as required.
+      
+      </div>
+<a name="onNotice()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">onNotice</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected function onNotice(sourceNick:String, sourceLogin:String, sourceHostname:String, target:String, notice:String):void</code><p>
+      This method is called whenever we receive a notice.
+       </p><p>
+      The implementation of this method in the ircBot abstract class
+      performs no actions and may be overridden as required.
+      
+      <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceNick</span>:String</code> &mdash; The nick of the user that sent the notice.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceLogin</span>:String</code> &mdash; The login of the user that sent the notice.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceHostname</span>:String</code> &mdash; The hostname of the user that sent the notice.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">target</span>:String</code> &mdash; The target of the notice, be it our nick or a channel name.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">notice</span>:String</code> &mdash; The notice message.
+      </td>
+</tr>
+</table>
+</div>
+<a name="onOp()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">onOp</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected function onOp(channel:String, sourceNick:String, sourceLogin:String, sourceHostname:String, recipient:String):void</code><p>
+      Called when a user (possibly us) gets granted operator status for a channel.
+       </p><p>
+      This is a type of mode change and is also passed to the onMode
+      method in the Irc Client class.
+       <p>
+      The implementation of this method in the Irc Client abstract class
+      performs no actions and may be overridden as required.
+            <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">channel</span>:String</code> &mdash; The channel in which the mode change took place.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceNick</span>:String</code> &mdash; The nick of the user that performed the mode change.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceLogin</span>:String</code> &mdash; The login of the user that performed the mode change.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceHostname</span>:String</code> &mdash; The hostname of the user that performed the mode change.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">recipient</span>:String</code> &mdash; The nick of the user that got 'opped'.
+      </td>
+</tr>
+</table>
+</div>
+<a name="onPart()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">onPart</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected function onPart(channel:String, sender:String, login:String, hostname:String):void</code><p>
+      This method is called whenever someone (possibly us) parts a channel
+      which we are on.
+       </p><p>
+      The implementation of this method in the Irc Client abstract class
+      performs no actions and may be overridden as required.
+            <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">channel</span>:String</code> &mdash; The channel which somebody parted from.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sender</span>:String</code> &mdash; The nick of the user who parted from the channel.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">login</span>:String</code> &mdash; The login of the user who parted from the channel.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">hostname</span>:String</code> &mdash; The hostname of the user who parted from the channel.
+      </td>
+</tr>
+</table>
+</div>
+<a name="onPing()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">onPing</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected function onPing(sourceNick:String, sourceLogin:String, sourceHostname:String, target:String, pingValue:String):void</code><p>
+      This method is called whenever we receive a PING request from another
+      user.
+       </p><p>
+      This abstract implementation responds correctly, so if you override this
+      method, be sure to either mimic its functionality or to call
+      super.onPing(...);
+      
+      <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceNick</span>:String</code> &mdash; The nick of the user that sent the PING request.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceLogin</span>:String</code> &mdash; The login of the user that sent the PING request.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceHostname</span>:String</code> &mdash; The hostname of the user that sent the PING request.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">target</span>:String</code> &mdash; The target of the PING request, be it our nick or a channel name.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">pingValue</span>:String</code> &mdash; The value that was supplied as an argument to the PING command.
+      </td>
+</tr>
+</table>
+</div>
+<a name="onPrivateMessage()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">onPrivateMessage</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected function onPrivateMessage(sender:String, login:String, hostname:String, message:String):void</code><p>
+      This method is called whenever a private message is sent to the ircBot.
+       </p><p>
+      The implementation of this method in the Irc Client abstract class
+      performs no actions and may be overridden as required.
+            <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">sender</span>:String</code> &mdash; The nick of the person who sent the private message.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">login</span>:String</code> &mdash; The login of the person who sent the private message.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">hostname</span>:String</code> &mdash; The hostname of the person who sent the private message.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">message</span>:String</code> &mdash; The actual message.
+      </td>
+</tr>
+</table>
+</div>
+<a name="onQuit()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">onQuit</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected function onQuit(sourceNick:String, sourceLogin:String, sourceHostname:String, reason:String):void</code><p>
+      This method is called whenever someone (possibly us) quits from the
+      server.  We will only observe this if the user was in one of the
+      channels to which we are connected.
+       </p><p>
+      The implementation of this method in the Irc Client abstract class
+      performs no actions and may be overridden as required.
+      
+      <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceNick</span>:String</code> &mdash; The nick of the user that quit from the server.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceLogin</span>:String</code> &mdash; The login of the user that quit from the server.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceHostname</span>:String</code> &mdash; The hostname of the user that quit from the server.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">reason</span>:String</code> &mdash; The reason given for quitting the server.
+      </td>
+</tr>
+</table>
+</div>
+<a name="onRemoveChannelBan()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">onRemoveChannelBan</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected function onRemoveChannelBan(channel:String, sourceNick:String, sourceLogin:String, sourceHostname:String, hostmask:String):void</code><p>
+      Called when a hostmask ban is removed from a channel.
+       </p><p>
+      This is a type of mode change and is also passed to the onMode
+      method in the Irc Client class.
+       <p>
+      The implementation of this method in the Irc Client abstract class
+      performs no actions and may be overridden as required.
+            <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">channel</span>:String</code> &mdash; The channel in which the mode change took place.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceNick</span>:String</code> &mdash; The nick of the user that performed the mode change.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceLogin</span>:String</code> &mdash; The login of the user that performed the mode change.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceHostname</span>:String</code> &mdash; The hostname of the user that performed the mode change.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">hostmask</span>:String</code></td>
+</tr>
+</table>
+</div>
+<a name="onRemoveChannelKey()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">onRemoveChannelKey</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected function onRemoveChannelKey(channel:String, sourceNick:String, sourceLogin:String, sourceHostname:String, key:String):void</code><p>
+      Called when a channel key is removed.
+       </p><p>
+      This is a type of mode change and is also passed to the onMode
+      method in the Irc Client class.
+       <p>
+      The implementation of this method in the Irc Client abstract class
+      performs no actions and may be overridden as required.
+            <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">channel</span>:String</code> &mdash; The channel in which the mode change took place.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceNick</span>:String</code> &mdash; The nick of the user that performed the mode change.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceLogin</span>:String</code> &mdash; The login of the user that performed the mode change.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceHostname</span>:String</code> &mdash; The hostname of the user that performed the mode change.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">key</span>:String</code> &mdash; The key that was in use before the channel key was removed.
+      </td>
+</tr>
+</table>
+</div>
+<a name="onRemoveChannelLimit()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">onRemoveChannelLimit</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected function onRemoveChannelLimit(channel:String, sourceNick:String, sourceLogin:String, sourceHostname:String):void</code><p>
+      Called when the user limit is removed for a channel.
+       </p><p>
+      This is a type of mode change and is also passed to the onMode
+      method in the Irc Client class.
+       <p>
+      The implementation of this method in the Irc Client abstract class
+      performs no actions and may be overridden as required.
+            <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">channel</span>:String</code> &mdash; The channel in which the mode change took place.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceNick</span>:String</code> &mdash; The nick of the user that performed the mode change.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceLogin</span>:String</code> &mdash; The login of the user that performed the mode change.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceHostname</span>:String</code> &mdash; The hostname of the user that performed the mode change.
+      </td>
+</tr>
+</table>
+</div>
+<a name="onRemoveInviteOnly()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">onRemoveInviteOnly</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected function onRemoveInviteOnly(channel:String, sourceNick:String, sourceLogin:String, sourceHostname:String):void</code><p>
+      Called when a channel has 'invite only' removed.
+       </p><p>
+      This is a type of mode change and is also passed to the onMode
+      method in the Irc Client class.
+       <p>
+      The implementation of this method in the Irc Client abstract class
+      performs no actions and may be overridden as required.
+            <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">channel</span>:String</code> &mdash; The channel in which the mode change took place.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceNick</span>:String</code> &mdash; The nick of the user that performed the mode change.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceLogin</span>:String</code> &mdash; The login of the user that performed the mode change.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceHostname</span>:String</code> &mdash; The hostname of the user that performed the mode change.
+      </td>
+</tr>
+</table>
+</div>
+<a name="onRemoveModerated()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">onRemoveModerated</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected function onRemoveModerated(channel:String, sourceNick:String, sourceLogin:String, sourceHostname:String):void</code><p>
+      Called when a channel has moderated mode removed.
+       </p><p>
+      This is a type of mode change and is also passed to the onMode
+      method in the Irc Client class.
+       <p>
+      The implementation of this method in the Irc Client abstract class
+      performs no actions and may be overridden as required.
+            <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">channel</span>:String</code> &mdash; The channel in which the mode change took place.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceNick</span>:String</code> &mdash; The nick of the user that performed the mode change.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceLogin</span>:String</code> &mdash; The login of the user that performed the mode change.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceHostname</span>:String</code> &mdash; The hostname of the user that performed the mode change.
+      </td>
+</tr>
+</table>
+</div>
+<a name="onRemoveNoExternalMessages()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">onRemoveNoExternalMessages</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected function onRemoveNoExternalMessages(channel:String, sourceNick:String, sourceLogin:String, sourceHostname:String):void</code><p>
+      Called when a channel is set to allow messages from any user, even
+      if they are not actually in the channel.
+       </p><p>
+      This is a type of mode change and is also passed to the onMode
+      method in the Irc Client class.
+       <p>
+      The implementation of this method in the Irc Client abstract class
+      performs no actions and may be overridden as required.
+            <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">channel</span>:String</code> &mdash; The channel in which the mode change took place.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceNick</span>:String</code> &mdash; The nick of the user that performed the mode change.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceLogin</span>:String</code> &mdash; The login of the user that performed the mode change.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceHostname</span>:String</code> &mdash; The hostname of the user that performed the mode change.
+      </td>
+</tr>
+</table>
+</div>
+<a name="onRemovePrivate()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">onRemovePrivate</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected function onRemovePrivate(channel:String, sourceNick:String, sourceLogin:String, sourceHostname:String):void</code><p>
+      Called when a channel is marked as not being in private mode.
+       </p><p>
+      This is a type of mode change and is also passed to the onMode
+      method in the Irc Client class.
+       <p>
+      The implementation of this method in the Irc Client abstract class
+      performs no actions and may be overridden as required.
+            <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">channel</span>:String</code> &mdash; The channel in which the mode change took place.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceNick</span>:String</code> &mdash; The nick of the user that performed the mode change.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceLogin</span>:String</code> &mdash; The login of the user that performed the mode change.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceHostname</span>:String</code> &mdash; The hostname of the user that performed the mode change.
+      </td>
+</tr>
+</table>
+</div>
+<a name="onRemoveSecret()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">onRemoveSecret</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected function onRemoveSecret(channel:String, sourceNick:String, sourceLogin:String, sourceHostname:String):void</code><p>
+      Called when a channel has 'secret' mode removed.
+       </p><p>
+      This is a type of mode change and is also passed to the onMode
+      method in the Irc Client class.
+       <p>
+      The implementation of this method in the Irc Client abstract class
+      performs no actions and may be overridden as required.
+            <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">channel</span>:String</code> &mdash; The channel in which the mode change took place.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceNick</span>:String</code> &mdash; The nick of the user that performed the mode change.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceLogin</span>:String</code> &mdash; The login of the user that performed the mode change.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceHostname</span>:String</code> &mdash; The hostname of the user that performed the mode change.
+      </td>
+</tr>
+</table>
+</div>
+<a name="onRemoveTopicProtection()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">onRemoveTopicProtection</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected function onRemoveTopicProtection(channel:String, sourceNick:String, sourceLogin:String, sourceHostname:String):void</code><p>
+      Called when topic protection is removed for a channel.
+       </p><p>
+      This is a type of mode change and is also passed to the onMode
+      method in the Irc Client class.
+       <p>
+      The implementation of this method in the Irc Client abstract class
+      performs no actions and may be overridden as required.
+            <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">channel</span>:String</code> &mdash; The channel in which the mode change took place.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceNick</span>:String</code> &mdash; The nick of the user that performed the mode change.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceLogin</span>:String</code> &mdash; The login of the user that performed the mode change.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceHostname</span>:String</code> &mdash; The hostname of the user that performed the mode change.
+      </td>
+</tr>
+</table>
+</div>
+<a name="onServerPing()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">onServerPing</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected function onServerPing(response:String = ""):void</code><p>
+      The actions to perform when a PING request comes from the server.
+       </p><p>
+      This sends back a correct response, so if you override this method,
+      be sure to either mimic its functionality or to call
+      super.onServerPing(response);
+            <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">response</span>:String</code> (default = "<code></code>")<code></code> &mdash; The response that should be given back in your PONG.
+      </td>
+</tr>
+</table>
+</div>
+<a name="onServerResponse()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">onServerResponse</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected function onServerResponse(code:int, response:String):void</code><p>
+      This method is called when we receive a numeric response from the
+      IRC server.
+       </p><p> 
+      Numerics in the range from 001 to 099 are used for client-server
+      connections only and should never travel between servers.  Replies
+      generated in response to commands are found in the range from 200
+      to 399.  Error replies are found in the range from 400 to 599.
+       <p>
+      For example, we can use this method to discover the topic of a
+      channel when we join it.  If we join the channel #test which
+      has a topic of &quot;I am King of Test&quot; then the response
+      will be &quot;<code>Irc Client #test :I Am King of Test</code>&quot;
+      with a code of 332 to signify that this is a topic.
+      (This is just an example - note that overriding the
+      <code>onTopic</code> method is an easier way of finding the
+      topic for a channel). Check the IRC RFC for the full list of other
+      command response codes.
+       <p>
+      Irc Client implements the interface ReplyConstants, which contains
+      contstants that you may find useful here.
+       <p>
+      The implementation of this method in the ircBot abstract class
+      performs no actions and may be overridden as required.
+      
+      <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">code</span>:int</code> &mdash; The three-digit numerical code for the response.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">response</span>:String</code> &mdash; The full response from the IRC server.
+      
+      </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="ReplyConstants.html" target="">ReplyConstants</a>
+</div>
+</div>
+<a name="onSetChannelBan()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">onSetChannelBan</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected function onSetChannelBan(channel:String, sourceNick:String, sourceLogin:String, sourceHostname:String, hostmask:String):void</code><p>
+      Called when a user (possibly us) gets banned from a channel.  Being
+      banned from a channel prevents any user with a matching hostmask from
+      joining the channel.  For this reason, most bans are usually directly
+      followed by the user being kicked :-)
+       </p><p>
+      This is a type of mode change and is also passed to the onMode
+      method in the Irc Client class.
+       <p>
+      The implementation of this method in the Irc Client abstract class
+      performs no actions and may be overridden as required.
+            <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">channel</span>:String</code> &mdash; The channel in which the mode change took place.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceNick</span>:String</code> &mdash; The nick of the user that performed the mode change.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceLogin</span>:String</code> &mdash; The login of the user that performed the mode change.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceHostname</span>:String</code> &mdash; The hostname of the user that performed the mode change.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">hostmask</span>:String</code> &mdash; The hostmask of the user that has been banned.
+      </td>
+</tr>
+</table>
+</div>
+<a name="onSetChannelKey()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">onSetChannelKey</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected function onSetChannelKey(channel:String, sourceNick:String, sourceLogin:String, sourceHostname:String, key:String):void</code><p>
+      Called when a channel key is set.  When the channel key has been set,
+      other users may only join that channel if they know the key.  Channel keys
+      are sometimes referred to as passwords.
+       </p><p>
+      This is a type of mode change and is also passed to the onMode
+      method in the Irc Client class.
+       <p>
+      The implementation of this method in the Irc Client abstract class
+      performs no actions and may be overridden as required.
+            <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">channel</span>:String</code> &mdash; The channel in which the mode change took place.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceNick</span>:String</code> &mdash; The nick of the user that performed the mode change.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceLogin</span>:String</code> &mdash; The login of the user that performed the mode change.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceHostname</span>:String</code> &mdash; The hostname of the user that performed the mode change.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">key</span>:String</code> &mdash; The new key for the channel.
+      </td>
+</tr>
+</table>
+</div>
+<a name="onSetChannelLimit()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">onSetChannelLimit</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected function onSetChannelLimit(channel:String, sourceNick:String, sourceLogin:String, sourceHostname:String, limit:int):void</code><p>
+      Called when a user limit is set for a channel.  The number of users in
+      the channel cannot exceed this limit.
+       </p><p>
+      This is a type of mode change and is also passed to the onMode
+      method in the Irc Client class.
+       <p>
+      The implementation of this method in the Irc Client abstract class
+      performs no actions and may be overridden as required.
+            <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">channel</span>:String</code> &mdash; The channel in which the mode change took place.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceNick</span>:String</code> &mdash; The nick of the user that performed the mode change.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceLogin</span>:String</code> &mdash; The login of the user that performed the mode change.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceHostname</span>:String</code> &mdash; The hostname of the user that performed the mode change.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">limit</span>:int</code> &mdash; The maximum number of users that may be in this channel at the same time.
+      </td>
+</tr>
+</table>
+</div>
+<a name="onSetInviteOnly()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">onSetInviteOnly</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected function onSetInviteOnly(channel:String, sourceNick:String, sourceLogin:String, sourceHostname:String):void</code><p>
+      Called when a channel is set to 'invite only' mode.  A user may only
+      join the channel if they are invited by someone who is already in the
+      channel.
+       </p><p>
+      This is a type of mode change and is also passed to the onMode
+      method in the Irc Client class.
+       <p>
+      The implementation of this method in the Irc Client abstract class
+      performs no actions and may be overridden as required.
+            <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">channel</span>:String</code> &mdash; The channel in which the mode change took place.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceNick</span>:String</code> &mdash; The nick of the user that performed the mode change.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceLogin</span>:String</code> &mdash; The login of the user that performed the mode change.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceHostname</span>:String</code> &mdash; The hostname of the user that performed the mode change.
+      </td>
+</tr>
+</table>
+</div>
+<a name="onSetModerated()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">onSetModerated</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected function onSetModerated(channel:String, sourceNick:String, sourceLogin:String, sourceHostname:String):void</code><p>
+      Called when a channel is set to 'moderated' mode.  If a channel is
+      moderated, then only users who have been 'voiced' or 'opped' may speak
+      or change their nicks.
+       </p><p>
+      This is a type of mode change and is also passed to the onMode
+      method in the Irc Client class.
+       <p>
+      The implementation of this method in the Irc Client abstract class
+      performs no actions and may be overridden as required.
+            <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">channel</span>:String</code> &mdash; The channel in which the mode change took place.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceNick</span>:String</code> &mdash; The nick of the user that performed the mode change.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceLogin</span>:String</code> &mdash; The login of the user that performed the mode change.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceHostname</span>:String</code> &mdash; The hostname of the user that performed the mode change.
+      </td>
+</tr>
+</table>
+</div>
+<a name="onSetNoExternalMessages()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">onSetNoExternalMessages</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected function onSetNoExternalMessages(channel:String, sourceNick:String, sourceLogin:String, sourceHostname:String):void</code><p>
+      Called when a channel is set to only allow messages from users that
+      are in the channel.
+       </p><p>
+      This is a type of mode change and is also passed to the onMode
+      method in the Irc Client class.
+       <p>
+      The implementation of this method in the Irc Client abstract class
+      performs no actions and may be overridden as required.
+            <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">channel</span>:String</code> &mdash; The channel in which the mode change took place.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceNick</span>:String</code> &mdash; The nick of the user that performed the mode change.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceLogin</span>:String</code> &mdash; The login of the user that performed the mode change.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceHostname</span>:String</code> &mdash; The hostname of the user that performed the mode change.
+      </td>
+</tr>
+</table>
+</div>
+<a name="onSetPrivate()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">onSetPrivate</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected function onSetPrivate(channel:String, sourceNick:String, sourceLogin:String, sourceHostname:String):void</code><p>
+      Called when a channel is marked as being in private mode.
+       </p><p>
+      This is a type of mode change and is also passed to the onMode
+      method in the Irc Client class.
+       <p>
+      The implementation of this method in the Irc Client abstract class
+      performs no actions and may be overridden as required.
+            <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">channel</span>:String</code> &mdash; The channel in which the mode change took place.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceNick</span>:String</code> &mdash; The nick of the user that performed the mode change.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceLogin</span>:String</code> &mdash; The login of the user that performed the mode change.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceHostname</span>:String</code> &mdash; The hostname of the user that performed the mode change.
+      </td>
+</tr>
+</table>
+</div>
+<a name="onSetSecret()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">onSetSecret</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected function onSetSecret(channel:String, sourceNick:String, sourceLogin:String, sourceHostname:String):void</code><p>
+      Called when a channel is set to be in 'secret' mode.  Such channels
+      typically do not appear on a server's channel listing.
+       </p><p>
+      This is a type of mode change and is also passed to the onMode
+      method in the Irc Client class.
+       <p>
+      The implementation of this method in the Irc Client abstract class
+      performs no actions and may be overridden as required.
+            <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">channel</span>:String</code> &mdash; The channel in which the mode change took place.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceNick</span>:String</code> &mdash; The nick of the user that performed the mode change.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceLogin</span>:String</code> &mdash; The login of the user that performed the mode change.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceHostname</span>:String</code> &mdash; The hostname of the user that performed the mode change.
+      </td>
+</tr>
+</table>
+</div>
+<a name="onSetTopicProtection()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">onSetTopicProtection</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected function onSetTopicProtection(channel:String, sourceNick:String, sourceLogin:String, sourceHostname:String):void</code><p>
+      Called when topic protection is enabled for a channel.  Topic protection
+      means that only operators in a channel may change the topic.
+       </p><p>
+      This is a type of mode change and is also passed to the onMode
+      method in the Irc Client class.
+       <p>
+      The implementation of this method in the Irc Client abstract class
+      performs no actions and may be overridden as required.
+            <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">channel</span>:String</code> &mdash; The channel in which the mode change took place.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceNick</span>:String</code> &mdash; The nick of the user that performed the mode change.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceLogin</span>:String</code> &mdash; The login of the user that performed the mode change.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceHostname</span>:String</code> &mdash; The hostname of the user that performed the mode change.
+      </td>
+</tr>
+</table>
+</div>
+<a name="onTime()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">onTime</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected function onTime(sourceNick:String, sourceLogin:String, sourceHostname:String, target:String):void</code><p>
+      This method is called whenever we receive a TIME request.
+       </p><p>
+      This abstract implementation responds correctly, so if you override this
+      method, be sure to either mimic its functionality or to call
+      super.onTime(...);
+      
+      <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceNick</span>:String</code> &mdash; The nick of the user that sent the TIME request.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceLogin</span>:String</code> &mdash; The login of the user that sent the TIME request.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceHostname</span>:String</code> &mdash; The hostname of the user that sent the TIME request.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">target</span>:String</code> &mdash; The target of the TIME request, be it our nick or a channel name.
+      </td>
+</tr>
+</table>
+</div>
+<a name="onTopic()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">onTopic</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected function onTopic(channel:String, topic:String, setBy:String = null, date:Number = 0, changed:Boolean = false):void</code><p>
+      This method is called whenever a user sets the topic, or when
+      Irc Client joins a new channel and discovers its topic.
+       </p><p>
+      The implementation of this method in the Irc Client abstract class
+      performs no actions and may be overridden as required.
+            <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">channel</span>:String</code> &mdash; The channel that the topic belongs to.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">topic</span>:String</code> &mdash; The topic for the channel.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">setBy</span>:String</code> (default = <code>null</code>)<code></code> &mdash; The nick of the user that set the topic.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">date</span>:Number</code> (default = <code>0</code>)<code></code> &mdash; When the topic was set (milliseconds since the epoch).
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">changed</span>:Boolean</code> (default = <code>false</code>)<code></code> &mdash; True if the topic has just been changed, false if
+                     the topic was already there.
+      
+      </td>
+</tr>
+</table>
+</div>
+<a name="onUnknown()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">onUnknown</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected function onUnknown(line:String):void</code><p>
+      This method is called whenever we receive a line from the server that
+      the Irc Client has not been programmed to recognise.
+       </p><p>
+      The implementation of this method in the Irc Client abstract class
+      performs no actions and may be overridden as required.
+      
+      <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">line</span>:String</code> &mdash; The raw line that was received from the server.
+      </td>
+</tr>
+</table>
+</div>
+<a name="onUnsupportedRequest()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">onUnsupportedRequest</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected function onUnsupportedRequest(error:String):void</code><p>
+      Called when we receive a request that is currently not implemented.
+       </p><p>
+      The implementation of this method just does a trace. override if you want more control.
+      <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">error</span>:String</code></td>
+</tr>
+</table>
+</div>
+<a name="onUserList()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">onUserList</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected function onUserList(channel:String, users:Array):void</code><p>
+      This method is called when we receive a user list from the server
+      after joining a channel.
+       </p><p>
+      Shortly after joining a channel, the IRC server sends a list of all
+      users in that channel. The Irc Client collects this information and
+      calls this method as soon as it has the full list.
+       <p>
+      To obtain the nick of each user in the channel, call the getNick()
+      method on each User object in the array.
+       <p>
+      At a later time, you may call the getUsers method to obtain an
+      up to date list of the users in the channel.
+       <p>
+      The implementation of this method in the ircBot abstract class
+      performs no actions and may be overridden as required.
+      
+      
+      <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">channel</span>:String</code> &mdash; The name of the channel.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">users</span>:Array</code> &mdash; An array of User objects belonging to this channel.
+      
+      </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="User.html" target="">User</a>
+</div>
+</div>
+<a name="onUserMode()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">onUserMode</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected function onUserMode(targetNick:String, sourceNick:String, sourceLogin:String, sourceHostname:String, mode:String):void</code><p>
+      Called when the mode of a user is set.
+       </p><p>
+      The implementation of this method in the Irc Client abstract class
+      performs no actions and may be overridden as required.
+      
+      
+      <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">targetNick</span>:String</code> &mdash; The nick that the mode operation applies to.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceNick</span>:String</code> &mdash; The nick of the user that set the mode.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceLogin</span>:String</code> &mdash; The login of the user that set the mode.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceHostname</span>:String</code> &mdash; The hostname of the user that set the mode.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">mode</span>:String</code> &mdash; The mode that has been set.
+      
+      </td>
+</tr>
+</table>
+</div>
+<a name="onVersion()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">onVersion</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected function onVersion(sourceNick:String, sourceLogin:String, sourceHostname:String, target:String):void</code><p>
+      This method is called whenever we receive a VERSION request.
+      This abstract implementation responds with the Irc Client's _version string,
+      so if you override this method, be sure to either mimic its functionality
+      or to call super.onVersion(...);
+      
+      </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceNick</span>:String</code> &mdash; The nick of the user that sent the VERSION request.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceLogin</span>:String</code> &mdash; The login of the user that sent the VERSION request.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceHostname</span>:String</code> &mdash; The hostname of the user that sent the VERSION request.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">target</span>:String</code> &mdash; The target of the VERSION request, be it our nick or a channel name.
+      </td>
+</tr>
+</table>
+</div>
+<a name="onVoice()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">onVoice</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected function onVoice(channel:String, sourceNick:String, sourceLogin:String, sourceHostname:String, recipient:String):void</code><p>
+      Called when a user (possibly us) gets voice status granted in a channel.
+       </p><p>
+      This is a type of mode change and is also passed to the onMode
+      method in the Irc Client class.
+       <p>
+      The implementation of this method in the Irc Client abstract class
+      performs no actions and may be overridden as required.
+            <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">channel</span>:String</code> &mdash; The channel in which the mode change took place.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceNick</span>:String</code> &mdash; The nick of the user that performed the mode change.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceLogin</span>:String</code> &mdash; The login of the user that performed the mode change.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceHostname</span>:String</code> &mdash; The hostname of the user that performed the mode change.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">recipient</span>:String</code> &mdash; The nick of the user that got 'voiced'.
+      </td>
+</tr>
+</table>
+</div>
+<a name="op()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">op</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public final function op(channel:String, nick:String):void</code><p>
+      Grants operator privilidges to a user on a channel.
+      Successful use of this method may require the bot to have operator
+      status itself.
+      
+      </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">channel</span>:String</code> &mdash; The channel we're opping the user on.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">nick</span>:String</code> &mdash; The nick of the user we are opping.
+      </td>
+</tr>
+</table>
+</div>
+<a name="partChannel()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">partChannel</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public final function partChannel(channel:String, reason:String = null):void</code><p>
+      Parts (leaves) a channel, giving an optional reason.
+            </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">channel</span>:String</code> &mdash; The name of the channel to leave.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">reason</span>:String</code> (default = <code>null</code>)<code></code> &mdash;  The reason for parting the channel. Defaults to null
+      </td>
+</tr>
+</table>
+</div>
+<a name="quitServer()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">quitServer</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public final function quitServer(reason:String = null):void</code><p>
+      Quits from the IRC server with an optional reason.
+      Providing we are actually connected to an IRC server, the
+      onDisconnect() method will be called as soon as the IRC server
+      disconnects us.
+            </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">reason</span>:String</code> (default = <code>null</code>)<code></code> &mdash; The reason for quitting the server.
+      </td>
+</tr>
+</table>
+</div>
+<a name="readLine()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">readLine</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected function readLine():String</code><p> 
+   Read a line from the socket and stick it in a buffer. 
+   Reads as many lines as are available. 
+   </p><p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>String</code></td>
+</tr>
+</table>
+</div>
+<a name="reconnect()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">reconnect</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public final function reconnect():void</code><p>
+      Reconnects to the IRC server that we were previously connected to.
+      The same port number and password will be used.
+      
+      </p><br>
+<span class="label">Throws</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code></code> &mdash; This method will throw an IrcError if we have never connected to an IRC server previously.
+      </td>
+</tr>
+</table>
+</div>
+<a name="removeChannelKey()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">removeChannelKey</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public final function removeChannelKey(channel:String, key:String):void</code><p>
+      Remove the key for a channel.
+      This method attempts to remove the key of a channel. 
+      
+      </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">channel</span>:String</code> &mdash; The channel on which to perform the mode change.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">key</span>:String</code> &mdash;   The key for the channel.
+      
+      </td>
+</tr>
+</table>
+</div>
+<a name="sendAction()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">sendAction</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public final function sendAction(target:String, action:String):void</code><p>
+      Sends an action to the channel or to a user.
+            </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">target</span>:String</code> &mdash; The name of the channel or user nick to send to.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">action</span>:String</code> &mdash; The action to send.
+      
+      </td>
+</tr>
+</table>
+</div>
+<a name="sendCTCPCommand()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">sendCTCPCommand</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public final function sendCTCPCommand(target:String, command:String):void</code><p>
+      Sends a CTCP command to a channel or user.  (Client to client protocol).
+      Examples of such commands are "PING <number>", "FINGER", "VERSION", etc.
+      For example, if you wish to request the version of a user called "Dave",
+      then you would call <code>sendCTCPCommand("Dave", "VERSION");</code>.
+      The type of response to such commands is largely dependant on the target
+      client software.
+            </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">target</span>:String</code> &mdash; The name of the channel or user to send the CTCP message to.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">command</span>:String</code> &mdash; The CTCP command to send.
+      </td>
+</tr>
+</table>
+</div>
+<a name="sendInvite()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">sendInvite</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public final function sendInvite(nick:String, channel:String):void</code><p>
+      Sends an invitation to join a channel.  Some channels can be marked
+      as "invite-only", so it may be useful to allow a bot to invite people
+      into it.
+      
+      </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">nick</span>:String</code> &mdash;    The nick of the user to invite
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">channel</span>:String</code> &mdash; The channel you are inviting the user to join.
+      
+      </td>
+</tr>
+</table>
+</div>
+<a name="sendMessage()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">sendMessage</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public final function sendMessage(target:String, message:String):void</code><p>
+      Sends a message to a channel or a private message to a user.  
+       </p><p>
+      Some examples: -
+       <pre>    // Send the message "Hello!" to the channel #cs.
+         sendMessage("#cs", "Hello!");
+         
+         // Send a private message to Paul that says "Hi".
+         sendMessage("Paul", "Hi");</pre>
+       
+            <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">target</span>:String</code> &mdash; The name of the channel or user nick to send to.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">message</span>:String</code> &mdash; The message to send.
+      
+      </td>
+</tr>
+</table>
+</div>
+<a name="sendNotice()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">sendNotice</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public final function sendNotice(target:String, notice:String):void</code><p>
+      Sends a notice to the channel or to a user.
+            </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">target</span>:String</code> &mdash; The name of the channel or user nick to send to.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">notice</span>:String</code> &mdash; The notice to send.
+      </td>
+</tr>
+</table>
+</div>
+<a name="sendRawLine()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">sendRawLine</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function sendRawLine(line:String):void</code><p>
+   Sends a raw line to the Irc server. If not connected this method 
+   will just return void.
+   
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">line</span>:String</code> &mdash; The line that will be sent to the server.
+   </td>
+</tr>
+</table>
+</div>
+<a name="setAutoNickChange()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">setAutoNickChange</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function setAutoNickChange(autoNickChange:Boolean):void</code><p>
+      When you connect to a server and your nick is already in use and
+      this is set to true, a new nick will be automatically chosen.
+      This is done by adding numbers to the end of the nick until an
+      available nick is found.
+            </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">autoNickChange</span>:Boolean</code> &mdash; Set to true if you want automatic nick changes
+                            during connection.
+      </td>
+</tr>
+</table>
+</div>
+<a name="setChannelKey()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">setChannelKey</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public final function setChannelKey(channel:String, key:String):void</code><p>
+      Set the key for a channel.
+      This method attempts to set the key of a channel. 
+      
+      </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">channel</span>:String</code> &mdash; The channel on which to perform the mode change.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">key</span>:String</code> &mdash;   The key for the channel.
+      
+      </td>
+</tr>
+</table>
+</div>
+<a name="setFinger()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">setFinger</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected final function setFinger(finger:String):void</code><p>
+      Sets the interal finger message.  This should be set before joining
+      any servers.
+            </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">finger</span>:String</code> &mdash; The new finger message for the Bot.
+      </td>
+</tr>
+</table>
+</div>
+<a name="setLogin()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">setLogin</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected final function setLogin(login:String):void</code><p>
+      Sets the internal login of the Bot.  This should be set before joining
+      any servers.
+            </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">login</span>:String</code> &mdash; The new login of the Bot.
+      </td>
+</tr>
+</table>
+</div>
+<a name="setMode()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">setMode</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public final function setMode(channel:String, mode:String):void</code><p>
+      Set the mode of a channel.
+      This method attempts to set the mode of a channel.  This
+      may require the bot to have operator status on the channel.
+      For example, if the bot has operator status, we can grant
+      operator status to "Dave" on the #cs channel
+      by calling setMode("#cs", "+o Dave");
+      An alternative way of doing this would be to use the op method.
+      
+      </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">channel</span>:String</code> &mdash; The channel on which to perform the mode change.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">mode</span>:String</code> &mdash;    The new mode to apply to the channel.  This may include
+                     zero or more arguments if necessary.
+      
+      </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../irc/AsIrcClient.html#op(String,String)" target="">op</a>
+</div>
+</div>
+<a name="setName()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">setName</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public final function setName(name:String):void</code><p>
+      Sets the name of the bot, which will be used as its nick when it
+      tries to join an IRC server.  This should be set before joining
+      any servers, otherwise the default nick will be used.  
+       </p><p>
+      The changeNick method should be used if you wish to change your nick
+      when you are connected to a server.
+            <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">name</span>:String</code> &mdash; The new name of the Bot.
+      </td>
+</tr>
+</table>
+</div>
+<a name="setTopic()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">setTopic</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public final function setTopic(channel:String, topic:String):void</code><p>
+      Set the topic for a channel.
+      This method attempts to set the topic of a channel.  This
+      may require the bot to have operator status if the topic
+      is protected.
+      
+      </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">channel</span>:String</code> &mdash; The channel on which to perform the mode change.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">topic</span>:String</code> &mdash;   The new topic for the channel.
+      
+      </td>
+</tr>
+</table>
+</div>
+<a name="setVerbose()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">setVerbose</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public final function setVerbose(verbose:Boolean):void</code><p>
+      Sets the verbose mode. If verbose mode is set to true, then log entries
+      will be traced. The default value is false and
+      will result in no output. For general development, we strongly recommend
+      setting the verbose mode to true.
+            </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">verbose</span>:Boolean</code> &mdash; true if verbose mode is to be used.  Default is false.
+      </td>
+</tr>
+</table>
+</div>
+<a name="setVersion()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">setVersion</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected final function setVersion(version:String):void</code><p>
+      Sets the internal version of the Bot.  This should be set before joining
+      any servers.
+            </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">version</span>:String</code> &mdash; The new version of the Bot.
+      </td>
+</tr>
+</table>
+</div>
+<a name="toString()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">toString</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function toString():String</code><p>
+      Returns a String representation of this object.
+      You may find this useful for debugging purposes, particularly
+      if you are using more than one Irc Client instance to achieve
+      multiple server connectivity. 
+      
+      </p><p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>String</code> &mdash; a String representation of this object.
+      </td>
+</tr>
+</table>
+</div>
+<a name="unBan()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">unBan</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public final function unBan(channel:String, hostmask:String):void</code><p>
+      Unbans a user from a channel.  An example of a valid hostmask is
+      "ompu</p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">channel</span>:String</code> &mdash; The channel to unban the user from.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">hostmask</span>:String</code> &mdash; A hostmask representing the user we're unbanning.
+      </td>
+</tr>
+</table>
+</div>
+<a name="verifyConnection()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">verifyConnection</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function verifyConnection(event:Event):void</code><p>
+    Setup the nick verify everyting is OK on initial connect. 
+    If successful, set status to connected. 
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">event</span>:Event</code></td>
+</tr>
+</table>
+</div>
+<a name="voice()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">voice</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public final function voice(channel:String, nick:String):void</code><p>
+      Grants voice privilidges to a user on a channel.
+      Successful use of this method may require the bot to have operator
+      status itself.
+      
+      </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">channel</span>:String</code> &mdash; The channel we're voicing the user on.
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">nick</span>:String</code> &mdash; The nick of the user we are voicing.
+      </td>
+</tr>
+</table>
+</div>
+<br>
+<br>
+<hr>
+<br>
+<p></p>
+<center class="copyright"> 
+</center>
+</div>
+</body>
+</html>
+<!-- -->

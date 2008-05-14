@@ -1,0 +1,3582 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="../../../style.css" type="text/css" media="screen">
+<link rel="stylesheet" href="../../../print.css" type="text/css" media="print">
+<meta content="FlexIrcClient,com.oosterwijk.irc.FlexIrcClient,CONNECT_EVENT,DISCONNECT_EVENT,NICK_ALREADY_IN_USE_EVENT,IRC_CONNECTION_ERROR_EVENT,SERVER_RESPONSE_EVENT,PRIVATE_MESSAGE_EVENT,ACTION_EVENT,NOTICE_EVENT,NICK_CHANGE_EVENT,QUIT_EVENT,USER_MODE_EVENT,INVITE_EVENT,USER_LIST_EVENT,MESSAGE_EVENT,JOIN_EVENT,PART_EVENT,KICK_EVENT,TOPIC_EVENT,CHANNEL_INFO_EVENT,MODE_EVENT,OP_EVENT,DE_OP_EVENT,VOICE_EVENT,DE_VOICE_EVENT,SET_CHANNEL_KEY_EVENT,REMOVE_CHANNEL_KEY_EVENT,SET_CHANNEL_LIMIT_EVENT,REMOVE_CHANNEL_LIMIT_EVENT,SET_CHANNEL_BAN_EVENT,REMOVE_CHANNEL_BAN_EVENT,SET_TOPIC_PROTECTION_EVENT,REMOVE_TOPIC_PROTECTION_EVENT,SET_NO_EXTERNAL_MESSAGES_EVENT,REMOVE_NO_EXTERNAL_MESSAGES_EVENT,SET_INVITE_ONLY_EVENT,REMOVE_INVITE_ONLY_EVENT,SET_MODERATED_EVENT,REMOVE_MODERATED_EVENT,SET_PRIVATE_EVENT,REMOVE_PRIVATE_EVENT,SET_SECRET_EVENT,REMOVE_SECRECT_EVENT,hasEventListener,willTrigger,addEventListener,removeEventListener,dispatchEvent,onConnect,onDisconnect,onNickNameAlreadyInUse,onConnectionError,onServerResponse,onPrivateMessage,onAction,onNotice,onNickChange,onQuit,onUserMode,onInvite,onUserList,onMessage,onJoin,onPart,onKick,onTopic,onChannelInfo,onMode,onOp,onDeop,onVoice,onDeVoice,onSetChannelKey,onRemoveChannelKey,onSetChannelLimit,onRemoveChannelLimit,onSetChannelBan,onRemoveChannelBan,onSetTopicProtection,onRemoveTopicProtection,onSetNoExternalMessages,onRemoveNoExternalMessages,onSetInviteOnly,onRemoveInviteOnly,onSetModerated,onRemoveModerated,onSetPrivate,onRemovePrivate,onSetSecret,onRemoveSecret" name="keywords">
+<title>com.oosterwijk.irc.FlexIrcClient</title>
+</head>
+<body>
+<script type="text/javascript" language="javascript" src="../../../asdoc.js"></script><script type="text/javascript" language="javascript" src="../../../cookies.js"></script><script type="text/javascript" language="javascript">
+<!--
+				asdocTitle = 'FlexIrcClient - AS-IRC-Lib-documentation';
+				var baseRef = '../../../';
+				window.onload = configPage;
+			--></script>
+<table style="display:none" id="titleTable" cellspacing="0" cellpadding="0" class="titleTable">
+<tr>
+<td align="left" class="titleTableTitle">AS-IRC-Lib-documentation</td><td align="right" class="titleTableTopNav"><a onclick="loadClassListFrame('../../../all-classes.html')" href="../../../package-summary.html">All&nbsp;Packages</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../../../all-classes.html')" href="../../../class-summary.html">All&nbsp;Classes</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../../../index-list.html')" href="../../../all-index-A.html">Index</a>&nbsp;|&nbsp;<a href="../../../index.html?com/oosterwijk/irc/FlexIrcClient.html&amp;com/oosterwijk/irc/class-list.html" id="framesLink1">Frames</a><a onclick="parent.location=document.location" href="" style="display:none" id="noFramesLink1">No&nbsp;Frames</a></td><td rowspan="3" align="right" class="titleTableLogo"><img alt="Adobe Logo" title="Adobe Logo" class="logoImage" src="../../../images/logo.jpg"></td>
+</tr>
+<tr class="titleTableRow2">
+<td align="left" id="subTitle" class="titleTableSubTitle">Class&nbsp;FlexIrcClient</td><td align="right" id="subNav" class="titleTableSubNav"><a href="#propertySummary">Properties</a>&nbsp;| <a href="#methodSummary">Methods</a></td>
+</tr>
+<tr class="titleTableRow3">
+<td colspan="2">&nbsp;</td>
+</tr>
+</table>
+<script type="text/javascript" language="javascript">
+<!--
+if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Class FlexIrcClient"); titleBar_setSubNav(false,true,false,false,false,false,true,false,false,false,false,false,false,false);}
+--></script>
+<div class="MainContent">
+<table cellspacing="0" cellpadding="0" class="classHeaderTable">
+<tr>
+<td class="classHeaderTableLabel">Package</td><td><a onclick="javascript:loadClassListFrame('class-list.html')" href="package-detail.html">com.oosterwijk.irc</a></td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Class</td><td class="classSignature">public class FlexIrcClient</td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Inheritance</td><td class="inheritanceList">FlexIrcClient <img class="inheritArrow" alt="Inheritance" title="Inheritance" src="../../../images/inherit-arrow.gif"> <a href="AsIrcClient.html">AsIrcClient</a></td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Implements</td><td>flash.events.IEventDispatcher</td>
+</tr>
+</table>
+<p></p>
+  This class implements a Flex-based IRC Client. This class Translates the
+  'On<i>IrcEvent</i>() methods from the AsIrcClient Class into Flex Events.
+  The evens are divided into three classes. ServerEvent,UserEvent and ChannelEvent.
+  Each event will be set with a type indicating the exact nature of the irc event that occurred
+  The events will also have properties set relevant to that particular operation. for a list of all
+  the properties that are set for each action, look at the 'On<i>IrcEvent</i>() methods below.
+  
+  <p></p>
+<p>
+<span class="classHeaderTableLabel">See also</span>
+</p>
+<div class="seeAlso">
+<a href="AsIrcClient.html" target="">AsIrcClient</a>
+</div>
+<br>
+<hr>
+</div>
+<a name="propertySummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Properties</div>
+<div class="showHideLinks">
+<div class="hideInheritedProperty" id="hideInheritedProperty">
+<a onclick="javascript:setInheritedVisible(false,'Property');" href="#propertySummary" class="showHideLink"><img src="../../../images/expanded.gif" class="showHideLinkImage"> Hide Inherited Public Properties</a>
+</div>
+<div class="showInheritedProperty" id="showInheritedProperty">
+<a onclick="javascript:setInheritedVisible(true,'Property');" href="#propertySummary" class="showHideLink"><img src="../../../images/collapsed.gif" class="showHideLinkImage"> Show Inherited Public Properties</a>
+</div>
+</div>
+<table id="summaryTableProperty" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Property</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#ACTION_EVENT">ACTION_EVENT</a> : String = "actionEvent"<div class="summaryTableDescription">[static]</div>
+</td><td class="summaryTableOwnerCol">FlexIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#CHANNEL_INFO_EVENT">CHANNEL_INFO_EVENT</a> : String = "channelInfoEvent"<div class="summaryTableDescription">[static]</div>
+</td><td class="summaryTableOwnerCol">FlexIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#CONNECT_EVENT">CONNECT_EVENT</a> : String = "connectEvent"<div class="summaryTableDescription">[static]</div>
+</td><td class="summaryTableOwnerCol">FlexIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#DE_OP_EVENT">DE_OP_EVENT</a> : String = "deopEvent"<div class="summaryTableDescription">[static]</div>
+</td><td class="summaryTableOwnerCol">FlexIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#DE_VOICE_EVENT">DE_VOICE_EVENT</a> : String = "deVoiceEvent"<div class="summaryTableDescription">[static]</div>
+</td><td class="summaryTableOwnerCol">FlexIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#DISCONNECT_EVENT">DISCONNECT_EVENT</a> : String = "disconnectEvent"<div class="summaryTableDescription">[static]</div>
+</td><td class="summaryTableOwnerCol">FlexIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#INVITE_EVENT">INVITE_EVENT</a> : String = "inviteEvent"<div class="summaryTableDescription">[static]</div>
+</td><td class="summaryTableOwnerCol">FlexIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#IRC_CONNECTION_ERROR_EVENT">IRC_CONNECTION_ERROR_EVENT</a> : String = "IRCConnectionErrorEvent"<div class="summaryTableDescription">[static]</div>
+</td><td class="summaryTableOwnerCol">FlexIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#JOIN_EVENT">JOIN_EVENT</a> : String = "joinEvent"<div class="summaryTableDescription">[static]</div>
+</td><td class="summaryTableOwnerCol">FlexIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#KICK_EVENT">KICK_EVENT</a> : String = "kickEvent"<div class="summaryTableDescription">[static]</div>
+</td><td class="summaryTableOwnerCol">FlexIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#MESSAGE_EVENT">MESSAGE_EVENT</a> : String = "messageEvent"<div class="summaryTableDescription">[static]</div>
+</td><td class="summaryTableOwnerCol">FlexIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#MODE_EVENT">MODE_EVENT</a> : String = "modeEvent"<div class="summaryTableDescription">[static]</div>
+</td><td class="summaryTableOwnerCol">FlexIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#NICK_ALREADY_IN_USE_EVENT">NICK_ALREADY_IN_USE_EVENT</a> : String = "nickAlreadyInUseEvent"<div class="summaryTableDescription">[static]</div>
+</td><td class="summaryTableOwnerCol">FlexIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#NICK_CHANGE_EVENT">NICK_CHANGE_EVENT</a> : String = "nickChangeEvent"<div class="summaryTableDescription">[static]</div>
+</td><td class="summaryTableOwnerCol">FlexIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#NOTICE_EVENT">NOTICE_EVENT</a> : String = "noticeEvent"<div class="summaryTableDescription">[static]</div>
+</td><td class="summaryTableOwnerCol">FlexIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#OP_EVENT">OP_EVENT</a> : String = "opEvent"<div class="summaryTableDescription">[static]</div>
+</td><td class="summaryTableOwnerCol">FlexIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#PART_EVENT">PART_EVENT</a> : String = "partEvent"<div class="summaryTableDescription">[static]</div>
+</td><td class="summaryTableOwnerCol">FlexIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#PRIVATE_MESSAGE_EVENT">PRIVATE_MESSAGE_EVENT</a> : String = "privateMessageEvent"<div class="summaryTableDescription">[static]</div>
+</td><td class="summaryTableOwnerCol">FlexIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#QUIT_EVENT">QUIT_EVENT</a> : String = "quitEvent"<div class="summaryTableDescription">[static]</div>
+</td><td class="summaryTableOwnerCol">FlexIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#REMOVE_CHANNEL_BAN_EVENT">REMOVE_CHANNEL_BAN_EVENT</a> : String = "removeChannelBanEvent"<div class="summaryTableDescription">[static]</div>
+</td><td class="summaryTableOwnerCol">FlexIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#REMOVE_CHANNEL_KEY_EVENT">REMOVE_CHANNEL_KEY_EVENT</a> : String = "removeChannelKeyEvent"<div class="summaryTableDescription">[static]</div>
+</td><td class="summaryTableOwnerCol">FlexIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#REMOVE_CHANNEL_LIMIT_EVENT">REMOVE_CHANNEL_LIMIT_EVENT</a> : String = "removeChannelLimitEvent"<div class="summaryTableDescription">[static]</div>
+</td><td class="summaryTableOwnerCol">FlexIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#REMOVE_INVITE_ONLY_EVENT">REMOVE_INVITE_ONLY_EVENT</a> : String = "removeInviteOnlyEvent"<div class="summaryTableDescription">[static]</div>
+</td><td class="summaryTableOwnerCol">FlexIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#REMOVE_MODERATED_EVENT">REMOVE_MODERATED_EVENT</a> : String = "removeModeratedEvent"<div class="summaryTableDescription">[static]</div>
+</td><td class="summaryTableOwnerCol">FlexIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#REMOVE_NO_EXTERNAL_MESSAGES_EVENT">REMOVE_NO_EXTERNAL_MESSAGES_EVENT</a> : String = "removeNoExternalMessagesEvent"<div class="summaryTableDescription">[static]</div>
+</td><td class="summaryTableOwnerCol">FlexIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#REMOVE_PRIVATE_EVENT">REMOVE_PRIVATE_EVENT</a> : String = "removePrivateEvent"<div class="summaryTableDescription">[static]</div>
+</td><td class="summaryTableOwnerCol">FlexIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#REMOVE_SECRECT_EVENT">REMOVE_SECRECT_EVENT</a> : String = "removeSecretEvent"<div class="summaryTableDescription">[static]</div>
+</td><td class="summaryTableOwnerCol">FlexIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#REMOVE_TOPIC_PROTECTION_EVENT">REMOVE_TOPIC_PROTECTION_EVENT</a> : String = "removeTopicProtectionEvent"<div class="summaryTableDescription">[static]</div>
+</td><td class="summaryTableOwnerCol">FlexIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#SERVER_RESPONSE_EVENT">SERVER_RESPONSE_EVENT</a> : String = "serverResponseEvent"<div class="summaryTableDescription">[static]</div>
+</td><td class="summaryTableOwnerCol">FlexIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#SET_CHANNEL_BAN_EVENT">SET_CHANNEL_BAN_EVENT</a> : String = "setChannelBanEvent"<div class="summaryTableDescription">[static]</div>
+</td><td class="summaryTableOwnerCol">FlexIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#SET_CHANNEL_KEY_EVENT">SET_CHANNEL_KEY_EVENT</a> : String = "setChannelKeyEvent"<div class="summaryTableDescription">[static]</div>
+</td><td class="summaryTableOwnerCol">FlexIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#SET_CHANNEL_LIMIT_EVENT">SET_CHANNEL_LIMIT_EVENT</a> : String = "setChannelLimitEvent"<div class="summaryTableDescription">[static]</div>
+</td><td class="summaryTableOwnerCol">FlexIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#SET_INVITE_ONLY_EVENT">SET_INVITE_ONLY_EVENT</a> : String = "setInviteOnlyEvent"<div class="summaryTableDescription">[static]</div>
+</td><td class="summaryTableOwnerCol">FlexIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#SET_MODERATED_EVENT">SET_MODERATED_EVENT</a> : String = "setModeratedEvent"<div class="summaryTableDescription">[static]</div>
+</td><td class="summaryTableOwnerCol">FlexIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#SET_NO_EXTERNAL_MESSAGES_EVENT">SET_NO_EXTERNAL_MESSAGES_EVENT</a> : String = "setNoExternalMessagesEvent"<div class="summaryTableDescription">[static]</div>
+</td><td class="summaryTableOwnerCol">FlexIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#SET_PRIVATE_EVENT">SET_PRIVATE_EVENT</a> : String = "setPrivateEvent"<div class="summaryTableDescription">[static]</div>
+</td><td class="summaryTableOwnerCol">FlexIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#SET_SECRET_EVENT">SET_SECRET_EVENT</a> : String = "setSecretEvent"<div class="summaryTableDescription">[static]</div>
+</td><td class="summaryTableOwnerCol">FlexIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#SET_TOPIC_PROTECTION_EVENT">SET_TOPIC_PROTECTION_EVENT</a> : String = "setTopicProtectionEvent"<div class="summaryTableDescription">[static]</div>
+</td><td class="summaryTableOwnerCol">FlexIrcClient</td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="AsIrcClient.html#STATUS_CONNECTED">STATUS_CONNECTED</a> : String = "connected"<div class="summaryTableDescription">[static]</div>
+</td><td class="summaryTableOwnerCol"><a href="AsIrcClient.html">AsIrcClient</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="AsIrcClient.html#STATUS_CONNECTING">STATUS_CONNECTING</a> : String = "connecting"<div class="summaryTableDescription">[static]
+   These static variables hold the statuses that this IRC client can have.</div>
+</td><td class="summaryTableOwnerCol"><a href="AsIrcClient.html">AsIrcClient</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="AsIrcClient.html#STATUS_DISCONNECTED">STATUS_DISCONNECTED</a> : String = "disconnected"<div class="summaryTableDescription">[static]</div>
+</td><td class="summaryTableOwnerCol"><a href="AsIrcClient.html">AsIrcClient</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="AsIrcClient.html#STATUS_HANDLING_CONNECT">STATUS_HANDLING_CONNECT</a> : String = "handling connect"<div class="summaryTableDescription">[static]</div>
+</td><td class="summaryTableOwnerCol"><a href="AsIrcClient.html">AsIrcClient</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#TOPIC_EVENT">TOPIC_EVENT</a> : String = "topicEvent"<div class="summaryTableDescription">[static]</div>
+</td><td class="summaryTableOwnerCol">FlexIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#USER_LIST_EVENT">USER_LIST_EVENT</a> : String = "userListEvent"<div class="summaryTableDescription">[static]</div>
+</td><td class="summaryTableOwnerCol">FlexIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#USER_MODE_EVENT">USER_MODE_EVENT</a> : String = "userModeEvent"<div class="summaryTableDescription">[static]</div>
+</td><td class="summaryTableOwnerCol">FlexIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#VOICE_EVENT">VOICE_EVENT</a> : String = "voiceEvent"<div class="summaryTableDescription">[static]</div>
+</td><td class="summaryTableOwnerCol">FlexIrcClient</td>
+</tr>
+</table>
+</div>
+<a name="methodSummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Methods</div>
+<div class="showHideLinks">
+<div class="hideInheritedMethod" id="hideInheritedMethod">
+<a onclick="javascript:setInheritedVisible(false,'Method');" href="#methodSummary" class="showHideLink"><img src="../../../images/expanded.gif" class="showHideLinkImage"> Hide Inherited Public Methods</a>
+</div>
+<div class="showInheritedMethod" id="showInheritedMethod">
+<a onclick="javascript:setInheritedVisible(true,'Method');" href="#methodSummary" class="showHideLink"><img src="../../../images/collapsed.gif" class="showHideLinkImage"> Show Inherited Public Methods</a>
+</div>
+</div>
+<table id="summaryTableMethod" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Method</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#addEventListener()">addEventListener</a>(type:String, listener:Function, useCapture:Boolean = false, priority:int = 0.0, useWeakReference:Boolean = false):void</div>
+<div class="summaryTableDescription">
+   </div>
+</td><td class="summaryTableOwnerCol">FlexIrcClient</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="AsIrcClient.html#ban()">ban</a>(channel:String, hostmask:String):void</div>
+<div class="summaryTableDescription">
+      Bans a user from a channel.</div>
+</td><td class="summaryTableOwnerCol"><a href="AsIrcClient.html">AsIrcClient</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="AsIrcClient.html#changeNick()">changeNick</a>(newNick:String):void</div>
+<div class="summaryTableDescription">
+      Attempt to change the current nick (nickname) of the bot when it
+      is connected to an IRC server.</div>
+</td><td class="summaryTableOwnerCol"><a href="AsIrcClient.html">AsIrcClient</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="AsIrcClient.html#connect()">connect</a>(host:String, port:int = 6667, password:String = null):void</div>
+<div class="summaryTableDescription">
+      Attempt to connect to the specified IRC server.</div>
+</td><td class="summaryTableOwnerCol"><a href="AsIrcClient.html">AsIrcClient</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="AsIrcClient.html#deOp()">deOp</a>(channel:String, nick:String):void</div>
+<div class="summaryTableDescription">
+      Removes operator privilidges from a user on a channel.</div>
+</td><td class="summaryTableOwnerCol"><a href="AsIrcClient.html">AsIrcClient</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="AsIrcClient.html#deVoice()">deVoice</a>(channel:String, nick:String):void</div>
+<div class="summaryTableDescription">
+      Removes voice privilidges from a user on a channel.</div>
+</td><td class="summaryTableOwnerCol"><a href="AsIrcClient.html">AsIrcClient</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="AsIrcClient.html#disconnect()">disconnect</a>():void</div>
+<div class="summaryTableDescription">
+      This method disconnects from the server cleanly by calling the
+      quitServer() method.</div>
+</td><td class="summaryTableOwnerCol"><a href="AsIrcClient.html">AsIrcClient</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#dispatchEvent()">dispatchEvent</a>(event:Event):Boolean</div>
+<div class="summaryTableDescription">
+   </div>
+</td><td class="summaryTableOwnerCol">FlexIrcClient</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="AsIrcClient.html#getChannels()">getChannels</a>():Array</div>
+<div class="summaryTableDescription">
+      Returns an array of all channels that we are in.</div>
+</td><td class="summaryTableOwnerCol"><a href="AsIrcClient.html">AsIrcClient</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="AsIrcClient.html#getFinger()">getFinger</a>():String</div>
+<div class="summaryTableDescription">
+      Gets the internal finger message of the Irc Client.</div>
+</td><td class="summaryTableOwnerCol"><a href="AsIrcClient.html">AsIrcClient</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="AsIrcClient.html#getLogin()">getLogin</a>():String</div>
+<div class="summaryTableDescription">
+      Gets the internal login of the Irc Client.</div>
+</td><td class="summaryTableOwnerCol"><a href="AsIrcClient.html">AsIrcClient</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="AsIrcClient.html#getMaxLineLength()">getMaxLineLength</a>():int</div>
+<div class="summaryTableDescription">
+      Gets the maximum length of any line that is sent via the IRC protocol.</div>
+</td><td class="summaryTableOwnerCol"><a href="AsIrcClient.html">AsIrcClient</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="AsIrcClient.html#getName()">getName</a>():String</div>
+<div class="summaryTableDescription">
+      Gets the name of the Irc Client.</div>
+</td><td class="summaryTableOwnerCol"><a href="AsIrcClient.html">AsIrcClient</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="AsIrcClient.html#getNick()">getNick</a>():String</div>
+<div class="summaryTableDescription">
+      Returns the current nick of the bot.</div>
+</td><td class="summaryTableOwnerCol"><a href="AsIrcClient.html">AsIrcClient</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="AsIrcClient.html#getPassword()">getPassword</a>():String</div>
+<div class="summaryTableDescription">
+      Returns the last password that we used when connecting to an IRC server.</div>
+</td><td class="summaryTableOwnerCol"><a href="AsIrcClient.html">AsIrcClient</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="AsIrcClient.html#getPort()">getPort</a>():int</div>
+<div class="summaryTableDescription">
+      Returns the port number of the last IRC server that the Irc Client tried
+      to connect to.</div>
+</td><td class="summaryTableOwnerCol"><a href="AsIrcClient.html">AsIrcClient</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="AsIrcClient.html#getServer()">getServer</a>():String</div>
+<div class="summaryTableDescription">
+      Returns the name of the last IRC server the Irc Client tried to connect to.</div>
+</td><td class="summaryTableOwnerCol"><a href="AsIrcClient.html">AsIrcClient</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="AsIrcClient.html#getUsers()">getUsers</a>(channel:String):Array</div>
+<div class="summaryTableDescription">
+      Returns an array of all users in the specified channel.</div>
+</td><td class="summaryTableOwnerCol"><a href="AsIrcClient.html">AsIrcClient</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="AsIrcClient.html#getVersion()">getVersion</a>():String</div>
+<div class="summaryTableDescription">
+      Gets the internal version of the Irc Client.</div>
+</td><td class="summaryTableOwnerCol"><a href="AsIrcClient.html">AsIrcClient</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#hasEventListener()">hasEventListener</a>(type:String):Boolean</div>
+<div class="summaryTableDescription">
+   </div>
+</td><td class="summaryTableOwnerCol">FlexIrcClient</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="AsIrcClient.html#isConnected()">isConnected</a>():Boolean</div>
+<div class="summaryTableDescription">
+      Returns whether or not the Irc Client is currently connected to a server.</div>
+</td><td class="summaryTableOwnerCol"><a href="AsIrcClient.html">AsIrcClient</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="AsIrcClient.html#joinChannel()">joinChannel</a>(channel:String, key:String = null):void</div>
+<div class="summaryTableDescription">
+      Joins a channel.</div>
+</td><td class="summaryTableOwnerCol"><a href="AsIrcClient.html">AsIrcClient</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="AsIrcClient.html#kick()">kick</a>(channel:String, nick:String, reason:String = ""):void</div>
+<div class="summaryTableDescription">
+      Kicks a user from a channel, giving a reason.</div>
+</td><td class="summaryTableOwnerCol"><a href="AsIrcClient.html">AsIrcClient</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="AsIrcClient.html#listChannels()">listChannels</a>(parameters:String = null):void</div>
+<div class="summaryTableDescription">
+      Issues a request for a list of all channels on the IRC server.</div>
+</td><td class="summaryTableOwnerCol"><a href="AsIrcClient.html">AsIrcClient</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="AsIrcClient.html#log()">log</a>(line:String):void</div>
+<div class="summaryTableDescription">
+   This method currently just traces the input line.</div>
+</td><td class="summaryTableOwnerCol"><a href="AsIrcClient.html">AsIrcClient</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="AsIrcClient.html#op()">op</a>(channel:String, nick:String):void</div>
+<div class="summaryTableDescription">
+      Grants operator privilidges to a user on a channel.</div>
+</td><td class="summaryTableOwnerCol"><a href="AsIrcClient.html">AsIrcClient</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="AsIrcClient.html#partChannel()">partChannel</a>(channel:String, reason:String = null):void</div>
+<div class="summaryTableDescription">
+      Parts (leaves) a channel, giving an optional reason.</div>
+</td><td class="summaryTableOwnerCol"><a href="AsIrcClient.html">AsIrcClient</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="AsIrcClient.html#quitServer()">quitServer</a>(reason:String = null):void</div>
+<div class="summaryTableDescription">
+      Quits from the IRC server with an optional reason.</div>
+</td><td class="summaryTableOwnerCol"><a href="AsIrcClient.html">AsIrcClient</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="AsIrcClient.html#reconnect()">reconnect</a>():void</div>
+<div class="summaryTableDescription">
+      Reconnects to the IRC server that we were previously connected to.</div>
+</td><td class="summaryTableOwnerCol"><a href="AsIrcClient.html">AsIrcClient</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="AsIrcClient.html#removeChannelKey()">removeChannelKey</a>(channel:String, key:String):void</div>
+<div class="summaryTableDescription">
+      Remove the key for a channel.</div>
+</td><td class="summaryTableOwnerCol"><a href="AsIrcClient.html">AsIrcClient</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#removeEventListener()">removeEventListener</a>(type:String, listener:Function, useCapture:Boolean = false):void</div>
+<div class="summaryTableDescription">
+   </div>
+</td><td class="summaryTableOwnerCol">FlexIrcClient</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="AsIrcClient.html#sendAction()">sendAction</a>(target:String, action:String):void</div>
+<div class="summaryTableDescription">
+      Sends an action to the channel or to a user.</div>
+</td><td class="summaryTableOwnerCol"><a href="AsIrcClient.html">AsIrcClient</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="AsIrcClient.html#sendCTCPCommand()">sendCTCPCommand</a>(target:String, command:String):void</div>
+<div class="summaryTableDescription">
+      Sends a CTCP command to a channel or user.</div>
+</td><td class="summaryTableOwnerCol"><a href="AsIrcClient.html">AsIrcClient</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="AsIrcClient.html#sendInvite()">sendInvite</a>(nick:String, channel:String):void</div>
+<div class="summaryTableDescription">
+      Sends an invitation to join a channel.</div>
+</td><td class="summaryTableOwnerCol"><a href="AsIrcClient.html">AsIrcClient</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="AsIrcClient.html#sendMessage()">sendMessage</a>(target:String, message:String):void</div>
+<div class="summaryTableDescription">
+      Sends a message to a channel or a private message to a user.</div>
+</td><td class="summaryTableOwnerCol"><a href="AsIrcClient.html">AsIrcClient</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="AsIrcClient.html#sendNotice()">sendNotice</a>(target:String, notice:String):void</div>
+<div class="summaryTableDescription">
+      Sends a notice to the channel or to a user.</div>
+</td><td class="summaryTableOwnerCol"><a href="AsIrcClient.html">AsIrcClient</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="AsIrcClient.html#sendRawLine()">sendRawLine</a>(line:String):void</div>
+<div class="summaryTableDescription">
+   Sends a raw line to the Irc server.</div>
+</td><td class="summaryTableOwnerCol"><a href="AsIrcClient.html">AsIrcClient</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="AsIrcClient.html#setAutoNickChange()">setAutoNickChange</a>(autoNickChange:Boolean):void</div>
+<div class="summaryTableDescription">
+      When you connect to a server and your nick is already in use and
+      this is set to true, a new nick will be automatically chosen.</div>
+</td><td class="summaryTableOwnerCol"><a href="AsIrcClient.html">AsIrcClient</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="AsIrcClient.html#setChannelKey()">setChannelKey</a>(channel:String, key:String):void</div>
+<div class="summaryTableDescription">
+      Set the key for a channel.</div>
+</td><td class="summaryTableOwnerCol"><a href="AsIrcClient.html">AsIrcClient</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="AsIrcClient.html#setMode()">setMode</a>(channel:String, mode:String):void</div>
+<div class="summaryTableDescription">
+      Set the mode of a channel.</div>
+</td><td class="summaryTableOwnerCol"><a href="AsIrcClient.html">AsIrcClient</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="AsIrcClient.html#setName()">setName</a>(name:String):void</div>
+<div class="summaryTableDescription">
+      Sets the name of the bot, which will be used as its nick when it
+      tries to join an IRC server.</div>
+</td><td class="summaryTableOwnerCol"><a href="AsIrcClient.html">AsIrcClient</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="AsIrcClient.html#setTopic()">setTopic</a>(channel:String, topic:String):void</div>
+<div class="summaryTableDescription">
+      Set the topic for a channel.</div>
+</td><td class="summaryTableOwnerCol"><a href="AsIrcClient.html">AsIrcClient</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="AsIrcClient.html#setVerbose()">setVerbose</a>(verbose:Boolean):void</div>
+<div class="summaryTableDescription">
+      Sets the verbose mode.</div>
+</td><td class="summaryTableOwnerCol"><a href="AsIrcClient.html">AsIrcClient</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="AsIrcClient.html#toString()">toString</a>():String</div>
+<div class="summaryTableDescription">
+      Returns a String representation of this object.</div>
+</td><td class="summaryTableOwnerCol"><a href="AsIrcClient.html">AsIrcClient</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="AsIrcClient.html#unBan()">unBan</a>(channel:String, hostmask:String):void</div>
+<div class="summaryTableDescription">
+      Unbans a user from a channel.</div>
+</td><td class="summaryTableOwnerCol"><a href="AsIrcClient.html">AsIrcClient</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="AsIrcClient.html#verifyConnection()">verifyConnection</a>(event:Event):void</div>
+<div class="summaryTableDescription">
+    Setup the nick verify everyting is OK on initial connect.</div>
+</td><td class="summaryTableOwnerCol"><a href="AsIrcClient.html">AsIrcClient</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="AsIrcClient.html#voice()">voice</a>(channel:String, nick:String):void</div>
+<div class="summaryTableDescription">
+      Grants voice privilidges to a user on a channel.</div>
+</td><td class="summaryTableOwnerCol"><a href="AsIrcClient.html">AsIrcClient</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#willTrigger()">willTrigger</a>(type:String):Boolean</div>
+<div class="summaryTableDescription">
+   </div>
+</td><td class="summaryTableOwnerCol">FlexIrcClient</td>
+</tr>
+</table>
+</div>
+<a name="protectedMethodSummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Protected Methods</div>
+<div class="showHideLinks">
+<div class="hideInheritedProtectedMethod" id="hideInheritedProtectedMethod">
+<a onclick="javascript:setInheritedVisible(false,'ProtectedMethod');" href="#protectedMethodSummary" class="showHideLink"><img src="../../../images/expanded.gif" class="showHideLinkImage"> Hide Inherited Protected Methods</a>
+</div>
+<div class="showInheritedProtectedMethod" id="showInheritedProtectedMethod">
+<a onclick="javascript:setInheritedVisible(true,'ProtectedMethod');" href="#protectedMethodSummary" class="showHideLink"><img src="../../../images/collapsed.gif" class="showHideLinkImage"> Show Inherited Protected Methods</a>
+</div>
+</div>
+<table id="summaryTableProtectedMethod" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Method</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#onAction()">onAction</a>(sender:String, login:String, hostname:String, target:String, action:String):void</div>
+<div class="summaryTableDescription">
+   Dispatches a new UserEvent when called.</div>
+</td><td class="summaryTableOwnerCol">FlexIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#onChannelInfo()">onChannelInfo</a>(channel:String, userCount:int, topic:String):void</div>
+<div class="summaryTableDescription">
+   Dispatches a new ChannelEvent when called.</div>
+</td><td class="summaryTableOwnerCol">FlexIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#onConnect()">onConnect</a>():void</div>
+<div class="summaryTableDescription">
+   Dispatches a new ServerEvent when called.</div>
+</td><td class="summaryTableOwnerCol">FlexIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#onConnectionError()">onConnectionError</a>(line:String):void</div>
+<div class="summaryTableDescription">
+     Dispatches a new ServerEvent when called.</div>
+</td><td class="summaryTableOwnerCol">FlexIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#onDeop()">onDeop</a>(channel:String, sourceNick:String, sourceLogin:String, sourceHostname:String, recipient:String):void</div>
+<div class="summaryTableDescription">
+   Dispatches a new ChannelEvent when called.</div>
+</td><td class="summaryTableOwnerCol">FlexIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#onDeVoice()">onDeVoice</a>(channel:String, sourceNick:String, sourceLogin:String, sourceHostname:String, recipient:String):void</div>
+<div class="summaryTableDescription">
+   Dispatches a new ChannelEvent when called.</div>
+</td><td class="summaryTableOwnerCol">FlexIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#onDisconnect()">onDisconnect</a>():void</div>
+<div class="summaryTableDescription">
+   Dispatches a new ServerEvent when called.</div>
+</td><td class="summaryTableOwnerCol">FlexIrcClient</td>
+</tr>
+<tr class="hideInheritedProtectedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="AsIrcClient.html#onFinger()">onFinger</a>(sourceNick:String, sourceLogin:String, sourceHostname:String, target:String):void</div>
+<div class="summaryTableDescription">
+      This method is called whenever we receive a FINGER request.</div>
+</td><td class="summaryTableOwnerCol"><a href="AsIrcClient.html">AsIrcClient</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#onInvite()">onInvite</a>(targetNick:String, sourceNick:String, sourceLogin:String, sourceHostname:String, channel:String):void</div>
+<div class="summaryTableDescription">
+   Dispatches a new ChannelEvent when called.</div>
+</td><td class="summaryTableOwnerCol">FlexIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#onJoin()">onJoin</a>(channel:String, sender:String, login:String, hostname:String):void</div>
+<div class="summaryTableDescription">
+   Dispatches a new ChannelEvent when called.</div>
+</td><td class="summaryTableOwnerCol">FlexIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#onKick()">onKick</a>(channel:String, kickerNick:String, kickerLogin:String, kickerHostname:String, recipientNick:String, reason:String):void</div>
+<div class="summaryTableDescription">
+   Dispatches a new ChannelEvent when called.</div>
+</td><td class="summaryTableOwnerCol">FlexIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#onMessage()">onMessage</a>(channel:String, sender:String, login:String, hostname:String, message:String):void</div>
+<div class="summaryTableDescription">
+   Dispatches a new ChannelEvent when called.</div>
+</td><td class="summaryTableOwnerCol">FlexIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#onMode()">onMode</a>(channel:String, sourceNick:String, sourceLogin:String, sourceHostname:String, mode:String):void</div>
+<div class="summaryTableDescription">
+   Dispatches a new ChannelEvent when called.</div>
+</td><td class="summaryTableOwnerCol">FlexIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#onNickChange()">onNickChange</a>(oldNick:String, login:String, hostname:String, newNick:String):void</div>
+<div class="summaryTableDescription">
+   Dispatches a new UserEvent when called.</div>
+</td><td class="summaryTableOwnerCol">FlexIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#onNickNameAlreadyInUse()">onNickNameAlreadyInUse</a>():void</div>
+<div class="summaryTableDescription">
+     Dispatches a new ServerEvent when called.</div>
+</td><td class="summaryTableOwnerCol">FlexIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#onNotice()">onNotice</a>(sourceNick:String, sourceLogin:String, sourceHostname:String, target:String, notice:String):void</div>
+<div class="summaryTableDescription">
+   Dispatches a new UserEvent when called.</div>
+</td><td class="summaryTableOwnerCol">FlexIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#onOp()">onOp</a>(channel:String, sourceNick:String, sourceLogin:String, sourceHostname:String, recipient:String):void</div>
+<div class="summaryTableDescription">
+   Dispatches a new ChannelEvent when called.</div>
+</td><td class="summaryTableOwnerCol">FlexIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#onPart()">onPart</a>(channel:String, sender:String, login:String, hostname:String):void</div>
+<div class="summaryTableDescription">
+   Dispatches a new ChannelEvent when called.</div>
+</td><td class="summaryTableOwnerCol">FlexIrcClient</td>
+</tr>
+<tr class="hideInheritedProtectedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="AsIrcClient.html#onPing()">onPing</a>(sourceNick:String, sourceLogin:String, sourceHostname:String, target:String, pingValue:String):void</div>
+<div class="summaryTableDescription">
+      This method is called whenever we receive a PING request from another
+      user.</div>
+</td><td class="summaryTableOwnerCol"><a href="AsIrcClient.html">AsIrcClient</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#onPrivateMessage()">onPrivateMessage</a>(sender:String, login:String, hostname:String, message:String):void</div>
+<div class="summaryTableDescription">
+   Dispatches a new UserEvent when called.</div>
+</td><td class="summaryTableOwnerCol">FlexIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#onQuit()">onQuit</a>(sourceNick:String, sourceLogin:String, sourceHostname:String, reason:String):void</div>
+<div class="summaryTableDescription">
+   Dispatches a new UserEvent when called.</div>
+</td><td class="summaryTableOwnerCol">FlexIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#onRemoveChannelBan()">onRemoveChannelBan</a>(channel:String, sourceNick:String, sourceLogin:String, sourceHostname:String, hostmask:String):void</div>
+<div class="summaryTableDescription">
+   Dispatches a new ChannelEvent when called.</div>
+</td><td class="summaryTableOwnerCol">FlexIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#onRemoveChannelKey()">onRemoveChannelKey</a>(channel:String, sourceNick:String, sourceLogin:String, sourceHostname:String, key:String):void</div>
+<div class="summaryTableDescription">
+   Dispatches a new ChannelEvent when called.</div>
+</td><td class="summaryTableOwnerCol">FlexIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#onRemoveChannelLimit()">onRemoveChannelLimit</a>(channel:String, sourceNick:String, sourceLogin:String, sourceHostname:String):void</div>
+<div class="summaryTableDescription">
+   Dispatches a new ChannelEvent when called.</div>
+</td><td class="summaryTableOwnerCol">FlexIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#onRemoveInviteOnly()">onRemoveInviteOnly</a>(channel:String, sourceNick:String, sourceLogin:String, sourceHostname:String):void</div>
+<div class="summaryTableDescription">
+   Dispatches a new ChannelEvent when called.</div>
+</td><td class="summaryTableOwnerCol">FlexIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#onRemoveModerated()">onRemoveModerated</a>(channel:String, sourceNick:String, sourceLogin:String, sourceHostname:String):void</div>
+<div class="summaryTableDescription">
+   Dispatches a new ChannelEvent when called.</div>
+</td><td class="summaryTableOwnerCol">FlexIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#onRemoveNoExternalMessages()">onRemoveNoExternalMessages</a>(channel:String, sourceNick:String, sourceLogin:String, sourceHostname:String):void</div>
+<div class="summaryTableDescription">
+   Dispatches a new ChannelEvent when called.</div>
+</td><td class="summaryTableOwnerCol">FlexIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#onRemovePrivate()">onRemovePrivate</a>(channel:String, sourceNick:String, sourceLogin:String, sourceHostname:String):void</div>
+<div class="summaryTableDescription">
+   Dispatches a new ChannelEvent when called.</div>
+</td><td class="summaryTableOwnerCol">FlexIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#onRemoveSecret()">onRemoveSecret</a>(channel:String, sourceNick:String, sourceLogin:String, sourceHostname:String):void</div>
+<div class="summaryTableDescription">
+   Dispatches a new ChannelEvent when called.</div>
+</td><td class="summaryTableOwnerCol">FlexIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#onRemoveTopicProtection()">onRemoveTopicProtection</a>(channel:String, sourceNick:String, sourceLogin:String, sourceHostname:String):void</div>
+<div class="summaryTableDescription">
+   Dispatches a new ChannelEvent when called.</div>
+</td><td class="summaryTableOwnerCol">FlexIrcClient</td>
+</tr>
+<tr class="hideInheritedProtectedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="AsIrcClient.html#onServerPing()">onServerPing</a>(response:String = ""):void</div>
+<div class="summaryTableDescription">
+      The actions to perform when a PING request comes from the server.</div>
+</td><td class="summaryTableOwnerCol"><a href="AsIrcClient.html">AsIrcClient</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#onServerResponse()">onServerResponse</a>(code:int, response:String):void</div>
+<div class="summaryTableDescription">
+   Dispatches a new ServerEvent when called.</div>
+</td><td class="summaryTableOwnerCol">FlexIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#onSetChannelBan()">onSetChannelBan</a>(channel:String, sourceNick:String, sourceLogin:String, sourceHostname:String, hostmask:String):void</div>
+<div class="summaryTableDescription">
+   Dispatches a new ChannelEvent when called.</div>
+</td><td class="summaryTableOwnerCol">FlexIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#onSetChannelKey()">onSetChannelKey</a>(channel:String, sourceNick:String, sourceLogin:String, sourceHostname:String, key:String):void</div>
+<div class="summaryTableDescription">
+   Dispatches a new ChannelEvent when called.</div>
+</td><td class="summaryTableOwnerCol">FlexIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#onSetChannelLimit()">onSetChannelLimit</a>(channel:String, sourceNick:String, sourceLogin:String, sourceHostname:String, limit:int):void</div>
+<div class="summaryTableDescription">
+   Dispatches a new ChannelEvent when called.</div>
+</td><td class="summaryTableOwnerCol">FlexIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#onSetInviteOnly()">onSetInviteOnly</a>(channel:String, sourceNick:String, sourceLogin:String, sourceHostname:String):void</div>
+<div class="summaryTableDescription">
+   Dispatches a new ChannelEvent when called.</div>
+</td><td class="summaryTableOwnerCol">FlexIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#onSetModerated()">onSetModerated</a>(channel:String, sourceNick:String, sourceLogin:String, sourceHostname:String):void</div>
+<div class="summaryTableDescription">
+   Dispatches a new ChannelEvent when called.</div>
+</td><td class="summaryTableOwnerCol">FlexIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#onSetNoExternalMessages()">onSetNoExternalMessages</a>(channel:String, sourceNick:String, sourceLogin:String, sourceHostname:String):void</div>
+<div class="summaryTableDescription">
+   Dispatches a new ChannelEvent when called.</div>
+</td><td class="summaryTableOwnerCol">FlexIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#onSetPrivate()">onSetPrivate</a>(channel:String, sourceNick:String, sourceLogin:String, sourceHostname:String):void</div>
+<div class="summaryTableDescription">
+   Dispatches a new ChannelEvent when called.</div>
+</td><td class="summaryTableOwnerCol">FlexIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#onSetSecret()">onSetSecret</a>(channel:String, sourceNick:String, sourceLogin:String, sourceHostname:String):void</div>
+<div class="summaryTableDescription">
+   Dispatches a new ChannelEvent when called.</div>
+</td><td class="summaryTableOwnerCol">FlexIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#onSetTopicProtection()">onSetTopicProtection</a>(channel:String, sourceNick:String, sourceLogin:String, sourceHostname:String):void</div>
+<div class="summaryTableDescription">
+   Dispatches a new ChannelEvent when called.</div>
+</td><td class="summaryTableOwnerCol">FlexIrcClient</td>
+</tr>
+<tr class="hideInheritedProtectedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="AsIrcClient.html#onTime()">onTime</a>(sourceNick:String, sourceLogin:String, sourceHostname:String, target:String):void</div>
+<div class="summaryTableDescription">
+      This method is called whenever we receive a TIME request.</div>
+</td><td class="summaryTableOwnerCol"><a href="AsIrcClient.html">AsIrcClient</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#onTopic()">onTopic</a>(channel:String, topic:String, setBy:String = null, date:Number = 0, changed:Boolean = false):void</div>
+<div class="summaryTableDescription">
+   Dispatches a new ChannelEvent when called.</div>
+</td><td class="summaryTableOwnerCol">FlexIrcClient</td>
+</tr>
+<tr class="hideInheritedProtectedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="AsIrcClient.html#onUnknown()">onUnknown</a>(line:String):void</div>
+<div class="summaryTableDescription">
+      This method is called whenever we receive a line from the server that
+      the Irc Client has not been programmed to recognise.</div>
+</td><td class="summaryTableOwnerCol"><a href="AsIrcClient.html">AsIrcClient</a></td>
+</tr>
+<tr class="hideInheritedProtectedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="AsIrcClient.html#onUnsupportedRequest()">onUnsupportedRequest</a>(error:String):void</div>
+<div class="summaryTableDescription">
+      Called when we receive a request that is currently not implemented.</div>
+</td><td class="summaryTableOwnerCol"><a href="AsIrcClient.html">AsIrcClient</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#onUserList()">onUserList</a>(channel:String, users:Array):void</div>
+<div class="summaryTableDescription">
+   Dispatches a new ChannelEvent when called.</div>
+</td><td class="summaryTableOwnerCol">FlexIrcClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#onUserMode()">onUserMode</a>(targetNick:String, sourceNick:String, sourceLogin:String, sourceHostname:String, mode:String):void</div>
+<div class="summaryTableDescription">
+   Dispatches a new UserEvent when called.</div>
+</td><td class="summaryTableOwnerCol">FlexIrcClient</td>
+</tr>
+<tr class="hideInheritedProtectedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="AsIrcClient.html#onVersion()">onVersion</a>(sourceNick:String, sourceLogin:String, sourceHostname:String, target:String):void</div>
+<div class="summaryTableDescription">
+      This method is called whenever we receive a VERSION request.</div>
+</td><td class="summaryTableOwnerCol"><a href="AsIrcClient.html">AsIrcClient</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#onVoice()">onVoice</a>(channel:String, sourceNick:String, sourceLogin:String, sourceHostname:String, recipient:String):void</div>
+<div class="summaryTableDescription">
+   Dispatches a new ChannelEvent when called.</div>
+</td><td class="summaryTableOwnerCol">FlexIrcClient</td>
+</tr>
+<tr class="hideInheritedProtectedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="AsIrcClient.html#readLine()">readLine</a>():String</div>
+<div class="summaryTableDescription"> 
+   Read a line from the socket and stick it in a buffer.</div>
+</td><td class="summaryTableOwnerCol"><a href="AsIrcClient.html">AsIrcClient</a></td>
+</tr>
+<tr class="hideInheritedProtectedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="AsIrcClient.html#setFinger()">setFinger</a>(finger:String):void</div>
+<div class="summaryTableDescription">
+      Sets the interal finger message.</div>
+</td><td class="summaryTableOwnerCol"><a href="AsIrcClient.html">AsIrcClient</a></td>
+</tr>
+<tr class="hideInheritedProtectedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="AsIrcClient.html#setLogin()">setLogin</a>(login:String):void</div>
+<div class="summaryTableDescription">
+      Sets the internal login of the Bot.</div>
+</td><td class="summaryTableOwnerCol"><a href="AsIrcClient.html">AsIrcClient</a></td>
+</tr>
+<tr class="hideInheritedProtectedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="AsIrcClient.html#setVersion()">setVersion</a>(version:String):void</div>
+<div class="summaryTableDescription">
+      Sets the internal version of the Bot.</div>
+</td><td class="summaryTableOwnerCol"><a href="AsIrcClient.html">AsIrcClient</a></td>
+</tr>
+</table>
+</div>
+<script type="text/javascript" language="javascript">
+<!--
+showHideInherited();
+--></script>
+<div class="MainContent">
+<a name="propertyDetail"></a>
+<div class="detailSectionHeader">Property detail</div>
+<a name="ACTION_EVENT"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">ACTION_EVENT</td><td class="detailHeaderType">property</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static var ACTION_EVENT:String = "actionEvent"</code>
+</div>
+<a name="CHANNEL_INFO_EVENT"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">CHANNEL_INFO_EVENT</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static var CHANNEL_INFO_EVENT:String = "channelInfoEvent"</code>
+</div>
+<a name="CONNECT_EVENT"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">CONNECT_EVENT</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static var CONNECT_EVENT:String = "connectEvent"</code>
+</div>
+<a name="DE_OP_EVENT"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">DE_OP_EVENT</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static var DE_OP_EVENT:String = "deopEvent"</code>
+</div>
+<a name="DE_VOICE_EVENT"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">DE_VOICE_EVENT</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static var DE_VOICE_EVENT:String = "deVoiceEvent"</code>
+</div>
+<a name="DISCONNECT_EVENT"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">DISCONNECT_EVENT</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static var DISCONNECT_EVENT:String = "disconnectEvent"</code>
+</div>
+<a name="INVITE_EVENT"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">INVITE_EVENT</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static var INVITE_EVENT:String = "inviteEvent"</code>
+</div>
+<a name="IRC_CONNECTION_ERROR_EVENT"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">IRC_CONNECTION_ERROR_EVENT</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static var IRC_CONNECTION_ERROR_EVENT:String = "IRCConnectionErrorEvent"</code>
+</div>
+<a name="JOIN_EVENT"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">JOIN_EVENT</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static var JOIN_EVENT:String = "joinEvent"</code>
+</div>
+<a name="KICK_EVENT"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">KICK_EVENT</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static var KICK_EVENT:String = "kickEvent"</code>
+</div>
+<a name="MESSAGE_EVENT"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">MESSAGE_EVENT</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static var MESSAGE_EVENT:String = "messageEvent"</code>
+</div>
+<a name="MODE_EVENT"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">MODE_EVENT</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static var MODE_EVENT:String = "modeEvent"</code>
+</div>
+<a name="NICK_ALREADY_IN_USE_EVENT"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">NICK_ALREADY_IN_USE_EVENT</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static var NICK_ALREADY_IN_USE_EVENT:String = "nickAlreadyInUseEvent"</code>
+</div>
+<a name="NICK_CHANGE_EVENT"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">NICK_CHANGE_EVENT</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static var NICK_CHANGE_EVENT:String = "nickChangeEvent"</code>
+</div>
+<a name="NOTICE_EVENT"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">NOTICE_EVENT</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static var NOTICE_EVENT:String = "noticeEvent"</code>
+</div>
+<a name="OP_EVENT"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">OP_EVENT</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static var OP_EVENT:String = "opEvent"</code>
+</div>
+<a name="PART_EVENT"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">PART_EVENT</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static var PART_EVENT:String = "partEvent"</code>
+</div>
+<a name="PRIVATE_MESSAGE_EVENT"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">PRIVATE_MESSAGE_EVENT</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static var PRIVATE_MESSAGE_EVENT:String = "privateMessageEvent"</code>
+</div>
+<a name="QUIT_EVENT"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">QUIT_EVENT</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static var QUIT_EVENT:String = "quitEvent"</code>
+</div>
+<a name="REMOVE_CHANNEL_BAN_EVENT"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">REMOVE_CHANNEL_BAN_EVENT</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static var REMOVE_CHANNEL_BAN_EVENT:String = "removeChannelBanEvent"</code>
+</div>
+<a name="REMOVE_CHANNEL_KEY_EVENT"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">REMOVE_CHANNEL_KEY_EVENT</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static var REMOVE_CHANNEL_KEY_EVENT:String = "removeChannelKeyEvent"</code>
+</div>
+<a name="REMOVE_CHANNEL_LIMIT_EVENT"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">REMOVE_CHANNEL_LIMIT_EVENT</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static var REMOVE_CHANNEL_LIMIT_EVENT:String = "removeChannelLimitEvent"</code>
+</div>
+<a name="REMOVE_INVITE_ONLY_EVENT"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">REMOVE_INVITE_ONLY_EVENT</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static var REMOVE_INVITE_ONLY_EVENT:String = "removeInviteOnlyEvent"</code>
+</div>
+<a name="REMOVE_MODERATED_EVENT"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">REMOVE_MODERATED_EVENT</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static var REMOVE_MODERATED_EVENT:String = "removeModeratedEvent"</code>
+</div>
+<a name="REMOVE_NO_EXTERNAL_MESSAGES_EVENT"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">REMOVE_NO_EXTERNAL_MESSAGES_EVENT</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static var REMOVE_NO_EXTERNAL_MESSAGES_EVENT:String = "removeNoExternalMessagesEvent"</code>
+</div>
+<a name="REMOVE_PRIVATE_EVENT"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">REMOVE_PRIVATE_EVENT</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static var REMOVE_PRIVATE_EVENT:String = "removePrivateEvent"</code>
+</div>
+<a name="REMOVE_SECRECT_EVENT"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">REMOVE_SECRECT_EVENT</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static var REMOVE_SECRECT_EVENT:String = "removeSecretEvent"</code>
+</div>
+<a name="REMOVE_TOPIC_PROTECTION_EVENT"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">REMOVE_TOPIC_PROTECTION_EVENT</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static var REMOVE_TOPIC_PROTECTION_EVENT:String = "removeTopicProtectionEvent"</code>
+</div>
+<a name="SERVER_RESPONSE_EVENT"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">SERVER_RESPONSE_EVENT</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static var SERVER_RESPONSE_EVENT:String = "serverResponseEvent"</code>
+</div>
+<a name="SET_CHANNEL_BAN_EVENT"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">SET_CHANNEL_BAN_EVENT</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static var SET_CHANNEL_BAN_EVENT:String = "setChannelBanEvent"</code>
+</div>
+<a name="SET_CHANNEL_KEY_EVENT"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">SET_CHANNEL_KEY_EVENT</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static var SET_CHANNEL_KEY_EVENT:String = "setChannelKeyEvent"</code>
+</div>
+<a name="SET_CHANNEL_LIMIT_EVENT"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">SET_CHANNEL_LIMIT_EVENT</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static var SET_CHANNEL_LIMIT_EVENT:String = "setChannelLimitEvent"</code>
+</div>
+<a name="SET_INVITE_ONLY_EVENT"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">SET_INVITE_ONLY_EVENT</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static var SET_INVITE_ONLY_EVENT:String = "setInviteOnlyEvent"</code>
+</div>
+<a name="SET_MODERATED_EVENT"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">SET_MODERATED_EVENT</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static var SET_MODERATED_EVENT:String = "setModeratedEvent"</code>
+</div>
+<a name="SET_NO_EXTERNAL_MESSAGES_EVENT"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">SET_NO_EXTERNAL_MESSAGES_EVENT</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static var SET_NO_EXTERNAL_MESSAGES_EVENT:String = "setNoExternalMessagesEvent"</code>
+</div>
+<a name="SET_PRIVATE_EVENT"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">SET_PRIVATE_EVENT</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static var SET_PRIVATE_EVENT:String = "setPrivateEvent"</code>
+</div>
+<a name="SET_SECRET_EVENT"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">SET_SECRET_EVENT</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static var SET_SECRET_EVENT:String = "setSecretEvent"</code>
+</div>
+<a name="SET_TOPIC_PROTECTION_EVENT"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">SET_TOPIC_PROTECTION_EVENT</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static var SET_TOPIC_PROTECTION_EVENT:String = "setTopicProtectionEvent"</code>
+</div>
+<a name="TOPIC_EVENT"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">TOPIC_EVENT</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static var TOPIC_EVENT:String = "topicEvent"</code>
+</div>
+<a name="USER_LIST_EVENT"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">USER_LIST_EVENT</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static var USER_LIST_EVENT:String = "userListEvent"</code>
+</div>
+<a name="USER_MODE_EVENT"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">USER_MODE_EVENT</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static var USER_MODE_EVENT:String = "userModeEvent"</code>
+</div>
+<a name="VOICE_EVENT"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">VOICE_EVENT</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static var VOICE_EVENT:String = "voiceEvent"</code>
+</div>
+<a name="methodDetail"></a>
+<div class="detailSectionHeader">Method detail</div>
+<a name="addEventListener()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">addEventListener</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function addEventListener(type:String, listener:Function, useCapture:Boolean = false, priority:int = 0.0, useWeakReference:Boolean = false):void</code><p>
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">type</span>:String</code></td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">listener</span>:Function</code></td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">useCapture</span>:Boolean</code> (default = <code>false</code>)<code></code></td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">priority</span>:int</code> (default = <code>0.0</code>)<code></code></td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">useWeakReference</span>:Boolean</code> (default = <code>false</code>)<code></code></td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">flash.events.IEventDispatcher.addEventListener()</div>
+</div>
+<a name="dispatchEvent()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">dispatchEvent</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function dispatchEvent(event:Event):Boolean</code><p>
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">event</span>:Event</code></td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>Boolean</code></td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">flash.events.IEventDispatcher.dispatchEvent()</div>
+</div>
+<a name="hasEventListener()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">hasEventListener</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function hasEventListener(type:String):Boolean</code><p>
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">type</span>:String</code></td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>Boolean</code></td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">flash.events.IEventDispatcher.hasEventListener</div>
+</div>
+<a name="onAction()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">onAction</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected override function onAction(sender:String, login:String, hostname:String, target:String, action:String):void</code><p>
+   Dispatches a new UserEvent when called.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">sender</span>:String</code> &mdash; becomes property 'sender' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">login</span>:String</code> &mdash; becomes property 'login' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">hostname</span>:String</code> &mdash; becomes property 'hostname' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">target</span>:String</code> &mdash; becomes property 'targetNick' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">action</span>:String</code> &mdash; becomes property 'message' on event.
+   </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="AsIrcClient.html#onAction()" target="">AsIrcClient.onAction()</a>
+<br>
+<a href="../irc/FlexIrcClient.html#ACTION_EVENT" target="">ACTION_EVENT</a>
+</div>
+</div>
+<a name="onChannelInfo()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">onChannelInfo</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected override function onChannelInfo(channel:String, userCount:int, topic:String):void</code><p>
+   Dispatches a new ChannelEvent when called.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">channel</span>:String</code> &mdash; becomes property 'channel' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">userCount</span>:int</code> &mdash; becomes property 'userCount' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">topic</span>:String</code> &mdash; becomes property 'message' on event.
+   </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="AsIrcClient.html#onChannelInfo()" target="">AsIrcClient.onChannelInfo()</a>
+<br>
+<a href="../irc/FlexIrcClient.html#CHANNEL_INFO_EVENT" target="">CHANNEL_INFO_EVENT</a>
+</div>
+</div>
+<a name="onConnect()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">onConnect</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected override function onConnect():void</code><p>
+   Dispatches a new ServerEvent when called.
+   </p><p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="AsIrcClient.html#onServerResponse()" target="">AsIrcClient.onServerResponse()</a>
+<br>
+<a href="../irc/FlexIrcClient.html#CONNECT_EVENT" target="">CONNECT_EVENT</a>
+</div>
+</div>
+<a name="onConnectionError()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">onConnectionError</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected override function onConnectionError(line:String):void</code><p>
+     Dispatches a new ServerEvent when called. sets the event.response property to the 
+     response received from the server.
+     </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">line</span>:String</code></td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="AsIrcClient.html#onConnectionError()" target="">AsIrcClient.onConnectionError()</a>
+<br>
+<a href="../irc/FlexIrcClient.html#IRC_CONNECTION_ERROR_EVENT" target="">IRC_CONNECTION_ERROR_EVENT</a>
+</div>
+</div>
+<a name="onDeop()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">onDeop</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected override function onDeop(channel:String, sourceNick:String, sourceLogin:String, sourceHostname:String, recipient:String):void</code><p>
+   Dispatches a new ChannelEvent when called.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">channel</span>:String</code> &mdash; becomes property 'channel' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceNick</span>:String</code> &mdash; becomes property 'sender' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceLogin</span>:String</code> &mdash; becomes property 'login' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceHostname</span>:String</code> &mdash; becomes property 'hostname' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">recipient</span>:String</code> &mdash; becomes property 'targetNick' on event.
+   </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="AsIrcClient.html#onDeOp()" target="">AsIrcClient.onDeOp()</a>
+<br>
+<a href="../irc/FlexIrcClient.html#DE_OP_EVENT" target="">DE_OP_EVENT</a>
+</div>
+</div>
+<a name="onDeVoice()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">onDeVoice</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected override function onDeVoice(channel:String, sourceNick:String, sourceLogin:String, sourceHostname:String, recipient:String):void</code><p>
+   Dispatches a new ChannelEvent when called.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">channel</span>:String</code> &mdash; becomes property 'channel' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceNick</span>:String</code> &mdash; becomes property 'sender' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceLogin</span>:String</code> &mdash; becomes property 'login' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceHostname</span>:String</code> &mdash; becomes property 'hostname' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">recipient</span>:String</code> &mdash; becomes property 'targetNick' on event.
+   </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="AsIrcClient.html#onDeVoice()" target="">AsIrcClient.onDeVoice()</a>
+<br>
+<a href="../irc/FlexIrcClient.html#DE_VOICE_EVENT" target="">DE_VOICE_EVENT</a>
+</div>
+</div>
+<a name="onDisconnect()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">onDisconnect</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected override function onDisconnect():void</code><p>
+   Dispatches a new ServerEvent when called.
+   </p><p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="AsIrcClient.html#onDisconnect()" target="">AsIrcClient.onDisconnect()</a>
+<br>
+<a href="../irc/FlexIrcClient.html#DISCONNECT_EVENT" target="">DISCONNECT_EVENT</a>
+</div>
+</div>
+<a name="onInvite()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">onInvite</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected override function onInvite(targetNick:String, sourceNick:String, sourceLogin:String, sourceHostname:String, channel:String):void</code><p>
+   Dispatches a new ChannelEvent when called.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">targetNick</span>:String</code> &mdash; becomes property 'targetNick' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceNick</span>:String</code> &mdash; becomes property 'sender' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceLogin</span>:String</code> &mdash; becomes property 'login' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceHostname</span>:String</code> &mdash; becomes property 'hostname' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">channel</span>:String</code> &mdash; becomes property 'channel' on event.
+   </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="AsIrcClient.html#onInvite()" target="">AsIrcClient.onInvite()</a>
+<br>
+<a href="../irc/FlexIrcClient.html#INVITE_EVENT" target="">INVITE_EVENT</a>
+</div>
+</div>
+<a name="onJoin()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">onJoin</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected override function onJoin(channel:String, sender:String, login:String, hostname:String):void</code><p>
+   Dispatches a new ChannelEvent when called.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">channel</span>:String</code> &mdash; becomes property 'channel' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sender</span>:String</code> &mdash; becomes property 'sender' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">login</span>:String</code> &mdash; becomes property 'login' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">hostname</span>:String</code> &mdash; becomes property 'hostname' on event.
+   </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="AsIrcClient.html#onJoin()" target="">AsIrcClient.onJoin()</a>
+<br>
+<a href="../irc/FlexIrcClient.html#JOIN_EVENT" target="">JOIN_EVENT</a>
+</div>
+</div>
+<a name="onKick()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">onKick</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected override function onKick(channel:String, kickerNick:String, kickerLogin:String, kickerHostname:String, recipientNick:String, reason:String):void</code><p>
+   Dispatches a new ChannelEvent when called.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">channel</span>:String</code> &mdash; becomes property 'channel' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">kickerNick</span>:String</code> &mdash; becomes property 'sender' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">kickerLogin</span>:String</code> &mdash; becomes property 'login' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">kickerHostname</span>:String</code> &mdash; becomes property 'hostname' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">recipientNick</span>:String</code> &mdash; becomes property 'targetNick' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">reason</span>:String</code></td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="AsIrcClient.html#onKick()" target="">AsIrcClient.onKick()</a>
+<br>
+<a href="../irc/FlexIrcClient.html#KICK_EVENT" target="">KICK_EVENT</a>
+</div>
+</div>
+<a name="onMessage()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">onMessage</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected override function onMessage(channel:String, sender:String, login:String, hostname:String, message:String):void</code><p>
+   Dispatches a new ChannelEvent when called.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">channel</span>:String</code> &mdash; becomes property 'channel' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sender</span>:String</code> &mdash; becomes property 'sender' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">login</span>:String</code> &mdash; becomes property 'login' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">hostname</span>:String</code> &mdash; becomes property 'hostname' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">message</span>:String</code> &mdash; becomes property 'message' on event.
+   </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="AsIrcClient.html#onMessage()" target="">AsIrcClient.onMessage()</a>
+<br>
+<a href="../irc/FlexIrcClient.html#MESSAGE_EVENT" target="">MESSAGE_EVENT</a>
+</div>
+</div>
+<a name="onMode()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">onMode</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected override function onMode(channel:String, sourceNick:String, sourceLogin:String, sourceHostname:String, mode:String):void</code><p>
+   Dispatches a new ChannelEvent when called.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">channel</span>:String</code> &mdash; becomes property 'channel' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceNick</span>:String</code> &mdash; becomes property 'sender' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceLogin</span>:String</code> &mdash; becomes property 'login' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceHostname</span>:String</code> &mdash; becomes property 'hostname' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">mode</span>:String</code> &mdash; becomes property 'mode' on event.
+   </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="AsIrcClient.html#onMode()" target="">AsIrcClient.onMode()</a>
+<br>
+<a href="../irc/FlexIrcClient.html#MODE_EVENT" target="">MODE_EVENT</a>
+</div>
+</div>
+<a name="onNickChange()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">onNickChange</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected override function onNickChange(oldNick:String, login:String, hostname:String, newNick:String):void</code><p>
+   Dispatches a new UserEvent when called.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">oldNick</span>:String</code> &mdash; becomes property 'sender' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">login</span>:String</code> &mdash; becomes property 'login' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">hostname</span>:String</code> &mdash; becomes property 'hostname' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">newNick</span>:String</code> &mdash; becomes property 'newNick' on event.
+   </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="AsIrcClient.html#onNickChange()" target="">AsIrcClient.onNickChange()</a>
+<br>
+<a href="../irc/FlexIrcClient.html#NICK_CHANGE_EVENT" target="">NICK_CHANGE_EVENT</a>
+</div>
+</div>
+<a name="onNickNameAlreadyInUse()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">onNickNameAlreadyInUse</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected override function onNickNameAlreadyInUse():void</code><p>
+     Dispatches a new ServerEvent when called.
+     </p><p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="AsIrcClient.html#onNickNAmeAlreadyInUse()" target="">AsIrcClient.onNickNAmeAlreadyInUse()</a>
+<br>
+<a href="../irc/FlexIrcClient.html#NICK_ALREADY_IN_USE_EVENT" target="">NICK_ALREADY_IN_USE_EVENT</a>
+</div>
+</div>
+<a name="onNotice()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">onNotice</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected override function onNotice(sourceNick:String, sourceLogin:String, sourceHostname:String, target:String, notice:String):void</code><p>
+   Dispatches a new UserEvent when called.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceNick</span>:String</code> &mdash; becomes property 'sender' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceLogin</span>:String</code> &mdash; becomes property 'login' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceHostname</span>:String</code> &mdash; becomes property 'hostname' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">target</span>:String</code> &mdash; becomes property 'targetNick' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">notice</span>:String</code> &mdash; becomes property 'message' on event.
+   </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="AsIrcClient.html#onNotice()" target="">AsIrcClient.onNotice()</a>
+<br>
+<a href="../irc/FlexIrcClient.html#NOTICE_EVENT" target="">NOTICE_EVENT</a>
+</div>
+</div>
+<a name="onOp()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">onOp</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected override function onOp(channel:String, sourceNick:String, sourceLogin:String, sourceHostname:String, recipient:String):void</code><p>
+   Dispatches a new ChannelEvent when called.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">channel</span>:String</code> &mdash; becomes property 'channel' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceNick</span>:String</code> &mdash; becomes property 'sender' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceLogin</span>:String</code> &mdash; becomes property 'login' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceHostname</span>:String</code> &mdash; becomes property 'hostname' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">recipient</span>:String</code> &mdash; becomes property 'targetNick' on event.
+   </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="AsIrcClient.html#onOp()" target="">AsIrcClient.onOp()</a>
+<br>
+<a href="../irc/FlexIrcClient.html#OP_EVENT" target="">OP_EVENT</a>
+</div>
+</div>
+<a name="onPart()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">onPart</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected override function onPart(channel:String, sender:String, login:String, hostname:String):void</code><p>
+   Dispatches a new ChannelEvent when called.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">channel</span>:String</code> &mdash; becomes property 'channel' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sender</span>:String</code> &mdash; becomes property 'sender' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">login</span>:String</code> &mdash; becomes property 'login' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">hostname</span>:String</code> &mdash; becomes property 'hostname' on event.
+   </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="AsIrcClient.html#onPart()" target="">AsIrcClient.onPart()</a>
+<br>
+<a href="../irc/FlexIrcClient.html#PART_EVENT" target="">PART_EVENT</a>
+</div>
+</div>
+<a name="onPrivateMessage()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">onPrivateMessage</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected override function onPrivateMessage(sender:String, login:String, hostname:String, message:String):void</code><p>
+   Dispatches a new UserEvent when called.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">sender</span>:String</code> &mdash; becomes property 'sender' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">login</span>:String</code> &mdash; becomes property 'login' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">hostname</span>:String</code> &mdash; becomes property 'hostname' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">message</span>:String</code> &mdash; becomes property 'message' on event.
+   </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="AsIrcClient.html#onPrivateMessage()" target="">AsIrcClient.onPrivateMessage()</a>
+<br>
+<a href="../irc/FlexIrcClient.html#PRIVATE_MESSAGE_EVENT" target="">PRIVATE_MESSAGE_EVENT</a>
+</div>
+</div>
+<a name="onQuit()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">onQuit</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected override function onQuit(sourceNick:String, sourceLogin:String, sourceHostname:String, reason:String):void</code><p>
+   Dispatches a new UserEvent when called.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceNick</span>:String</code> &mdash; becomes property 'sender' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceLogin</span>:String</code> &mdash; becomes property 'login' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceHostname</span>:String</code> &mdash; becomes property 'hostname' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">reason</span>:String</code> &mdash; becomes property 'message' on event.
+   </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="AsIrcClient.html#onQuit()" target="">AsIrcClient.onQuit()</a>
+<br>
+<a href="../irc/FlexIrcClient.html#QUIT_EVENT" target="">QUIT_EVENT</a>
+</div>
+</div>
+<a name="onRemoveChannelBan()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">onRemoveChannelBan</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected override function onRemoveChannelBan(channel:String, sourceNick:String, sourceLogin:String, sourceHostname:String, hostmask:String):void</code><p>
+   Dispatches a new ChannelEvent when called.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">channel</span>:String</code> &mdash; becomes property 'channel' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceNick</span>:String</code> &mdash; becomes property 'sender' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceLogin</span>:String</code> &mdash; becomes property 'login' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceHostname</span>:String</code> &mdash; becomes property 'hostname' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">hostmask</span>:String</code> &mdash; becomes property 'hostmask' on event.
+   </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="AsIrcClient.html#onRemoveChannelBan()" target="">AsIrcClient.onRemoveChannelBan()</a>
+<br>
+<a href="../irc/FlexIrcClient.html#REMOVE_CHANNEL_BAN_EVENT" target="">REMOVE_CHANNEL_BAN_EVENT</a>
+</div>
+</div>
+<a name="onRemoveChannelKey()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">onRemoveChannelKey</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected override function onRemoveChannelKey(channel:String, sourceNick:String, sourceLogin:String, sourceHostname:String, key:String):void</code><p>
+   Dispatches a new ChannelEvent when called.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">channel</span>:String</code> &mdash; becomes property 'channel' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceNick</span>:String</code> &mdash; becomes property 'sender' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceLogin</span>:String</code> &mdash; becomes property 'login' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceHostname</span>:String</code> &mdash; becomes property 'hostname' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">key</span>:String</code> &mdash; becomes property 'message' on event.
+   </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="AsIrcClient.html#onRemoveChannelKey()" target="">AsIrcClient.onRemoveChannelKey()</a>
+<br>
+<a href="../irc/FlexIrcClient.html#REMOVE_CHANNEL_KEY_EVENT" target="">REMOVE_CHANNEL_KEY_EVENT</a>
+</div>
+</div>
+<a name="onRemoveChannelLimit()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">onRemoveChannelLimit</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected override function onRemoveChannelLimit(channel:String, sourceNick:String, sourceLogin:String, sourceHostname:String):void</code><p>
+   Dispatches a new ChannelEvent when called.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">channel</span>:String</code> &mdash; becomes property 'channel' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceNick</span>:String</code> &mdash; becomes property 'sender' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceLogin</span>:String</code> &mdash; becomes property 'login' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceHostname</span>:String</code> &mdash; becomes property 'hostname' on event.
+   </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="AsIrcClient.html#onRemoveChannelLimit()" target="">AsIrcClient.onRemoveChannelLimit()</a>
+<br>
+<a href="../irc/FlexIrcClient.html#REMOVE_CHANNEL_LIMIT_EVENT" target="">REMOVE_CHANNEL_LIMIT_EVENT</a>
+</div>
+</div>
+<a name="onRemoveInviteOnly()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">onRemoveInviteOnly</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected override function onRemoveInviteOnly(channel:String, sourceNick:String, sourceLogin:String, sourceHostname:String):void</code><p>
+   Dispatches a new ChannelEvent when called.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">channel</span>:String</code> &mdash; becomes property 'channel' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceNick</span>:String</code> &mdash; becomes property 'sender' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceLogin</span>:String</code> &mdash; becomes property 'login' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceHostname</span>:String</code> &mdash; becomes property 'hostname' on event.
+   </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="AsIrcClient.html#onRemoveInviteOnly()" target="">AsIrcClient.onRemoveInviteOnly()</a>
+<br>
+<a href="../irc/FlexIrcClient.html#REMOVE_INVITE_ONLY_EVENT" target="">REMOVE_INVITE_ONLY_EVENT</a>
+</div>
+</div>
+<a name="onRemoveModerated()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">onRemoveModerated</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected override function onRemoveModerated(channel:String, sourceNick:String, sourceLogin:String, sourceHostname:String):void</code><p>
+   Dispatches a new ChannelEvent when called.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">channel</span>:String</code> &mdash; becomes property 'channel' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceNick</span>:String</code> &mdash; becomes property 'sender' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceLogin</span>:String</code> &mdash; becomes property 'login' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceHostname</span>:String</code> &mdash; becomes property 'hostname' on event.
+   </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="AsIrcClient.html#onRemoveModerated()" target="">AsIrcClient.onRemoveModerated()</a>
+<br>
+<a href="../irc/FlexIrcClient.html#REMOVE_MODERATED_EVENT" target="">REMOVE_MODERATED_EVENT</a>
+</div>
+</div>
+<a name="onRemoveNoExternalMessages()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">onRemoveNoExternalMessages</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected override function onRemoveNoExternalMessages(channel:String, sourceNick:String, sourceLogin:String, sourceHostname:String):void</code><p>
+   Dispatches a new ChannelEvent when called.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">channel</span>:String</code> &mdash; becomes property 'channel' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceNick</span>:String</code> &mdash; becomes property 'sender' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceLogin</span>:String</code> &mdash; becomes property 'login' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceHostname</span>:String</code> &mdash; becomes property 'hostname' on event.
+   </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="AsIrcClient.html#onRemoveNoExternalMessages()" target="">AsIrcClient.onRemoveNoExternalMessages()</a>
+<br>
+<a href="../irc/FlexIrcClient.html#REMOVE_NO_EXTERNAL_MESSAGES_EVENT" target="">REMOVE_NO_EXTERNAL_MESSAGES_EVENT</a>
+</div>
+</div>
+<a name="onRemovePrivate()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">onRemovePrivate</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected override function onRemovePrivate(channel:String, sourceNick:String, sourceLogin:String, sourceHostname:String):void</code><p>
+   Dispatches a new ChannelEvent when called.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">channel</span>:String</code> &mdash; becomes property 'channel' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceNick</span>:String</code> &mdash; becomes property 'sender' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceLogin</span>:String</code> &mdash; becomes property 'login' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceHostname</span>:String</code> &mdash; becomes property 'hostname' on event.
+   </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="AsIrcClient.html#onRemovePrivate()" target="">AsIrcClient.onRemovePrivate()</a>
+<br>
+<a href="../irc/FlexIrcClient.html#REMOVE_PRIVATE_EVENT" target="">REMOVE_PRIVATE_EVENT</a>
+</div>
+</div>
+<a name="onRemoveSecret()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">onRemoveSecret</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected override function onRemoveSecret(channel:String, sourceNick:String, sourceLogin:String, sourceHostname:String):void</code><p>
+   Dispatches a new ChannelEvent when called.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">channel</span>:String</code> &mdash; becomes property 'channel' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceNick</span>:String</code> &mdash; becomes property 'sender' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceLogin</span>:String</code> &mdash; becomes property 'login' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceHostname</span>:String</code> &mdash; becomes property 'hostname' on event.
+   </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="AsIrcClient.html#onRemoveSecret()" target="">AsIrcClient.onRemoveSecret()</a>
+<br>
+<a href="../irc/FlexIrcClient.html#REMOVE_SECRET_EVENT" target="">REMOVE_SECRET_EVENT</a>
+</div>
+</div>
+<a name="onRemoveTopicProtection()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">onRemoveTopicProtection</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected override function onRemoveTopicProtection(channel:String, sourceNick:String, sourceLogin:String, sourceHostname:String):void</code><p>
+   Dispatches a new ChannelEvent when called.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">channel</span>:String</code> &mdash; becomes property 'channel' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceNick</span>:String</code> &mdash; becomes property 'sender' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceLogin</span>:String</code> &mdash; becomes property 'login' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceHostname</span>:String</code> &mdash; becomes property 'hostname' on event.
+   </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="AsIrcClient.html#onRemoveTopicProtection()" target="">AsIrcClient.onRemoveTopicProtection()</a>
+<br>
+<a href="../irc/FlexIrcClient.html#REMOVE_TOPIC_PROTECTION_EVENT" target="">REMOVE_TOPIC_PROTECTION_EVENT</a>
+</div>
+</div>
+<a name="onServerResponse()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">onServerResponse</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected override function onServerResponse(code:int, response:String):void</code><p>
+   Dispatches a new ServerEvent when called.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">code</span>:int</code> &mdash; becomes property 'code' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">response</span>:String</code> &mdash; becomes property 'response' on event.
+   </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="AsIrcClient.html#onServerResponse()" target="">AsIrcClient.onServerResponse()</a>
+<br>
+<a href="../irc/FlexIrcClient.html#SERVER_RESPONSE_EVENT" target="">SERVER_RESPONSE_EVENT</a>
+</div>
+</div>
+<a name="onSetChannelBan()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">onSetChannelBan</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected override function onSetChannelBan(channel:String, sourceNick:String, sourceLogin:String, sourceHostname:String, hostmask:String):void</code><p>
+   Dispatches a new ChannelEvent when called.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">channel</span>:String</code> &mdash; becomes property 'channel' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceNick</span>:String</code> &mdash; becomes property 'sender' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceLogin</span>:String</code> &mdash; becomes property 'login' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceHostname</span>:String</code> &mdash; becomes property 'hostname' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">hostmask</span>:String</code> &mdash; becomes property 'hostmask' on event.
+   </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="AsIrcClient.html#onSetChannelBan()" target="">AsIrcClient.onSetChannelBan()</a>
+<br>
+<a href="../irc/FlexIrcClient.html#SET_CHANNEL_BAN_EVENT" target="">SET_CHANNEL_BAN_EVENT</a>
+</div>
+</div>
+<a name="onSetChannelKey()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">onSetChannelKey</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected override function onSetChannelKey(channel:String, sourceNick:String, sourceLogin:String, sourceHostname:String, key:String):void</code><p>
+   Dispatches a new ChannelEvent when called.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">channel</span>:String</code> &mdash; becomes property 'channel' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceNick</span>:String</code> &mdash; becomes property 'sender' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceLogin</span>:String</code> &mdash; becomes property 'login' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceHostname</span>:String</code> &mdash; becomes property 'hostname' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">key</span>:String</code> &mdash; becomes property 'message' on event.
+   </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="AsIrcClient.html#onSetChannelKey()" target="">AsIrcClient.onSetChannelKey()</a>
+<br>
+<a href="../irc/FlexIrcClient.html#SET_CHANNEL_KEY_EVENT" target="">SET_CHANNEL_KEY_EVENT</a>
+</div>
+</div>
+<a name="onSetChannelLimit()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">onSetChannelLimit</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected override function onSetChannelLimit(channel:String, sourceNick:String, sourceLogin:String, sourceHostname:String, limit:int):void</code><p>
+   Dispatches a new ChannelEvent when called.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">channel</span>:String</code> &mdash; becomes property 'channel' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceNick</span>:String</code> &mdash; becomes property 'sender' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceLogin</span>:String</code> &mdash; becomes property 'login' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceHostname</span>:String</code> &mdash; becomes property 'hostname' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">limit</span>:int</code> &mdash; becomes property 'limit' on event.
+   </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="AsIrcClient.html#onSetChannelLimit()" target="">AsIrcClient.onSetChannelLimit()</a>
+<br>
+<a href="../irc/FlexIrcClient.html#SET_CHANNEL_LIMIT_EVENT" target="">SET_CHANNEL_LIMIT_EVENT</a>
+</div>
+</div>
+<a name="onSetInviteOnly()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">onSetInviteOnly</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected override function onSetInviteOnly(channel:String, sourceNick:String, sourceLogin:String, sourceHostname:String):void</code><p>
+   Dispatches a new ChannelEvent when called.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">channel</span>:String</code> &mdash; becomes property 'channel' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceNick</span>:String</code> &mdash; becomes property 'sender' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceLogin</span>:String</code> &mdash; becomes property 'login' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceHostname</span>:String</code> &mdash; becomes property 'hostname' on event.
+   </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="AsIrcClient.html#onSetInviteOnly()" target="">AsIrcClient.onSetInviteOnly()</a>
+<br>
+<a href="../irc/FlexIrcClient.html#SET_INVITE_ONLY_EVENT" target="">SET_INVITE_ONLY_EVENT</a>
+</div>
+</div>
+<a name="onSetModerated()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">onSetModerated</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected override function onSetModerated(channel:String, sourceNick:String, sourceLogin:String, sourceHostname:String):void</code><p>
+   Dispatches a new ChannelEvent when called.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">channel</span>:String</code> &mdash; becomes property 'channel' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceNick</span>:String</code> &mdash; becomes property 'sender' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceLogin</span>:String</code> &mdash; becomes property 'login' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceHostname</span>:String</code> &mdash; becomes property 'hostname' on event.
+   </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="AsIrcClient.html#onSetModerated()" target="">AsIrcClient.onSetModerated()</a>
+<br>
+<a href="../irc/FlexIrcClient.html#SET_MODERATED_EVENT" target="">SET_MODERATED_EVENT</a>
+</div>
+</div>
+<a name="onSetNoExternalMessages()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">onSetNoExternalMessages</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected override function onSetNoExternalMessages(channel:String, sourceNick:String, sourceLogin:String, sourceHostname:String):void</code><p>
+   Dispatches a new ChannelEvent when called.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">channel</span>:String</code> &mdash; becomes property 'channel' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceNick</span>:String</code> &mdash; becomes property 'sender' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceLogin</span>:String</code> &mdash; becomes property 'login' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceHostname</span>:String</code> &mdash; becomes property 'hostname' on event.
+   </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="AsIrcClient.html#onSetNoExternalMessages()" target="">AsIrcClient.onSetNoExternalMessages()</a>
+<br>
+<a href="../irc/FlexIrcClient.html#SET_NO_EXTERNAL_MESSAGES_EVENT" target="">SET_NO_EXTERNAL_MESSAGES_EVENT</a>
+</div>
+</div>
+<a name="onSetPrivate()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">onSetPrivate</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected override function onSetPrivate(channel:String, sourceNick:String, sourceLogin:String, sourceHostname:String):void</code><p>
+   Dispatches a new ChannelEvent when called.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">channel</span>:String</code> &mdash; becomes property 'channel' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceNick</span>:String</code> &mdash; becomes property 'sender' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceLogin</span>:String</code> &mdash; becomes property 'login' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceHostname</span>:String</code> &mdash; becomes property 'hostname' on event.
+   </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="AsIrcClient.html#onSetPrivate()" target="">AsIrcClient.onSetPrivate()</a>
+<br>
+<a href="../irc/FlexIrcClient.html#SET_PRIVATE_EVENT" target="">SET_PRIVATE_EVENT</a>
+</div>
+</div>
+<a name="onSetSecret()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">onSetSecret</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected override function onSetSecret(channel:String, sourceNick:String, sourceLogin:String, sourceHostname:String):void</code><p>
+   Dispatches a new ChannelEvent when called.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">channel</span>:String</code> &mdash; becomes property 'channel' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceNick</span>:String</code> &mdash; becomes property 'sender' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceLogin</span>:String</code> &mdash; becomes property 'login' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceHostname</span>:String</code> &mdash; becomes property 'hostname' on event.
+   </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="AsIrcClient.html#onSetSecret()" target="">AsIrcClient.onSetSecret()</a>
+<br>
+<a href="../irc/FlexIrcClient.html#SET_SECRET_EVENT" target="">SET_SECRET_EVENT</a>
+</div>
+</div>
+<a name="onSetTopicProtection()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">onSetTopicProtection</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected override function onSetTopicProtection(channel:String, sourceNick:String, sourceLogin:String, sourceHostname:String):void</code><p>
+   Dispatches a new ChannelEvent when called.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">channel</span>:String</code> &mdash; becomes property 'channel' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceNick</span>:String</code> &mdash; becomes property 'sender' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceLogin</span>:String</code> &mdash; becomes property 'login' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceHostname</span>:String</code> &mdash; becomes property 'hostname' on event.
+   </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="AsIrcClient.html#onSetTopicProtection()" target="">AsIrcClient.onSetTopicProtection()</a>
+<br>
+<a href="../irc/FlexIrcClient.html#SET_TOPIC_PROTECTION_EVENT" target="">SET_TOPIC_PROTECTION_EVENT</a>
+</div>
+</div>
+<a name="onTopic()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">onTopic</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected override function onTopic(channel:String, topic:String, setBy:String = null, date:Number = 0, changed:Boolean = false):void</code><p>
+   Dispatches a new ChannelEvent when called.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">channel</span>:String</code> &mdash; becomes property 'channel' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">topic</span>:String</code> &mdash; becomes property 'sender' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">setBy</span>:String</code> (default = <code>null</code>)<code></code> &mdash; becomes property 'message' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">date</span>:Number</code> (default = <code>0</code>)<code></code> &mdash; becomes property 'date' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">changed</span>:Boolean</code> (default = <code>false</code>)<code></code> &mdash; becomes property 'changed' on event.
+   </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="AsIrcClient.html#onTopic()" target="">AsIrcClient.onTopic()</a>
+<br>
+<a href="../irc/FlexIrcClient.html#TOPIC_EVENT" target="">TOPIC_EVENT</a>
+</div>
+</div>
+<a name="onUserList()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">onUserList</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected override function onUserList(channel:String, users:Array):void</code><p>
+   Dispatches a new ChannelEvent when called.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">channel</span>:String</code> &mdash; becomes property 'channel' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">users</span>:Array</code> &mdash; becomes property 'users' on event.
+   </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="AsIrcClient.html#onUserList()" target="">AsIrcClient.onUserList()</a>
+<br>
+<a href="../irc/FlexIrcClient.html#USER_LIST_EVENT" target="">USER_LIST_EVENT</a>
+</div>
+</div>
+<a name="onUserMode()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">onUserMode</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected override function onUserMode(targetNick:String, sourceNick:String, sourceLogin:String, sourceHostname:String, mode:String):void</code><p>
+   Dispatches a new UserEvent when called.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">targetNick</span>:String</code> &mdash; becomes property 'targetNick' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceNick</span>:String</code> &mdash; becomes property 'sender' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceLogin</span>:String</code> &mdash; becomes property 'login' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceHostname</span>:String</code> &mdash; becomes property 'hostname' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">mode</span>:String</code> &mdash; becomes property 'mode' on event.
+   </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="AsIrcClient.html#onQuit()" target="">AsIrcClient.onQuit()</a>
+<br>
+<a href="../irc/FlexIrcClient.html#QUIT_EVENT" target="">QUIT_EVENT</a>
+</div>
+</div>
+<a name="onVoice()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">onVoice</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected override function onVoice(channel:String, sourceNick:String, sourceLogin:String, sourceHostname:String, recipient:String):void</code><p>
+   Dispatches a new ChannelEvent when called.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">channel</span>:String</code> &mdash; becomes property 'channel' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceNick</span>:String</code> &mdash; becomes property 'sender' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceLogin</span>:String</code> &mdash; becomes property 'login' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceHostname</span>:String</code> &mdash; becomes property 'hostname' on event.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">recipient</span>:String</code> &mdash; becomes property 'targetNick' on event.
+   </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="AsIrcClient.html#onVoice()" target="">AsIrcClient.onVoice()</a>
+<br>
+<a href="../irc/FlexIrcClient.html#VOICE_EVENT" target="">VOICE_EVENT</a>
+</div>
+</div>
+<a name="removeEventListener()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">removeEventListener</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function removeEventListener(type:String, listener:Function, useCapture:Boolean = false):void</code><p>
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">type</span>:String</code></td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">listener</span>:Function</code></td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">useCapture</span>:Boolean</code> (default = <code>false</code>)<code></code></td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">flash.events.IEventDispatcher.removeEventListener()</div>
+</div>
+<a name="willTrigger()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">willTrigger</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function willTrigger(type:String):Boolean</code><p>
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">type</span>:String</code></td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>Boolean</code></td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">flash.events.IEventDispatcher.willTrigger()</div>
+</div>
+<br>
+<br>
+<hr>
+<br>
+<p></p>
+<center class="copyright"> 
+</center>
+</div>
+</body>
+</html>
+<!-- -->
