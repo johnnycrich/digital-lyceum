@@ -1,0 +1,105 @@
+/* CSS file */
+TextInput.entryForm
+{
+	themeColor: #000000;
+	borderColor: #747474;
+	borderThickness: 2;
+	borderStyle: solid;
+	backgroundColor: #D0D0D0;
+	fontFamily: Calibri;
+	color: #000000;
+	fontSize: 16;
+	fontStyle: italic;
+	paddingLeft: 4;
+	paddingTop: 4;
+	paddingBottom: 4;
+	paddingRight: 4;
+}
+TitleWindow
+{
+	fontFamily: Calibri;
+	fontSize: 15;
+	color: #000000;
+	controlBarStyleName: titleWindowControlBar;
+	backgroundColor: #878787;
+	cornerRadius: 5;
+	roundedBottomCorners: true;
+	borderColor: #A2A2A2;
+	borderAlpha: 1.0;
+}
+DateField.searchDate
+{
+	themeColor: #000000;
+	borderColor: #747474;
+	borderThickness: 2;
+	borderStyle: solid;
+	backgroundColor: #D0D0D0;
+	fontFamily: Calibri;
+	color: #000000;
+	fontSize: 20;
+	fontStyle: italic;
+	paddingLeft: 4;
+	paddingTop: 4;
+	paddingBottom: 4;
+	paddingRight: 4;
+}
+PopUpButton.searchPopUpBtn
+{
+	fillAlphas: 0.0, 0.0, 0.0, 0.0;
+	themeColor: #616161;
+	fontFamily: Calibri;
+	fontSize: 20;
+	color: #FFFFFF;
+	textRollOverColor: #5D5D5D;
+	fillColors: #FFFFFF, #FFFFFF;
+	cornerRadius: 0;
+	borderColor: #616161;
+	fontWeight: normal;
+	arrowButtonWidth: 30;
+}
+AdvancedDataGrid
+{
+	borderStyle: solid;
+	borderThickness: 2;
+	borderColor: #000000;
+	alternatingItemColors: #747474, #FFFFFF;
+}
+.canvasOvr {
+		backgroundColor: #afafaf;
+		backgroundAlpha: 0.3;
+}
+LinkButton.entryButton
+{
+	fontFamily: Calibri;
+	fontSize: 30;
+	fontWeight: normal;
+	color: #FFFFFF;
+	rollOverColor: #C1C1C1;
+	textRollOverColor: #5D5D5D;
+	selectionColor: #9C9C9C;
+	textSelectedColor: #000000;
+}
+@font-face
+{
+	fontFamily: Calibri;
+	fontWeight: bold;
+	fontStyle: normal;
+	src: local("Calibri");
+}
+@font-face
+{
+	fontFamily: Calibri;
+	fontWeight: normal;
+	fontStyle: normal;
+	src: local("Calibri");
+}
+@font-face
+{
+	fontFamily: Calibri;
+	fontWeight: normal;
+	fontStyle: italic;
+	src: local("Calibri");
+}
+.titleWindowControlBar
+{
+}
