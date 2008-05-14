@@ -1,0 +1,27 @@
+/* CSS file */
+Application
+{
+	backgroundGradientAlphas: 1.0, 1.0;
+	backgroundGradientColors: #A0A0A0, #535353;
+	color: #FFFFFF;
+}
+Panel
+{
+	roundedBottomCorners: true;
+	borderStyle: solid;
+	cornerRadius: 8;
+	color: #000000;
+	backgroundAlpha: .75;
+}
+LinkButton.topMenu
+{
+	color: #000000;
+	rollOverColor: #ACACAC;
+	selectionColor: #393939;
+	fontSize: 14;
+	themeColor: #FF0000;
+	cornerRadius: 7;
+	textRollOverColor: #000000;
+	textSelectedColor: #FFFFFF;
+	fontWeight: normal;
+}
