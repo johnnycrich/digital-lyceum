@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute" backgroundGradientAlphas="[1.0, 1.0]" backgroundGradientColors="[#5C5C5C, #A2A2A2]">
+<mx:Style source="global.css" />
+<mx:states>
+		<mx:State name="login">
+			<mx:SetProperty target="{eventsButton}" name="alpha" value="0.5"/>
+			<mx:AddChild relativeTo="{canvas1}" position="lastChild">
+				<mx:Form width="202" height="119" id="loginForm" horizontalCenter="0" verticalCenter="-11" paddingLeft="23" alpha="0.0">
+						<mx:TextInput styleName="entryForm" text="Username"/>
+						<mx:TextInput styleName="entryForm" text="Password" displayAsPassword="true"/>
+				</mx:Form>
+			</mx:AddChild>
+			<mx:AddChild relativeTo="{canvas1}" position="lastChild">
+				<mx:LinkButton label="Login" styleName="entryButton" width="86" height="41" horizontalCenter="0" verticalCenter="65" id="loginSubmit" alpha="1.0"/>
+			</mx:AddChild>
+			<mx:AddChild relativeTo="{canvas1}" position="lastChild">
+				<mx:LinkButton label="Register" styleName="entryButton" fontSize="15" id="registerButton" horizontalCenter="-66" verticalCenter="106" icon="@Embed(source='../images/register.png')" alpha="0.0"/>
+			</mx:AddChild>
+			<mx:AddChild relativeTo="{canvas1}" position="lastChild">
+				<mx:LinkButton icon="@Embed(source='../images/cancel.png')" id="cancelButton" label="Cancel" styleName="entryButton" fontSize="15" click="currentState=''" horizontalCenter="61" verticalCenter="106" alpha="0.0"/>
+			</mx:AddChild>
+			<mx:SetProperty target="{hbox1}" name="height" value="60%"/>
+			<mx:RemoveChild target="{loginButton}"/>
+		</mx:State>
+		<mx:State name="register" basedOn="login">
+				<mx:SetProperty target="{hbox1}" name="height" value="75%"/>
+				<mx:SetProperty target="{loginForm}" name="height" value="150"/>
+				<mx:SetStyle target="{registerButton}" name="verticalCenter" value="146"/>
+				<mx:SetStyle target="{loginSubmit}" name="verticalCenter" value="105"/>
+		</mx:State>
+		<mx:State name="events">
+				<mx:SetProperty target="{loginButton}" name="alpha" value="0.5"/>
+				<mx:AddChild relativeTo="{canvas2}" position="lastChild">
+						<mx:Label text="Events" fontSize="30" fontFamily="Calibri" color="#FFFFFF" id="eventsHeader" horizontalCenter="0" verticalCenter="65"/>
+				</mx:AddChild>
+				<mx:RemoveChild target="{eventsButton}"/>
+				<mx:AddChild relativeTo="{canvas2}" position="lastChild">
+						<mx:LinkButton label="Current" styleName="entryButton" fontSize="15" icon="@Embed(source='../images/current_event.png')" id="currentEventsButton" horizontalCenter="80" verticalCenter="104"/>
+				</mx:AddChild>
+				<mx:AddChild relativeTo="{canvas2}" position="lastChild">
+						<mx:LinkButton label="Past" fontSize="15" styleName="entryButton" icon="@Embed(source='../images/past_event.png')" id="pastEventsButton" click="currentState='past'" horizontalCenter="-72" verticalCenter="106"/>
+				</mx:AddChild>
+		</mx:State>
+		<mx:State name="past" basedOn="events">
+				<mx:RemoveChild target="{pastEventsButton}"/>
+				<mx:RemoveChild target="{currentEventsButton}"/>
+				<mx:SetStyle target="{eventsHeader}" name="verticalCenter" value="-117"/>
+				<mx:SetProperty target="{eventsHeader}" name="text" value="Past Events"/>
+				<mx:AddChild relativeTo="{canvas2}" position="lastChild">
+						<mx:PopUpButton label="Search by..." styleName="searchPopUpBtn" horizontalCenter="-18" verticalCenter="-28"/>
+				</mx:AddChild>
+				<mx:AddChild relativeTo="{canvas2}" position="lastChild">
+						<mx:TextInput styleName="entryForm" horizontalCenter="-1" verticalCenter="-71"/>
+				</mx:AddChild>
+				<mx:AddChild relativeTo="{canvas2}" position="lastChild">
+						<mx:DateField styleName="searchDate" horizontalCenter="-16" verticalCenter="12"/>
+				</mx:AddChild>
+				<mx:AddChild relativeTo="{canvas2}" position="lastChild">
+						<mx:LinkButton label="Search by Date" styleName="entryButton" fontSize="20" horizontalCenter="-10" verticalCenter="51"/>
+				</mx:AddChild>
+				<mx:AddChild relativeTo="{canvas2}" position="lastChild">
+						<mx:HRule horizontalCenter="0" width="254" verticalCenter="-12"/>
+				</mx:AddChild>
+		</mx:State>
+	</mx:states>
+	<mx:transitions>
+		<mx:Transition id="toLogin" fromState="*" toState="login">
+			<mx:Sequence targets="{[loginButton, eventsButton, loginForm, cancelButton, registerButton]}">
+				<mx:Fade duration="300" targets="{[loginButton, eventsButton]}" />
+				<mx:RemoveChildAction target="{loginButton}" />
+				<mx:Fade targets="{[loginForm, cancelButton, registerButton]}" alphaFrom="0.0" alphaTo="1.0" duration="300" />
+			</mx:Sequence>
+		</mx:Transition>
+		<mx:Transition fromState="login" toState="*">
+			<mx:Sequence targets="{[loginButton, eventsButton, loginForm, cancelButton, registerButton, loginSubmit]}">
+				<mx:Fade targets="{[loginForm, cancelButton, registerButton]}" alphaFrom="1.0" alphaTo="0.0" duration="300" />
+				<mx:Fade target="{loginSubmit}" alphaFrom="1.0" alphaTo="0.0" duration="300"/>
+				<mx:Fade target="{loginButton}" alphaFrom="0.0" alphaTo="1.0" duration="300" />
+			</mx:Sequence>
+		</mx:Transition>
+	</mx:transitions>
+	<mx:Label x="10" y="10" text="Digital Lyceum Test App Frontend" fontSize="30" color="#CCCECF" fontFamily="Calibri"/>
+	<mx:HBox x="10" y="61" width="100%" height="60%" horizontalGap="0" id="hbox1">
+		<mx:Canvas width="50%" height="100%" id="canvas1">
+			<mx:LinkButton label="Login" icon="@Embed(source='../images/login.png')" labelPlacement="bottom" fontFamily="Calibri" fontSize="30" left="0" bottom="0" top="0" right="0" color="#FFFFFF" styleName="entryButton" id="loginButton" click="currentState='login'"/>
+		</mx:Canvas>
+		<mx:Canvas  width="50%" height="100%" id="canvas2">
+			<mx:LinkButton label="Events" icon="@Embed(source='../images/view.png')" labelPlacement="bottom" styleName="entryButton" left="0" right="0" top="0" bottom="0" id="eventsButton" click="currentState='events'"/>
+		</mx:Canvas>
+	</mx:HBox>
+	
+</mx:Application>
