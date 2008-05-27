@@ -1,0 +1,223 @@
+/* CSS file */
+@font-face
+{
+	fontFamily: Calibri;
+	fontWeight: bold;
+	fontStyle: normal;
+	src: local("Calibri");
+}
+ComboBox
+{
+	fillAlphas: 1.0, 1.0;
+	fillColors: #D0D0D0, #D0D0D0;
+	themeColor: #747474;
+	fontSize: 15;
+	fontFamily: Calibri;
+	fontStyle: italic;
+	color: #000000;
+	textRollOverColor: #FFFFFF;
+	borderColor: #000000;
+	cornerRadius: 0;
+	dropdownStyleName: comboBoxDropdown;
+}
+.comboBoxDropdown
+{
+	color: #FFFFFF;
+	textRollOverColor: #FFFFFF;
+	rollOverColor: #000000;
+	selectionColor: #777777;
+	fontSize: 12;
+	fontFamily: Calibri;
+	alternatingItemColors: #585858, #585858;
+	verticalScrollBarStyleName: listBaseVerticalScrollBar;
+	backgroundAlpha: 1.0;
+	dropdownStyleName: comboBoxDropdown;
+	paddingLeft: 9;
+	paddingRight: 5;
+}
+TextArea
+{
+	backgroundColor: #D0D0D0;
+	borderColor: #747474;
+	borderThickness: 2;
+	fontFamily: Calibri;
+	fontSize: 16;
+	color: #000000;
+	fontStyle: italic;
+	paddingLeft: 4;
+	paddingRight: 4;
+	paddingTop: 4;
+	paddingBottom: 4;
+	themeColor: #000000;
+}
+TextInput.entryForm
+{
+	themeColor: #000000;
+	borderColor: #747474;
+	borderThickness: 2;
+	borderStyle: solid;
+	backgroundColor: #D0D0D0;
+	fontFamily: Calibri;
+	color: #000000;
+	fontSize: 16;
+	fontStyle: italic;
+	paddingLeft: 4;
+	paddingTop: 4;
+	paddingBottom: 4;
+	paddingRight: 4;
+}
+LinkBar.myAccountMenu
+{
+	color: #FFFFFF;
+	fontFamily: Calibri;
+	fontSize: 30;
+	textRollOverColor: #5D5D5D;
+	rollOverColor: #C1C1C1;
+	selectionColor: #9C9C9C;
+	textSelectedColor: #000000;
+	separatorWidth: 0;
+	fontStyle: normal;
+}
+TitleWindow
+{
+	fontFamily: Calibri;
+	fontSize: 15;
+	color: #000000;
+	controlBarStyleName: titleWindowControlBar;
+	backgroundColor: #878787;
+	cornerRadius: 5;
+	roundedBottomCorners: true;
+	borderColor: #A2A2A2;
+	borderAlpha: 1.0;
+	statusStyleName: titleWindowStatus;
+}
+DateField.searchDate
+{
+	themeColor: #000000;
+	borderColor: #747474;
+	borderThickness: 2;
+	borderStyle: solid;
+	backgroundColor: #D0D0D0;
+	fontFamily: Calibri;
+	color: #000000;
+	fontSize: 20;
+	fontStyle: italic;
+	paddingLeft: 4;
+	paddingTop: 4;
+	paddingBottom: 4;
+	paddingRight: 4;
+}
+PopUpButton.searchPopUpBtn
+{
+	fillAlphas: 1.0, 1.0;
+	fillColors: #D0D0D0, #D0D0D0;
+	themeColor: #747474;
+	fontSize: 15;
+	fontFamily: Calibri;
+	fontStyle: italic;
+	color: #000000;
+	textRollOverColor: #FFFFFF;
+	borderColor: #000000;
+	cornerRadius: 0;
+	arrowButtonWidth: 30;
+}
+List
+{
+	rollOverColor: #C1C1C1;
+	selectionColor: #9C9C9C;
+	backgroundAlpha: 0.0;
+	fontFamily: Calibri;
+	fontSize: 13;
+	color: #000000;
+	fontStyle: italic;
+	textRollOverColor: #000000;
+	textSelectedColor: #000000;
+	borderThickness: 0;
+}
+AdvancedDataGrid
+{
+	borderStyle: solid;
+	borderThickness: 2;
+	borderColor: #000000;
+	alternatingItemColors: #5C5C5C, #A2A2A2;
+	color: #FFFFFF;
+	headerColors: #4C4C4C, #4C4C4C;
+	headerStyleName: advancedDataGridHeader;
+	fontWeight: normal;
+	rollOverColor: #000000;
+	selectionColor: #282828;
+	verticalGridLines: true;
+	horizontalGridLines: false;
+	verticalGridLineColor: #868686;
+	verticalScrollBarStyleName: advancedDataGridVerticalScrollBar;
+	textSelectedColor: #FFFFFF;
+	textRollOverColor: #DEDEDE;
+}
+DataGrid
+{
+	borderStyle: solid;
+	borderThickness: 2;
+	borderColor: #000000;
+	alternatingItemColors: #A2A2A2, #878787;
+	color: #FFFFFF;
+	headerColors: #747474, #747474;
+	headerStyleName: advancedDataGridHeader;
+	fontWeight: normal;
+	rollOverColor: #787878;
+	selectionColor: #505050;
+	verticalGridLines: true;
+	horizontalGridLines: false;
+	verticalGridLineColor: #868686;
+	verticalScrollBarStyleName: advancedDataGridVerticalScrollBar;
+	textSelectedColor: #FFFFFF;
+	textRollOverColor: #DEDEDE;
+	fontFamily: Calibri;
+	fontSize: 12;
+}
+Label
+{
+	color: #FFFFFF;
+	fontFamily: Calibri;
+	fontSize: 25;
+}
+.canvasOvr {
+		backgroundColor: #afafaf;
+		backgroundAlpha: 0.3;
+}
+LinkButton.entryButton
+{
+	fontFamily: Calibri;
+	fontSize: 30;
+	fontWeight: normal;
+	color: #FFFFFF;
+	rollOverColor: #C1C1C1;
+	textRollOverColor: #5D5D5D;
+	selectionColor: #9C9C9C;
+	textSelectedColor: #000000;
+}
+.advancedDataGridHeader
+{
+	color: #000000;
+	fontWeight: normal;
+	fontFamily: Calibri;
+	fontSize: 14;
+}
+.advancedDataGridVerticalScrollBar
+{
+	fillAlphas: 1.0, 1.0, 0.33, 0.33;
+	fillColors: #B3B3B3, #B3B3B3;
+	trackColors: #B5B5B5, #B5B5B5;
+	cornerRadius: 0;
+	thumbOffset: 1;
+}
+.toggleButtonBarFirstButton
+{
+	fillAlphas: 0.0, 0.0, 0.0, 0.0;
+	themeColor: #8D8D8D;
+	fontFamily: Calibri;
+	fontSize: 23;
+	fontStyle: normal;
+	fontWeight: normal;
+	color: #FFFFFF;
+	textRollOverColor: #FFFFFF;
+}

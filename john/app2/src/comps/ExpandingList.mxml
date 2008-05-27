@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute" viewSourceURL="srcview/index.html">
+	
+	<mx:Script>
+		<![CDATA[
+			import mx.collections.ArrayCollection;
+			
+			// set up the dataprovider for the list
+			[Bindable]
+			private var dp:ArrayCollection = new ArrayCollection(
+                        [ {username:"Stoem", location:"UK", thumb:"assets/user1.png", profile:"Trying hard to do something useful."},
+                        {username:"Mike", location:"NL", thumb:"assets/user1.png", profile:"You do need people like him."},
+                        {username:"Tink", location:"UK", thumb:"assets/user1.png", profile:"The expert's expert."},
+                        {username:"Stoem", location:"UK", thumb:"assets/user1.png", profile:"Trying hard to do something useful."},
+                        {username:"Mike", location:"NL", thumb:"assets/user1.png", profile:"You do need people like him."},
+                        {username:"Tink", location:"UK", thumb:"assets/user1.png", profile:"The expert's expert."}
+                        ] );			
+		]]>
+	</mx:Script>
+
+	
+	<mx:List id="users_list" dataProvider="{dp}" itemRenderer="ListRenderer" variableRowHeight="true" width="167" x="10" height="206" y="10"></mx:List>
+	<mx:Text x="194" y="10" text="Doubleclick items to open/close them. Right-click for source." width="229"/>
+
+</mx:Application>

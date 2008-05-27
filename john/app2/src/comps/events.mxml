@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml" width="400" height="310" xmlns:comps="comps.*">
+<mx:Script>
+	<![CDATA[
+		import mx.collections.ArrayCollection;
+		import mx.events.FlexEvent;
+		import mx.controls.Menu;
+		[Bindable]
+        private var dpFlat:ArrayCollection = new ArrayCollection([
+          {Date:"2008", Title:"GDC", Location:"San Francisco"},
+          {Date:"2007", Title:"GDC", Location:"San Francisco"},
+          {Date:"2007", Title:"Panda Bear Days", Location:"Boston"},
+          {Date:"2006", Title:"Polka Dot Conference", Location:"New York"}
+        ]);
+		
+		private var eventSearchTypes:Array = [{label:"Event Name", data:"name"}, {label:"Username", data: "user"}, {label: "Keyword", data:"keyword"}, {label: "Media", data: "media"}];
+		
+		[Bindable]
+		private var searchMenuProvider:Menu = new Menu();
+	]]>
+</mx:Script>
+	<mx:states>
+		<mx:State name="results">
+			<mx:RemoveChild target="{currentEventsButton}"/>
+			<mx:RemoveChild target="{pastEventsButton}"/>
+			<mx:SetStyle target="{eventsHeader}" name="verticalCenter" value="-122"/>
+			<mx:AddChild position="lastChild">
+				<mx:AdvancedDataGrid itemClick="currentState='view'" initialize="gc.refresh()" id="eventsResults" designViewDataType="tree" horizontalCenter="0" verticalCenter="13" sortExpertMode="false">
+					<mx:dataProvider>
+					             <mx:GroupingCollection id="gc" source="{dpFlat}">
+					                 <mx:grouping>
+					                     <mx:Grouping>
+					                         <mx:GroupingField name="Date"/>
+					                     </mx:Grouping>
+					                 </mx:grouping>
+					             </mx:GroupingCollection>
+					      			</mx:dataProvider>
+					<mx:columns>
+							<mx:AdvancedDataGridColumn headerText="Name" dataField="Title"/>
+							<mx:AdvancedDataGridColumn headerText="Date" dataField="Date"/>
+							<mx:AdvancedDataGridColumn headerText="Location" dataField="Location"/>
+					</mx:columns>
+				</mx:AdvancedDataGrid>
+			</mx:AddChild>
+			<mx:SetProperty target="{eventsHeader}" name="width" value="220"/>
+			<mx:AddChild position="lastChild">
+				<mx:Label text="Results" fontSize="15" horizontalCenter="0" verticalCenter="-85"/>
+			</mx:AddChild>
+			<mx:AddChild position="lastChild">
+				<mx:LinkButton label="Back" styleName="entryButton" fontSize="15" click="currentState='search'" id="resultsBackButton" icon="@Embed(source='../../images/back.png')" horizontalCenter="0" verticalCenter="112"/>
+			</mx:AddChild>
+			<mx:RemoveChild target="{cancelEventsButton}"/>
+		</mx:State>
+		<mx:State name="search">
+			<mx:RemoveChild target="{currentEventsButton}"/>
+			<mx:RemoveChild target="{pastEventsButton}"/>
+			<mx:SetStyle target="{eventsHeader}" name="verticalCenter" value="-122"/>
+			<mx:AddChild position="lastChild">
+				<mx:ComboBox styleName="searchPopUpBtn" horizontalCenter="-2" verticalCenter="-11" id="searchMenu" dataProvider="{eventSearchTypes}"/>
+			</mx:AddChild>
+			<mx:AddChild position="lastChild">
+				<comps:PromptingTextInput prompt="Enter Search Term..." styleName="entryForm" horizontalCenter="-1" verticalCenter="-49" id="pastSearchInput"/>
+			</mx:AddChild>
+			<mx:AddChild position="lastChild">
+				<mx:DateField styleName="searchDate" horizontalCenter="0" verticalCenter="38" height="37" width="151" yearNavigationEnabled="true" id="searchPastDateInput"/>
+			</mx:AddChild>
+			<mx:AddChild position="lastChild">
+				<mx:LinkButton label="Search" styleName="entryButton" fontSize="20" horizontalCenter="0" verticalCenter="80" id="pastSearchDateButton" click="currentState='results'"/>
+			</mx:AddChild>
+			<mx:AddChild position="lastChild">
+				<mx:HRule horizontalCenter="0" width="254" verticalCenter="11" id="pastEventDivide"/>
+			</mx:AddChild>
+			<mx:SetProperty target="{eventsHeader}" name="text" value="Event Search"/>
+			<mx:SetProperty target="{eventsHeader}" name="width" value="220"/>
+			<mx:AddChild position="lastChild">
+				<mx:Label text="Search by Term or Date" fontSize="15" horizontalCenter="0" verticalCenter="-85"/>
+			</mx:AddChild>
+			<mx:SetEventHandler target="{cancelEventsButton}" name="click" handler="currentState=''"/>
+		</mx:State>
+		<mx:State name="view">
+			<mx:RemoveChild target="{currentEventsButton}"/>
+			<mx:RemoveChild target="{pastEventsButton}"/>
+			<mx:SetStyle target="{eventsHeader}" name="verticalCenter" value="-122"/>
+			<mx:SetProperty target="{eventsHeader}" name="text" value="Event Description"/>
+			<mx:SetProperty target="{eventsHeader}" name="width" value="220"/>
+			<mx:AddChild position="lastChild">
+				<mx:HRule x="100" y="55" width="50%"/>
+			</mx:AddChild>
+			<mx:AddChild position="lastChild">
+				<mx:Label x="131" y="70" text="2008 NMC Summer Conference" fontSize="20" fontStyle="italic"/>
+			</mx:AddChild>
+			<mx:AddChild position="lastChild">
+				<mx:Text x="131" y="125" text="The NMC Summer Conference is a one-of-a-kind event, attracting an audience of highly skilled professionals who are very knowledgeable about and interested in the integration of emerging technologies into teaching, learning, and creative expression." fontSize="12" width="259"/>
+			</mx:AddChild>
+			<mx:AddChild position="lastChild">
+				<mx:LinkButton x="190" y="219" label="Request Invite" styleName="entryButton" fontSize="20" icon="@Embed(source='../../images/request_invite.png')"/>
+			</mx:AddChild>
+			<mx:AddChild position="lastChild">
+				<mx:Image x="10" y="105" source="../images/nmc.png"/>
+			</mx:AddChild>
+			<mx:AddChild position="lastChild">
+				<mx:LinkButton x="55" y="219" label="Go to Event" styleName="entryButton" fontSize="20" icon="@Embed(source='../../images/event.png')"/>
+			</mx:AddChild>
+			<mx:AddChild position="lastChild">
+				<mx:Label x="131" y="93" text="Princeton, NJ" fontSize="17"/>
+			</mx:AddChild>
+			<mx:AddChild position="lastChild">
+				<mx:LinkButton label="Back" styleName="entryButton" fontSize="15" click="currentState='results'" id="viewBackButton" icon="@Embed(source='../../images/back.png')" horizontalCenter="0" verticalCenter="120"/>
+			</mx:AddChild>
+			<mx:RemoveChild target="{cancelEventsButton}"/>
+		</mx:State>
+	</mx:states>
+	<mx:Label text="Events" fontSize="30" fontFamily="Calibri" color="#FFFFFF" id="eventsHeader" horizontalCenter="0" verticalCenter="65" width="220" textAlign="center"/>
+	<mx:LinkButton label="Today" styleName="entryButton" fontSize="15" icon="@Embed(source='../../images/current_event.png')" id="currentEventsButton" horizontalCenter="66" verticalCenter="104" click="currentState='results'"/>
+	<mx:LinkButton label="Past or Future" fontSize="15" styleName="entryButton" icon="@Embed(source='../../images/not_current_event.png')" id="pastEventsButton" click="currentState='search'" horizontalCenter="-47" verticalCenter="104"/>
+	<mx:LinkButton icon="@Embed(source='../../images/cancel.png')" id="cancelEventsButton" label="Cancel" styleName="entryButton" fontSize="15" click="parentDocument.currentState=''" horizontalCenter="0" verticalCenter="140"/>
+	
+</mx:Canvas>

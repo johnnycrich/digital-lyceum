@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Module xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute" backgroundAlpha="0" percentHeight="100" percentWidth="100">
+	<mx:Panel width="100%" height="100%" title="Notes Tool">
+		<mx:TextArea width="100%" height="100%" text="Notes tool auto-saves every 10 seconds" />
+	</mx:Panel>
+</mx:Module>
