@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:VBox xmlns:mx="http://www.adobe.com/2006/mxml" height="100%" horizontalAlign="left" horizontalScrollPolicy="off" verticalScrollPolicy="off" width="100%" creationComplete="init()">
+	
+	<mx:Resize id="expand" target="{this}" heightFrom="{this.height}" heightTo="150" duration="150"/>
+    <mx:Resize id="contract" target="{this}" heightTo="{initheight}" duration="150"/>
+    
+	<mx:Script>
+		<![CDATA[
+			import mx.controls.Text;
+			import mx.events.EffectEvent;
+			import mx.events.MoveEvent;
+		
+			[Bindable]
+			private var _data:Object;
+			[Bindable]
+			private var _icon:String;
+			[Bindable]
+			private var initheight:Number;
+			
+			private var expanded:Boolean;
+			
+			private function init():void
+			{
+				expanded = false;
+				initheight = this.height;
+				addEventListener(MouseEvent.CLICK, onClick);
+				//addEventListener(MouseEvent.MOUSE_OUT, onMouseOut);
+				//addEventListener(EffectEvent.EFFECT_END, onEffectEnd);
+			}
+			
+			/* private function onMouseOut(event:MouseEvent):void {
+				removeNameButton.visible = false;
+			}
+			
+			private function onEffectEnd( e:EffectEvent ):void
+			{
+				if (expanded)
+				{
+					removeNameButton.visible = true;
+				}
+				else
+				{
+					removeNameButton.visible = false;
+				}
+			} */
+			
+			private function onClick( e:MouseEvent):void
+			{
+				if(removeNameButton.visible == false) {
+					removeNameButton.visible = true;
+				} else {
+					removeNameButton.visible = false;
+				}
+			}
+
+			[Bindable]
+			override public function get data():Object
+			{
+				return _data;
+			}
+			
+			override public function set data( value:Object ):void
+			{
+				if (value)
+					_data = value;
+			}
+			
+		]]>
+	</mx:Script>
+	<mx:Canvas verticalScrollPolicy="off" width="200">
+		<mx:Text text="{_data.username}" selectable="false" fontSize="13" fontWeight="bold" textAlign="left" x="0" y="0"/>
+		<mx:Image x="126" y="3" source="../images/remove.png" id="removeNameButton" visible="false"/>
+	</mx:Canvas>
+</mx:VBox>
+
+

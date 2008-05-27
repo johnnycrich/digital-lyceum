@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:TitleWindow xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute" width="272" height="96" title="Select Your Photo"  close="PopUpManager.removePopUp(this)" showCloseButton="true">
+	<mx:Script>
+		<![CDATA[
+			import mx.managers.PopUpManager;
+		]]>
+	</mx:Script>
+	<mx:states>
+		<mx:State name="photo">
+			<mx:SetProperty name="height" value="250"/>
+			<mx:SetProperty target="{linkbutton1}" name="label" value="Choose a different photo...."/>
+			<mx:AddChild position="lastChild">
+				<mx:LinkButton x="10" y="173" label="Use this photo &gt;&gt;" icon="@Embed(source='../images/confirm.png')" styleName="entryButton" fontSize="15" click="PopUpManager.removePopUp(this); parentApplication.photoInput.text='John_Richardson.jpg'; parentApplication.photoIsSet=true"/>
+			</mx:AddChild>
+			<mx:AddChild position="lastChild">
+				<mx:Image x="25.5" y="43" source="../images/John_Richardson.jpg"/>
+			</mx:AddChild>
+		</mx:State>
+	</mx:states>
+	<mx:transitions>
+		<mx:Transition fromState="" toState="photo">
+			<mx:Resize target="{this}" duration="300" />
+		</mx:Transition>
+	</mx:transitions>
+	<mx:Style source="global.css" />
+	<mx:LinkButton x="10" y="10" label="Click to browse for a photo...." id="linkbutton1" icon="@Embed(source='../images/photo.png')" styleName="entryButton" fontSize="15" click="currentState='photo'"/>
+	
+</mx:TitleWindow>

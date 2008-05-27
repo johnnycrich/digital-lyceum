@@ -1,0 +1,445 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute" backgroundGradientAlphas="[1.0, 1.0]" backgroundGradientColors="[#5C5C5C, #A2A2A2]" xmlns:ns1="*" xmlns:comps="comps.*" xmlns:scheduling="comps.scheduling.*" creationComplete="onCreationComplete()">
+<mx:Style source="global.css" />
+<mx:Script>
+	<![CDATA[
+		import mx.events.ScrollEvent;
+		import mx.events.ScrollEventDirection;
+		import mx.containers.TitleWindow;
+		import mx.events.FlexEvent;
+		import mx.controls.Menu;
+		import mx.controls.Alert;
+		import mx.managers.PopUpManager;
+		import mx.collections.ArrayCollection;
+		import comps.scheduling.samples.ScheduleData;
+        import comps.scheduling.scheduleClasses.SimpleScheduleEntry;
+        import comps.scheduling.util.DateUtil;
+        
+        [Bindable]
+        private var attendedEvents:ArrayCollection = new ArrayCollection([
+          {Date:"2008", Title:"Candy Cane Land", Location:"London"},
+          {Date:"2007", Title:"NMC", Location:"Vancouver"},
+          {Date:"2007", Title:"Penny Arcade Expo", Location:"Seattle"},
+          {Date:"2006", Title:"SXSW", Location:"Austin"}
+        ]);
+        
+        [Bindable]
+        private var dpFlat:ArrayCollection = new ArrayCollection([
+          {Date:"2008", Title:"GDC", Location:"San Francisco"},
+          {Date:"2007", Title:"GDC", Location:"San Francisco"},
+          {Date:"2007", Title:"Panda Bear Days", Location:"Boston"},
+          {Date:"2006", Title:"Polka Dot Conference", Location:"New York"}
+        ]);
+		        
+        [Bindable]
+        private var dp:ArrayCollection = new ArrayCollection([
+            {username:"Stoem", location:"UK", profile:"Trying hard to do something useful."},
+            {username:"Mike", location:"NL", profile:"You do need people like him."},
+            {username:"Tink", location:"UK", profile:"The expert's expert."},
+            {username:"Stoem", location:"UK", profile:"Trying hard to do something useful."},
+            {username:"Mike", location:"NL", profile:"You do need people like him."},
+            {username:"Tink", location:"UK", profile:"The expert's expert."}
+        ]);
+        
+        [Bindable]
+        public var timeDates:ArrayCollection = new ArrayCollection([{mo:"10", day:"12", year:"2008", hr:"12", min:"00"}, {mo:"10", day:"12", year:"2008", hr:"03", min:"00"}]);
+                        
+		public var photoIsSet:Boolean = false;
+				
+		private function showPhotoBrowse(event:Event, parent:String):void {
+			// Create the pop-up
+	            	var photoWin:popup = popup(PopUpManager.createPopUp(this, popup, true));
+	            PopUpManager.centerPopUp(photoWin);
+	            photoWin.showCloseButton = true;
+		}
+		
+		[Bindable]         
+        private var dataProvider : ArrayCollection;         
+        [Bindable]
+        private var startDate : Date;
+        [Bindable]
+        private var endDate : Date;
+         
+         private function onCreationComplete() : void
+         {
+            setTimeframe();
+            initDataProvider();
+         }
+         
+         private function setTimeframe() : void
+         {
+            startDate = DateUtil.clearTime( new Date() );
+            endDate = getEndDate( startDate );
+         }
+         
+         private function getEndDate( startDate : Date ) : Date
+         {
+            var duration : Number = DateUtil.DAY_IN_MILLISECONDS * 1;
+            var endDate : Date = new Date( startDate.getTime() + duration );
+            return endDate;
+         }
+         
+         private function initDataProvider() : void
+         {
+            var entries : ArrayCollection = new ArrayCollection();
+            var entry : SimpleScheduleEntry = new SimpleScheduleEntry();
+            entry.startDate = DateUtil.clearTime( new Date() );
+            entry.endDate = new Date( entry.startDate.getTime() + DateUtil.HOUR_IN_MILLISECONDS * 5 );
+            entry.label = "Our first entry!";
+            entries.addItem( entry );
+                     
+            entry = new SimpleScheduleEntry();
+            entry.startDate = DateUtil.setTime( new Date(), DateUtil.HOUR_IN_MILLISECONDS );
+            entry.endDate = new Date( entry.startDate.getTime() + DateUtil.HOUR_IN_MILLISECONDS * 15 );
+            entry.label = "Our second entry!";
+            entries.addItem( entry );
+            
+            entry = new SimpleScheduleEntry();
+            entry.startDate = DateUtil.setTime( new Date(), DateUtil.HOUR_IN_MILLISECONDS * 13 );
+            entry.endDate = new Date( entry.startDate.getTime() + DateUtil.HOUR_IN_MILLISECONDS * 5 );
+            entry.label = "Our third entry!";
+            entries.addItem( entry );
+            
+            dataProvider = entries;
+         }
+	]]>
+</mx:Script>
+<mx:WipeDown id="account_options_open" target="{account_options}" duration="400" />
+<mx:WipeUp id="account_options_close" target="{account_options}" duration="400" />
+<mx:states>
+		<mx:State name="login">
+			<mx:SetProperty target="{eventsButton}" name="alpha" value="0.5"/>
+			<mx:AddChild relativeTo="{left_box}" position="lastChild">
+				<mx:Form width="202" height="119" id="loginForm" horizontalCenter="0" verticalCenter="-11" paddingLeft="23" alpha="0.0">
+						<comps:PromptingTextInput styleName="entryForm" prompt="Username" id="usernameInput"/>
+						<comps:PromptingTextInput styleName="entryForm" prompt="Password" displayAsPassword="true" id="passwordInput"/>
+				</mx:Form>
+			</mx:AddChild>
+			<mx:AddChild relativeTo="{left_box}" position="lastChild">
+				<mx:LinkButton label="Login" styleName="entryButton" width="86" height="41" horizontalCenter="0" verticalCenter="65" id="loginSubmit" alpha="1.0" click="currentState='main'"/>
+			</mx:AddChild>
+			<mx:AddChild relativeTo="{left_box}" position="lastChild">
+				<mx:LinkButton label="Register" styleName="entryButton" fontSize="15" id="registerButton" horizontalCenter="-66" verticalCenter="106" icon="@Embed(source='../images/register.png')" alpha="0.0" click="currentState='register'"/>
+			</mx:AddChild>
+			<mx:AddChild relativeTo="{left_box}" position="lastChild">
+				<mx:LinkButton icon="@Embed(source='../images/cancel.png')" id="cancelButton" label="Cancel" styleName="entryButton" fontSize="15" click="currentState=''" horizontalCenter="61" verticalCenter="106" alpha="0.0"/>
+			</mx:AddChild>
+			<mx:SetProperty target="{landingContainer}" name="height" value="60%"/>
+			<mx:RemoveChild target="{loginButton}"/>
+		</mx:State>
+		<mx:State name="register" basedOn="login">
+				<mx:SetProperty target="{landingContainer}" name="height" value="95%"/>
+				<mx:SetProperty target="{loginForm}" name="height" value="400"/>
+				<mx:SetStyle target="{registerButton}" name="verticalCenter" value="236"/>
+				<mx:SetStyle target="{loginSubmit}" name="verticalCenter" value="195"/>
+				<mx:SetProperty target="{loginSubmit}" name="label" value="Register"/>
+				<mx:SetProperty target="{loginSubmit}" name="width"/>
+				<mx:SetProperty target="{passwordInput}" name="displayAsPassword" value="false"/>
+				<mx:AddChild relativeTo="{loginForm}" position="lastChild">
+					<comps:PromptingTextInput  prompt="Email" styleName="entryForm" id="emailInput" alpha="0.0"/>
+				</mx:AddChild>
+				<mx:SetStyle target="{cancelButton}" name="horizontalCenter" value="67"/>
+				<mx:SetStyle target="{cancelButton}" name="verticalCenter" value="236"/>
+				<mx:SetStyle target="{registerButton}" name="horizontalCenter" value="-63"/>
+				<mx:SetEventHandler target="{cancelButton}" name="click" handler="currentState='login'"/>
+				<mx:SetStyle target="{loginForm}" name="verticalCenter" value="-30"/>
+				<mx:AddChild relativeTo="{emailInput}" position="before">
+						<comps:PromptingTextInput  styleName="entryForm" id="nameInput" prompt="Name" alpha="0.0"/>
+				</mx:AddChild>
+				<mx:AddChild relativeTo="{loginForm}" position="lastChild">
+						<comps:PromptingTextInput  prompt="Affiliation" styleName="entryForm" id="affiliationInput" alpha="0.0"/>
+				</mx:AddChild>
+				<mx:AddChild relativeTo="{loginForm}" position="lastChild">
+						<comps:PromptingTextInput  prompt="Website" styleName="entryForm" id="websiteInput" alpha="0.0"/>
+				</mx:AddChild>
+				<mx:AddChild relativeTo="{loginForm}" position="lastChild">
+						<comps:PromptingTextInput  prompt="Phone" styleName="entryForm" id="phoneInput" alpha="0.0"/>
+				</mx:AddChild>
+				<mx:AddChild relativeTo="{loginForm}" position="lastChild">
+						<comps:PromptingTextInput  prompt="AIM" styleName="entryForm" id="aimInput" alpha="0.0"/>
+				</mx:AddChild>
+				<mx:AddChild relativeTo="{loginForm}" position="lastChild">
+						<comps:PromptingTextInput  styleName="entryForm" id="photoInput" prompt="Photo" focusIn="showPhotoBrowse(event, 'phoneInput')" alpha="0.0"/>
+				</mx:AddChild>
+				<mx:SetProperty target="{landing_divide}" name="height" value="75%"/>
+		</mx:State>
+		<mx:State name="events">
+				<mx:SetProperty target="{loginButton}" name="alpha" value="0.5"/>
+				<mx:RemoveChild target="{eventsButton}"/>
+				<mx:SetProperty target="{myAccountButton}" name="y" value="10"/>
+				<mx:SetProperty target="{myAccountButton}" name="x" value="636"/>
+				<mx:AddChild relativeTo="{events_box}" position="lastChild">
+						<comps:events width="100%" horizontalCenter="0" verticalCenter="20">
+						</comps:events>
+				</mx:AddChild>
+		</mx:State>
+		<mx:State name="main">
+				<mx:RemoveChild target="{events_box}"/>
+				<mx:RemoveChild target="{loginButton}"/>
+				<mx:SetProperty target="{left_box}" name="width" value="30%"/>
+				<mx:SetStyle target="{myAccountButton}" name="right"/>
+				<mx:SetStyle target="{myAccountButton}" name="top"/>
+				<mx:RemoveChild target="{myAccountButton}"/>
+				<mx:AddChild relativeTo="{left_box}" position="lastChild" target="{myAccountButton}"/>
+				<mx:SetProperty target="{myAccountButton}" name="x" value="10"/>
+				<mx:SetProperty target="{myAccountButton}" name="y" value="10"/>
+				<mx:AddChild relativeTo="{left_box}" position="lastChild">
+						<mx:LinkButton x="10" y="59" label="View Events" styleName="entryButton" icon="@Embed(source='../images/view_event.png')" id="viewEventsButton" click="currentState='view'"/>
+				</mx:AddChild>
+				<mx:AddChild relativeTo="{left_box}" position="lastChild">
+						<mx:LinkButton x="10" y="108" label="Create Event" styleName="entryButton" icon="@Embed(source='../images/add_event.png')" id="createEventButton" click="currentState='create'"/>
+				</mx:AddChild>
+				<mx:AddChild relativeTo="{landingContainer}" position="lastChild">
+						<mx:Canvas width="70%" height="100%" id="canvas1">
+						</mx:Canvas>
+				</mx:AddChild>
+				<mx:AddChild position="lastChild">
+						<mx:LinkButton label="Logoff" right="18.5" top="29" styleName="entryButton" icon="@Embed(source='../images/logoff.png')" click="currentState=''"/>
+				</mx:AddChild>
+		</mx:State>
+		<mx:State name="account" basedOn="main">
+				<mx:SetProperty target="{createEventButton}" name="y" value="225"/>
+				<mx:SetProperty target="{viewEventsButton}" name="y" value="176"/>
+				<mx:SetProperty target="{landingContainer}" name="height" value="70%"/>
+				<mx:AddChild relativeTo="{canvas1}" position="lastChild">
+						<mx:ViewStack id="myAccountView" height="100%">
+								<mx:Canvas label="Your Events" width="100%" height="100%">
+										<mx:Canvas x="0" y="0" width="470" id="created_events" height="255">
+										<mx:Label text="Created Events" id="eventsCreatedLabel" x="0" y="0"/>
+										<mx:DataGrid x="0" y="40" dataProvider="{dpFlat}" width="95%" itemClick="editEventButton.visible=true">
+												<mx:columns>
+														<mx:DataGridColumn headerText="Event Name" dataField="Title"/>
+														<mx:DataGridColumn headerText="Location" dataField="Location"/>
+														<mx:DataGridColumn headerText="Date" dataField="Date"/>
+												</mx:columns>
+										</mx:DataGrid>
+										<mx:LinkButton label="Edit Event" id="editEventButton" click="currentState='create'" styleName="entryButton" fontSize="15" icon="@Embed(source='../images/edit_event.png')" right="24" top="227"/>
+										</mx:Canvas>
+										
+										<mx:Canvas x="0" y="261" width="470" height="255">
+												<mx:Label x="0" y="0" text="Events Attended" id="eventsAttendedLabel"/>
+												<mx:DataGrid x="0" y="40" dataProvider="{attendedEvents}" width="95%" itemClick="viewEventButton.visible=true">
+														<mx:columns>
+																<mx:DataGridColumn headerText="Event Name" dataField="Title"/>
+																<mx:DataGridColumn headerText="Location" dataField="Location"/>
+																<mx:DataGridColumn headerText="Date" dataField="Date"/>
+														</mx:columns>
+												</mx:DataGrid>
+												<mx:LinkButton label="View Event" id="viewEventButton" styleName="entryButton" fontSize="15" icon="@Embed(source='../images/view_event.png')" right="24" top="227" click="currentState='view'; accountEventsComp.currentState='view'"/>
+										</mx:Canvas>
+								</mx:Canvas>
+								<mx:Canvas label="Your Friends" width="100%" height="100%" themeColor="#C1C1C1">
+										<mx:TileList x="10" y="10" itemRenderer="friendRender" width="100%" height="90%" backgroundAlpha="0" columnCount="1">
+											<mx:dataProvider>
+												<mx:Array>
+													<mx:Object label="Some Person" location="Boston, MA" icon="@Embed(source='../images/John_Richardson.jpg')"/>
+													<mx:Object label="Some Person" location="New York, NY" icon="@Embed(source='../images/John_Richardson.jpg')"/>
+													<mx:Object label="Some Person" location="London, UK" icon="@Embed(source='../images/John_Richardson.jpg')"/>
+													<mx:Object label="Some Person" location="Tokyo, JP" icon="@Embed(source='../images/John_Richardson.jpg')"/>
+													<mx:Object label="Some Person" location="San Francisco, CA" icon="@Embed(source='../images/John_Richardson.jpg')"/>
+													<mx:Object label="Some Person" location="Toronto, ON" icon="@Embed(source='../images/John_Richardson.jpg')"/>
+													<mx:Object label="Some Person" location="Vancouver, BC" icon="@Embed(source='../images/John_Richardson.jpg')"/>
+													<mx:Object label="Some Person" location="Moscow, RU" icon="@Embed(source='../images/John_Richardson.jpg')"/>
+													<mx:Object label="Some Person" location="Washington, D.C." icon="@Embed(source='../images/John_Richardson.jpg')"/>										
+												</mx:Array>
+											</mx:dataProvider>
+										</mx:TileList>
+								</mx:Canvas>
+								<mx:Canvas label="Edit Profile" width="100%" height="100%">
+										<comps:PromptingTextInput styleName="entryForm" prompt="New Password" displayAsPassword="true" id="passwordEditInput" x="10" y="36" alpha="1"/>
+										<mx:Label x="10" y="10" text="Change Your Password" fontWeight="normal" color="#FFFFFF" fontFamily="Calibri" fontSize="13"/>
+										<comps:PromptingTextInput styleName="entryForm" prompt="Re-enter" displayAsPassword="true" id="passwordrepeatEditInput" x="10" y="79" alpha="1"/>
+										<comps:PromptingTextInput  styleName="entryForm" id="nameEditInput" prompt="Name" alpha="1" x="191" y="36"/>
+										<comps:PromptingTextInput  prompt="Email" styleName="entryForm" id="emailEditInput" alpha="1" x="191" y="79"/>
+										<comps:PromptingTextInput  prompt="Affiliation" styleName="entryForm" id="affiliationEditInput" alpha="1" x="191" y="122"/>
+										<comps:PromptingTextInput  prompt="Website" styleName="entryForm" id="websiteEditInput" alpha="1" x="191" y="165"/>
+										<comps:PromptingTextInput  prompt="Phone" styleName="entryForm" id="phoneEditInput" alpha="1" x="191" y="208"/>
+										<comps:PromptingTextInput  prompt="AIM" styleName="entryForm" id="aimEditInput" alpha="1" x="191" y="251"/>
+										<comps:PromptingTextInput  styleName="entryForm" id="photoEditInput" prompt="Photo" focusIn="showPhotoBrowse(event, 'photoEditInput')" alpha="1" x="191" y="294"/>
+										<mx:Label x="191" y="10" text="Change Info" fontWeight="normal" color="#FFFFFF" fontFamily="Calibri" fontSize="13"/>
+										<mx:LinkButton x="191" y="337" label="Make Changes" styleName="entryButton" fontSize="20"/>
+										<mx:VRule x="181" y="36"/>
+								</mx:Canvas>
+								
+						</mx:ViewStack>
+				</mx:AddChild>
+				<mx:AddChild relativeTo="{left_box}" position="lastChild">
+						<mx:Canvas x="49" y="59" width="131" height="119" id="account_options" visible="false" showEffect="{account_options_open}">
+								<mx:LinkButton x="0" y="78" label="Edit Profile" styleName="entryButton" icon="@Embed(source='../images/register.png')" click="myAccountView.selectedIndex=2" fontSize="20"/>
+								<mx:LinkButton x="0" y="0" label="My Events" styleName="entryButton" fontSize="20" icon="@Embed(source='../images/your_events.png')" click="myAccountView.selectedIndex=0"/>
+								<mx:LinkButton x="0" y="39" label="Friends" styleName="entryButton" fontSize="20" icon="@Embed(source='../images/your_friends.png')" click="myAccountView.selectedIndex=1"/>
+						</mx:Canvas>
+				</mx:AddChild>
+				<mx:SetProperty target="{account_options}" name="visible" value="true" />
+		</mx:State>
+		<mx:State name="create" basedOn="main">
+				<mx:SetEventHandler target="{createEventButton}" name="click" handler="currentState='create'"/>
+				<mx:SetProperty target="{landingContainer}" name="height" value="70%"/>
+				<mx:AddChild relativeTo="{canvas1}" position="lastChild">
+						<mx:ViewStack x="10" y="10" id="eventCreateView" width="100%" height="100%">
+								<mx:Canvas label="View 1" width="100%" height="100%">
+										<comps:PromptingTextInput prompt="Event Title" x="10" y="10" styleName="entryForm" id="eventTitleInput"/>
+										<comps:PromptingTextInput prompt="Event Website" x="10" y="234" styleName="entryForm" id="eventWebsiteInput"/>
+										<comps:PromptingTextInput prompt="Affiliation/Organization" x="10" y="53" styleName="entryForm" id="eventAffiliationInput"/>
+										<mx:TextArea x="10" y="96" height="91"/>
+										<mx:DateField x="10" y="195" styleName="searchDate"/>
+										<comps:PromptingTextInput prompt="Webstream URL" x="10" y="277" styleName="entryForm" id="eventWebstreamInput"/>
+										<comps:PromptingTextInput prompt="SLURL" x="10" y="320" styleName="entryForm" id="eventSlurlInput"/>
+										<mx:Label x="10" y="373" text="Feeds" fontSize="15"/>
+										<mx:HRule x="10" y="363" width="160"/>
+										<mx:CheckBox x="22" y="432" label="Flickr" fontFamily="Calibri" color="#FFFFFF" fontSize="12"/>
+										<mx:CheckBox x="22" y="462" label="del.ico.us" fontFamily="Calibri" color="#FFFFFF" fontSize="12"/>
+										<mx:CheckBox x="22" y="402" label="Median" fontFamily="Calibri" color="#FFFFFF" fontSize="12"/>
+										<mx:LinkButton x="10" y="492" label="Next Step" styleName="entryButton" fontSize="20" icon="@Embed(source='../images/future_event.png')" click="eventCreateView.selectedIndex=1"/>
+								</mx:Canvas>
+								<mx:Canvas label="Step 2" width="100%" height="100%">
+										<mx:Label x="10" y="10" text="Select Desired Components" fontSize="20"/>
+										<mx:CheckBox x="22" y="45" label="Question Tool" fontFamily="Calibri" fontSize="15" color="#FFFFFF"/>
+										<mx:CheckBox x="22" y="75" label="Video Stream" fontFamily="Calibri" fontSize="15" color="#FFFFFF"/>
+										<mx:CheckBox x="22" y="105" label="Chat" fontFamily="Calibri" fontSize="15" color="#FFFFFF"/>
+										<mx:CheckBox x="22" y="135" label="User Notes" fontFamily="Calibri" fontSize="15" color="#FFFFFF"/>
+										<mx:CheckBox x="22" y="165" label="Feeds" fontFamily="Calibri" fontSize="15" color="#FFFFFF" selected="true"/>
+										<mx:LinkButton x="10" y="198" label="Next Step" styleName="entryButton" fontSize="20" icon="@Embed(source='../images/future_event.png')" click="eventCreateView.selectedIndex=2"/>
+								</mx:Canvas>
+								<mx:Canvas label="step3" width="100%" height="100%">
+										<mx:LinkButton x="10" y="422" label="Last Step" styleName="entryButton" fontSize="20" icon="@Embed(source='../images/future_event.png')" click="eventCreateView.selectedIndex=3"/>
+										<mx:List id="schedulerList" x="0" y="50" itemRenderer="comps.SchedulingRenderer" dataProvider="{timeDates}" backgroundAlpha="0.0" change="schedulerList.selectedItem=List(event.target).selectedItem" width="100%"></mx:List>
+										<mx:Label x="10" y="10" text="Event Scheduling" id="eventSchedulingLabel"/>
+								</mx:Canvas>
+								<mx:Canvas label="step4" width="100%" height="100%">
+										<comps:PromptingTextInput prompt="Type Member Name" x="10" y="85" styleName="entryForm" width="240"/>
+										<mx:Label x="10" y="50" text="Invite Hearsay Members" fontSize="20"/>
+										<mx:Label x="10" y="319" text="Invite People not on Hearsay" fontSize="20"/>
+										<comps:PromptingTextArea prompt="Enter emails seperated by commas" x="10" y="354" width="240" height="105"/>
+										<mx:Label x="10" y="10" text="Invite People to Event"/>
+										<mx:List x="14" y="128" height="183" dataProvider="{dp}" itemRenderer="comps.ListRenderer" styleName="entryForm" width="236"/>
+										<mx:LinkButton x="10" y="556" label="Finish" styleName="entryButton" fontSize="20" icon="@Embed(source='../images/confirm.png')" click="currentState='account'"/>
+										<mx:ComboBox x="10" y="502">
+											<mx:dataProvider>
+												<mx:Array>
+													<mx:Object>None</mx:Object>
+													<mx:Object>2 weeks</mx:Object>
+													<mx:Object>1 week</mx:Object>
+													<mx:Object>3 days</mx:Object>
+													<mx:Object>1 day</mx:Object>
+												</mx:Array>
+											</mx:dataProvider></mx:ComboBox>
+										<mx:Label x="10" y="467" text="Set Event Reminder" fontSize="20"/>
+										<mx:Label text="Prior to Event" fontSize="10" width="61" left="45" top="532"/>
+								</mx:Canvas>
+						</mx:ViewStack>
+				</mx:AddChild>
+				<mx:AddChild relativeTo="{left_box}" position="lastChild">
+						<mx:Canvas x="49" y="59" width="131" height="119" id="account_options0" visible="false" showEffect="{account_options_open}">
+								<mx:LinkButton x="0" y="78" label="Edit Profile" styleName="entryButton" icon="@Embed(source='../images/register.png')" click="myAccountView.selectedIndex=2" fontSize="20"/>
+								<mx:LinkButton x="0" y="0" label="My Events" styleName="entryButton" fontSize="20" icon="@Embed(source='../images/your_events.png')" click="myAccountView.selectedIndex=0"/>
+								<mx:LinkButton x="0" y="39" label="Friends" styleName="entryButton" fontSize="20" icon="@Embed(source='../images/your_friends.png')" click="myAccountView.selectedIndex=1"/>
+						</mx:Canvas>
+				</mx:AddChild>
+		</mx:State>
+		<mx:State name="view" basedOn="main">
+				<mx:AddChild relativeTo="{canvas1}" position="lastChild">
+						<comps:events x="36.5" y="10" id="accountEventsComp">
+						</comps:events>
+				</mx:AddChild>
+				<mx:AddChild relativeTo="{left_box}" position="lastChild">
+						<mx:Canvas x="49" y="59" width="131" height="119" id="account_options1" visible="false" showEffect="{account_options_open}">
+								<mx:LinkButton x="0" y="78" label="Edit Profile" styleName="entryButton" icon="@Embed(source='../images/register.png')" click="myAccountView.selectedIndex=2" fontSize="20"/>
+								<mx:LinkButton x="0" y="0" label="My Events" styleName="entryButton" fontSize="20" icon="@Embed(source='../images/your_events.png')" click="myAccountView.selectedIndex=0"/>
+								<mx:LinkButton x="0" y="39" label="Friends" styleName="entryButton" fontSize="20" icon="@Embed(source='../images/your_friends.png')" click="myAccountView.selectedIndex=1"/>
+						</mx:Canvas>
+				</mx:AddChild>
+		</mx:State>
+	</mx:states>
+	
+<!-- BEGIN TRANSITIONS -->
+	<mx:transitions>
+		<mx:Transition id="anyChange" fromState="*" toState="*">
+			<mx:Resize targets="{[landingContainer, loginForm]}" duration="300" />
+		</mx:Transition>
+		<mx:Transition id="toLogin" fromState="" toState="login">
+			<mx:Sequence>
+				<mx:Fade duration="300" target="{eventsButton}" />
+				<mx:Fade duration="300" target="{loginButton}" alphaFrom="1.0" alphaTo="0.0" />
+				<mx:Fade targets="{[loginForm, loginSubmit, cancelButton, registerButton]}" alphaFrom="0.0" alphaTo="1.0" duration="300" />
+				<mx:RemoveChildAction target="{loginButton}" />
+			</mx:Sequence>
+		</mx:Transition>
+		<mx:Transition id="toLoginfromRegister" fromState="register" toState="login">
+			<mx:Sequence>
+				<mx:Resize target="{loginForm}" heightTo="0.0" duration="500" />
+				<mx:Fade targets="{[loginForm, loginSubmit, registerButton]}" alphaFrom="0.0" alphaTo="1.0" duration="300" />
+			</mx:Sequence>
+		</mx:Transition>
+		<mx:Transition id="toEvents" fromState="" toState="events">
+			<mx:Sequence>
+				<mx:Fade target="{eventsButton}" alphaFrom="1.0" alphaTo="0.0" duration="300" />
+				<mx:RemoveChildAction target="{eventsButton}" />
+			</mx:Sequence>
+		</mx:Transition>
+		<mx:Transition id="toRegister" fromState="login" toState="register">
+			<mx:Sequence>
+				<mx:Parallel>
+					<mx:Move targets="{[loginSubmit, cancelButton]}" duration="500" />
+					<mx:Resize target="{loginForm}" duration="500" />
+				</mx:Parallel>
+				<mx:AddChildAction targets="{[emailInput, nameInput, affiliationInput, websiteInput, phoneInput, aimInput, photoInput]}" />
+				<mx:Fade targets="{[emailInput, nameInput, affiliationInput, websiteInput, phoneInput, aimInput, photoInput]}" alphaFrom="0.0" alphaTo="1.0" duration="300" />
+			</mx:Sequence>
+		</mx:Transition>
+		<mx:Transition id="fromLogin" fromState="login" toState="">
+			<mx:Parallel>
+				<mx:Fade target="{loginButton}" alphaFrom="0.0" alphaTo="1.0" duration="900" />
+				<mx:Fade targets="{[loginForm, cancelButton, registerButton]}" alphaFrom="1.0" alphaTo="0.0" duration="900" />
+				<mx:Fade target="{loginSubmit}" alphaFrom="1.0" alphaTo="0.0" duration="900"/>
+			</mx:Parallel>
+		</mx:Transition>
+		<mx:Transition id="fromEvents" fromState="events" toState="*">
+			<mx:Parallel>
+				<mx:Fade target="{eventsButton}" alphaFrom="0.0" alphaTo="1.0" duration="300" />
+				<mx:Fade target="{loginButton}" alphaFrom="0.0" alphaTo="1.0" duration="300" />
+			</mx:Parallel>
+		</mx:Transition>
+		<mx:Transition id="fromPastEvents" fromState="past" toState="events">
+			<mx:Parallel>
+				<mx:Fade target="{loginButton}" duration="300" />
+			</mx:Parallel>
+		</mx:Transition>
+		<mx:Transition id="fromRegister" fromState="register" toState="login2">
+			<mx:Sequence>
+				<mx:Fade targets="{[emailInput, nameInput, affiliationInput, websiteInput, phoneInput, aimInput, photoInput]}" alphaFrom="1.0" alphaTo="0.0" duration="300" />
+				<mx:RemoveChildAction targets="{[emailInput, nameInput, affiliationInput, websiteInput, phoneInput, aimInput, photoInput]}" />
+				<mx:Resize target="{loginForm}" duration="300" />
+			</mx:Sequence>
+		</mx:Transition>
+		<mx:Transition id="toAccount" fromState="main" toState="*">
+			<mx:Sequence>
+				<mx:SetPropertyAction/>
+				<mx:Move targets="{[viewEventsButton, createEventButton]}" duration="300" />
+			</mx:Sequence>
+		</mx:Transition>
+		<mx:Transition id="toLoggedIn" fromState="" toState="main">
+			<mx:Sequence>
+				<mx:WipeUp target="{loginButton}" duration="300" />
+				<mx:RemoveChildAction/>
+				<mx:AddItemAction/>
+				<mx:SetStyleAction/>
+				<mx:SetPropertyAction/>
+			</mx:Sequence>
+		</mx:Transition>
+	</mx:transitions>
+<!-- END TRANSITIONS -->
+
+	<mx:LinkButton label="My Account" styleName="entryButton" click="currentState='account'" id="myAccountButton" right="18.5" top="29" icon="@Embed(source='../images/my_account.png')"/>
+	<mx:HBox width="95%" height="60%" horizontalGap="4" id="landingContainer" y="127" x="19.5">
+		<mx:Canvas width="50%" height="100%" id="left_box">
+			<mx:LinkButton label="Login" icon="@Embed(source='../images/login.png')" labelPlacement="bottom" fontFamily="Calibri" fontSize="30" left="0" bottom="0" top="0" right="0" color="#FFFFFF" styleName="entryButton" id="loginButton" click="currentState='login'"/>
+		</mx:Canvas>
+		<mx:VRule height="100%" id="landing_divide"/>
+		<mx:Canvas  width="50%" height="100%" id="events_box">
+			<mx:LinkButton label="Events" icon="@Embed(source='../images/view.png')" labelPlacement="bottom" styleName="entryButton" left="0" right="0" top="0" bottom="0" id="eventsButton" click="currentState='events'"/>
+		</mx:Canvas>
+	</mx:HBox>
+	<mx:Image x="10" y="10" source="../images/logo4.png"/>
+	
+</mx:Application>

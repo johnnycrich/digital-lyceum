@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Module xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute" backgroundAlpha="0" percentHeight="100" percentWidth="100">
+	<mx:Panel width="100%" height="100%" title="Chat" layout="absolute">
+		<mx:Text text="IRC Chat app here"  x="0" y="0"/>
+		<mx:TextInput bottom="0" right="75" left="0" maxChars="250"/>
+		<mx:Button label="Send" bottom="0" right="0" width="65"/>
+	</mx:Panel>
+</mx:Module>

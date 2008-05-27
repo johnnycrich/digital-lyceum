@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:HBox xmlns:mx="http://www.adobe.com/2006/mxml">
+	<mx:Image id="friendPhoto" source="{data.icon}" width="150" height="150"/>
+	<mx:Text id="friendName" fontWeight="normal" fontFamily="Calibri" fontSize="15" color="#000000">
+		<mx:htmlText>&lt;b&gt;{data.label}&lt;/b&gt;&lt;br&gt;{data.location}</mx:htmlText>
+	</mx:Text>
+	
+</mx:HBox>

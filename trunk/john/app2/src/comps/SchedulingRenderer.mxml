@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml" width="80%" height="48" xmlns:comps="comps.*">
+<mx:Script>
+	<![CDATA[
+		import mx.managers.PopUpManager;
+		import mx.containers.TitleWindow;
+	
+		private function showExpandedField(event:Event):void {
+			// Create the pop-up
+            var eventWin:schedulePopup = schedulePopup(PopUpManager.createPopUp(sessionDescInput, schedulePopup, true));
+            eventWin.state = "desc";
+            PopUpManager.centerPopUp(eventWin);
+            eventWin.showCloseButton = true;
+		}
+	]]>
+</mx:Script>
+	<mx:DateField x="4" y="13.75" displayedMonth="{data.mo}" displayedYear="{data.year}"/>
+	<mx:NumericStepper x="102" y="13.75"/>
+	<mx:LinkButton x="417" y="2" icon="@Embed(source='../../images/add_event.png')" width="20" click="parentApplication.timeDates.addItem({mo:'10', day:'12', year:'2008', hr:'12', min:'00'});" id="addSessionButton"/>
+	<comps:PromptingTextInput id="sessionTitleInput" prompt="Session Title" styleName="entryForm" x="168" y="2.95" width="95"/>
+	<comps:PromptingTextInput id="sessionDescInput" prompt="Session Description" styleName="entryForm" x="271" y="2.95" width="140" focusIn="showExpandedField(event)"/>
+	<mx:LinkButton x="417" y="25" icon="@Embed(source='../../images/remove.png')" width="20" id="removeSessionButton"/>
+</mx:Canvas>
